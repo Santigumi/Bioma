@@ -1,9 +1,12 @@
 
 import Button from "@mui/material/Button"
+import DeleteIcon from "@mui/icons-material/Delete"
 
 const ButtonMenu = () => {
     return (
-        <Button variant="contained">Hola mi primer boton</Button>
+        <Button 
+        variant="outlined"
+        startIcon = {<DeleteIcon />}>Hola mi primer boton</Button>
     )
 }
 
