@@ -1,10 +1,10 @@
 import React from "react";
 
-const IconNav = (icon, textIcon, onClick) => {
+const IconNav = ({icon, textIcon, onClick}) => {
     return(
         <div className="icon-style" onClick={onClick}>
             <img src= {icon} alt="" />
-            <span>${textIcon}</span>
+            <span>{textIcon}</span>
         </div>
     )
 }
