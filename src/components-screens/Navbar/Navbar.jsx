@@ -10,16 +10,16 @@ const Navbar = () => {
         <div>
             <ul>
                 <li>
-                    <IconNav icon = {biomaIcon} textIcon = "Biomas"></IconNav>
+                    <IconNav icon = {homeIcon} textIcon = "Home"></IconNav>
                 </li>
                 <li>
                     <IconNav icon = {biomaIcon} textIcon = "Biomas"></IconNav>
                 </li>
                 <li>
-                    <IconNav icon = {biomaIcon} textIcon = "Biomas"></IconNav>
+                    <IconNav icon = {journalIcon} textIcon = "Journal"></IconNav>
                 </li>
                 <li>
-                    <IconNav icon = {biomaIcon} textIcon = "Biomas"></IconNav>
+                    <IconNav icon = {profileIcon} textIcon = "Profile"></IconNav>
                 </li>
             </ul>
         </div>
