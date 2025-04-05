@@ -28,9 +28,12 @@ const Lessons = () => {
       <Titule tituleText={"Savannah"}></Titule>
       <Box
         sx={{
+          display: "flex",
+          flexDirection: "column",
           borderRadius: 10,
           width: "100%",
           minHeight: "70%",
+          gap: 2
         }}
       >
         {arrayLesson.map((lesson) => {
