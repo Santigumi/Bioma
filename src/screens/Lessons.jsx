@@ -1,6 +1,8 @@
 
 import { Box, Typography, Tabs } from "@mui/material";
 
+import Titule from "../components-screens/Titule/Titule";
+
 const Lessons = () => {
     return (
         <Box
@@ -16,20 +18,7 @@ const Lessons = () => {
             paddingRight: "2rem",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              height: "10%",
-              borderRadius: 7.5,
-              paddingLeft: "3rem",
-              backgroundColor: "#FFEE8B",
-              boxShadow: 3,
-            }}
-          >
-            <Typography variant="h4">Biomas</Typography>
-          </Box>
+         <Titule tituleText={"Savannah"}></Titule>
           <Box
             sx={{
               borderRadius: 10,
