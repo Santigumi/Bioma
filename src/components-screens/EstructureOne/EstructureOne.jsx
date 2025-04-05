@@ -1,13 +1,38 @@
 import { Box, Container, Typography } from "@mui/material";
 
-const EstructureOne = ({titule}) => {
+const EstructureOne = ({ titule }) => {
   return (
-    <Container>
-      <Box>
-        <Typography variant="h2">{titule}</Typography>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "blue",
+        boxSizing: "border-box",
+        gap: "5%",
+        paddingTop: "1rem",
+        paddingLeft: "2rem",
+        paddingRight: "2rem",
+        paddingBottom: "1rem"
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          height: "10%",
+          backgroundColor: "purple",
+        }}
+      >
+        <Typography variant="h3">{titule}</Typography>
       </Box>
-      <Box></Box>
-    </Container>
+      <Box
+        sx={{ border: 1, borderRadius: 10, width: "100%", height: "70%" }}
+      ></Box>
+    </Box>
   );
 };
 
