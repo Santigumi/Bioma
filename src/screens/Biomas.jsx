@@ -1,6 +1,16 @@
 import { Box, Typography, Tabs } from "@mui/material";
 
 const Biomas = () => {
+    const arrayBiomas = [
+      {nombre:"Savannah"},
+      {nombre:"Moorland"},
+      {nombre:"Desert"},
+      {nombre:"Tropical Forest"},
+      {nombre:"Seagrass"},
+      {nombre:"Pelagic ecosystem"},
+      {nombre:"Mangroves"},
+      {nombre:"Reef"}
+    ]
     return (
         <Box
           sx={{
