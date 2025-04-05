@@ -4,7 +4,7 @@ const EstructureOne = ({titule}) => {
   return (
     <Container>
       <Box>
-        <Typography>{titule}</Typography>
+        <Typography variant="h2">{titule}</Typography>
       </Box>
       <Box></Box>
     </Container>
