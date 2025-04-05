@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import LandingPage from './screens/LandingPage';
+import Biomas from './screens/Biomas';
 import './App.css'
-import ButtonMenu from './components-UI/ButtonMenu/ButtonMenu'
+
 
 function App() {
 
   return (
     <>
-
-      <LandingPage></LandingPage>
-
+      <Biomas sx={{With: '100%', Height: '100%'}}></Biomas>
     </>
   )
 }
