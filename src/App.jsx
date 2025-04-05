@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import LandingPage from './screens/LandingPage';
-import Biomas from './screens/Biomas';
-import './App.css'
-
+import { useState } from "react";
+import LandingPage from "./screens/LandingPage";
+import Biomas from "./screens/Biomas";
+import Journal from "./screens/Journal";
+import "./App.css";
 
 function App() {
-
   return (
     <>
-      <Biomas sx={{With: '100%', Height: '100%'}}></Biomas>
+      <Journal></Journal>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
