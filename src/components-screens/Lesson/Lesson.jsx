@@ -13,10 +13,11 @@ const Lesson = ({ index, tituleText }) => {
         borderRadius: 7.5,
         paddingLeft: "3rem",
         backgroundColor: "#FFEE8B",
-        boxShadow: 3
+        boxShadow: 3,
+        cursor: "pointer"
       }}
     >
-      <Typography variant="h5">Lesson {index}</Typography>
+      <Typography variant="h6">Lesson {index}</Typography>
       <Divider orientation="vertical" variant="middle" flexItem sx={{borderRightWidth: 2, color: "black", borderColor:"black"}}></Divider>
       <Typography variant="h6">{tituleText}</Typography>
     </Box>
