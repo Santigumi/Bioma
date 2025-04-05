@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-const Titule = ({tituleText}) => {
+const Titule = ({ tituleText }) => {
   return (
     <Box
       sx={{
