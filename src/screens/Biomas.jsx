@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Tabs } from "@mui/material";
 
 const Biomas = () => {
     return (
@@ -27,7 +27,7 @@ const Biomas = () => {
               boxShadow: 3,
             }}
           >
-            <Typography variant="h3">Biomas</Typography>
+            <Typography variant="h4">Biomas</Typography>
           </Box>
           <Box
             sx={{
