@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 const Lesson = ({ index, tituleText }) => {
   return (
     <Box
@@ -9,14 +9,15 @@ const Lesson = ({ index, tituleText }) => {
         alignItems: "center",
         gap: 5,
         height: "10%",
-        width: "100%",
+        width: "95%",
         borderRadius: 7.5,
         paddingLeft: "3rem",
         backgroundColor: "#FFEE8B",
-        boxShadow: 3,
+        boxShadow: 3
       }}
     >
       <Typography variant="h5">Lesson {index}</Typography>
+      <Divider orientation="vertical" variant="middle" flexItem sx={{borderRightWidth: 2, color: "black", borderColor:"black"}}></Divider>
       <Typography variant="h6">{tituleText}</Typography>
     </Box>
   );
