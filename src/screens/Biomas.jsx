@@ -42,18 +42,18 @@ const Biomas = () => {
       </Box>
       <Grid
         container
+        columnSpacing={6}
         spacing={4}
         sx={{
           borderRadius: 10,
           width: "100%",
           minHeight: "70%",
-          boxShadow: 3,
         }}
       >
         {arrayBiomas.map((bioma) => {
           return (
-            <Grid item xl={4}>
-              <CardOne name={bioma.nombre}></CardOne>;
+            <Grid item xs={12}>
+              <CardOne name={bioma.nombre}></CardOne>
             </Grid>
           )
         })}
