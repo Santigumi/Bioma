@@ -7,6 +7,7 @@ const LandingPage = () => {
     return(
         <>
             <div className='background' style={{ backgroundImage: `url(${backgroundImage})` }}>
+                <Navbar></Navbar>
                 <RegisterForm></RegisterForm>
             </div>
 
