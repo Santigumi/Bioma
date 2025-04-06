@@ -1,18 +1,18 @@
 import Navbar from '../components-screens/Navbar/Navbar';
-import RegisterForm from '../components-screens/RegisterForm/RegisterForm';
+import LoginForm from '../components-screens/LoginForm/LoginForm';
 import backgroundImage from '../assets/backgrounds/fondoregister.jpg';
-import './RegisterPage.css';
 
-const RegisterPage = () => {
+
+const LoginPage = () => {
     return(
         <>
             <div className='background' style={{ backgroundImage: `url(${backgroundImage})` }}>
                 <Navbar></Navbar>
-                <RegisterForm></RegisterForm>
+                <LoginForm></LoginForm>
             </div>
 
         </>
     )
 }
 
-export default RegisterPage;
+export default LoginPage;

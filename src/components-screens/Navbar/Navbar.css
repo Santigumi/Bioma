@@ -1,13 +1,10 @@
 .navbar{
-    position: fixed; /* Añade esto explícitamente */
+    position: fixed;
     display: flex;
     align-items: center;
     top: 0;
     left: 0;
-    bottom: 0; /* Cambia height: 100vh por bottom: 0 */
-    width: 120px; /* Ancho fijo para la navbar */
-    z-index: 1000;
-    background-color: rgba(69, 196, 132, 1);
+    bottom: 0;
     padding: 20px 0;
 }
 .navbar-list{
