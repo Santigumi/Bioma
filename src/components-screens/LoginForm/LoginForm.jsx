@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
-
+import pecesImg from '../../assets/backgrounds/peceslogin.jpg'
+import './LoginForm.css';
 
 const LoginForm = () => {
     // const {login, handleSubmit} = useForm();
@@ -30,7 +31,7 @@ const LoginForm = () => {
                 </div>
             </form>
             <div>
-                <img src="" alt="" />
+                <img src= {pecesImg} alt="Coral picture" />
             </div>
         </div>
     );
