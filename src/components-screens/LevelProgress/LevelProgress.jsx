@@ -5,7 +5,7 @@ const LevelProgress = ({iconProgress, percentage, color}) => {
         <>
         <div>
             <img src = {iconProgress} alt="" />
-            <p>{[percentage]}</p>
+            <p>{percentage}</p>
         </div>
         </>
     );
