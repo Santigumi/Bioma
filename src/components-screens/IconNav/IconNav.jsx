@@ -1,10 +1,12 @@
-import React from "react";
+import "./IconNav.css"
 
 const IconNav = ({icon, textIcon, onClick}) => {
     return(
         <div className="icon-style" onClick={onClick}>
             <img src= {icon} alt="" />
-            <span>{textIcon}</span>
+            <div>
+                <span>{textIcon}</span>
+            </div>
         </div>
     )
 }
