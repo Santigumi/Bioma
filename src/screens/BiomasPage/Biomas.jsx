@@ -1,6 +1,7 @@
 import { Box, Typography, Grid } from "@mui/material";
-import CardOne from "../components-screens/CardOne/CardOne";
 
+import CardOne from "../../components-screens/CardOne/CardOne";
+import Navbar from "../../components-screens/Navbar/Navbar";
 const Biomas = () => {
   const arrayBiomas = [
     { nombre: "Savannah" },
@@ -24,8 +25,12 @@ const Biomas = () => {
         gap: "5%",
         paddingLeft: "2rem",
         paddingRight: "2rem",
+        backgroundImage: "url('../src/assets/backgrounds/fondolanding.jpg')"
       }}
     >
+      <Box>
+        <Navbar />
+      </Box>
       <Box
         sx={{
           display: "flex",
@@ -55,7 +60,7 @@ const Biomas = () => {
             <Grid item xs={12}>
               <CardOne name={bioma.nombre}></CardOne>
             </Grid>
-          )
+          );
         })}
       </Grid>
     </Box>

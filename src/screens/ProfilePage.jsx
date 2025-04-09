@@ -11,6 +11,7 @@ import atom from '../assets/icons/atom.png';
 import sprout from '../assets/icons/sprout.png';
 import sailboat from '../assets/icons/sailboat.png';
 
+
 const ProfilePage = () => {
     return(
         <>

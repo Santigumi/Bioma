@@ -1,8 +1,8 @@
 import "./IconNav.css"
 
-const IconNav = ({icon, textIcon, onClick}) => {
+const IconNav = ({icon, textIcon}) => {
     return(
-        <div className="icon-style" onClick={onClick}>
+        <div className="icon-style">
             <img src= {icon} alt="" />
             <div>
                 <span>{textIcon}</span>
