@@ -17,7 +17,7 @@ const Game = () => {
         paddingRight: "2rem",
       }}
     >
-      <Titule tituleText={"Savannah"}></Titule>
+      <Titule tituleText={"Savannah > Lesson 1"}></Titule>
       <Box
         sx={{
           display: "flex",
@@ -26,7 +26,7 @@ const Game = () => {
           border: 1,
           borderColor: 'red',
           width: "100%",
-          minHeight: "70%",
+          minHeight: "40%",
         }}
       >
         <Level></Level>
