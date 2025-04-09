@@ -4,7 +4,7 @@ import { TITLE_SIZE } from "../../utils/constants";
 
 const Map = ({ grid }) => {
   const [pastoImage] = useImage("../src/assets/Sprites/Pasto.png");
-  const [arbolImage] = useImage("../src/assets/Sprites/PlantaSavanah.png");
+  const [arbolImage] = useImage("../src/assets/Sprites/PlantaSavanah.png")
   return (
     <Layer>
       {grid.map((row, y) =>
@@ -12,31 +12,29 @@ const Map = ({ grid }) => {
           const posX = x * TITLE_SIZE;
           const posY = y * TITLE_SIZE;
 
-          const title = (
+          if (cell === 1) {
+            return (
+              <KonvaImage
+                key={`${x}-${y}`}
+                x={posX}
+                y={posY}
+                width={TITLE_SIZE}
+                height={TITLE_SIZE}
+                image={arbolImage}
+              ></KonvaImage>
+            );
+          }
+
+          return (
             <KonvaImage
-              key={`pasto-${x}-${y}`}
-              x={posX + TITLE_SIZE}
-              y={posY + TITLE_SIZE}
+              key={`${x}-${y}`}
+              x={posX}
+              y={posY}
               width={TITLE_SIZE}
               height={TITLE_SIZE}
               image={pastoImage}
             ></KonvaImage>
           );
-          const shouldRenderTree = cell === 1 && x % 2 === 0 && y % 2 === 0;
-
-          const tree =
-            shouldRenderTree && arbolImage ? (
-              <KonvaImage
-                key={`arbol-${x}-${y}`}
-                x={posX}
-                y={posY}
-                width={TITLE_SIZE * 2}
-                height={TITLE_SIZE * 2}
-                image={arbolImage}
-              />
-            ) : null;
-
-          return [title, tree];
         })
       )}
     </Layer>
