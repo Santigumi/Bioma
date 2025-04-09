@@ -3,8 +3,8 @@ const CardOne = ({ name, image }) => {
   return (
     <Box
       sx={{
-        width: "325px",
-        height: "225px",
+        width: "285px",
+        height: "205px",
         border: 1,
         backgroundColor: "#00E773",
         borderRadius: 5
