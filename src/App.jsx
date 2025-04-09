@@ -7,7 +7,6 @@ import ButtonMenu from './components-UI/ButtonMenu/ButtonMenu'
 function App() {
   return (
     <>
-      <Lessons></Lessons>
       <LoginPage></LoginPage> 
     </>
   );
