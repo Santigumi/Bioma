@@ -1,7 +1,6 @@
 import { Layer, Image as KonvaImage, Rect } from "react-konva";
 import useImage from "use-image";
-
-const TITLE_SIZE = 50;
+import {TITLE_SIZE} from "../../utils/constants"
 
 const Map = ({ grid }) => {
   const [pastoImage] = useImage("../src/assets/Sprites/Pasto.png");
