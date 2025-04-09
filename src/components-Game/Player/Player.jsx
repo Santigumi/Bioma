@@ -1,13 +1,14 @@
-
 import React, { useState, useEffect } from "react";
-import { Layer, Rect } from "react-konva";
-import { TILE_SIZE, PLAYER_START } from "../../utils/constants";
+import { Layer, Image as KonvaImage } from "react-konva";
+import { TITLE_SIZE, PLAYER_START } from "../../utils/constants";
+import useImage from "use-image";
 
 const Player = ({ grid }) => {
   const [position, setPosition] = useState(PLAYER_START);
+  const [playerImage] = useImage("../src/assets/Sprites/Capi.png");
 
   const canMove = (x, y) => {
-    return grid[y] && grid[y][x] === 0; // Si es un "0", puede moverse
+    return grid[y] && grid[y][x] === 0;
   };
 
   useEffect(() => {
@@ -18,8 +19,12 @@ const Player = ({ grid }) => {
 
         if (e.key === "ArrowUp" && canMove(prev.x, prev.y - 1)) newY--;
         if (e.key === "ArrowDown" && canMove(prev.x, prev.y + 1)) newY++;
-        if (e.key === "ArrowLeft" && canMove(prev.x - 1, prev.y)) newX--;
-        if (e.key === "ArrowRight" && canMove(prev.x + 1, prev.y)) newX++;
+        if (e.key === "ArrowLeft" && canMove(prev.x - 1, prev.y)) {
+          newX--;
+        }
+        if (e.key === "ArrowRight" && canMove(prev.x + 1, prev.y)) {
+          newX++;
+        }
 
         return { x: newX, y: newY };
       });
@@ -27,17 +32,17 @@ const Player = ({ grid }) => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [grid]);
 
   return (
     <Layer>
-      <Rect
-        x={position.x * TILE_SIZE}
-        y={position.y * TILE_SIZE}
-        width={TILE_SIZE}
-        height={TILE_SIZE}
-        fill="blue"
-      />
+      <KonvaImage
+        x={position.x * TITLE_SIZE}
+        y={position.y * TITLE_SIZE}
+        width={TITLE_SIZE}
+        height={TITLE_SIZE}
+        image={playerImage}
+      ></KonvaImage>
     </Layer>
   );
 };
