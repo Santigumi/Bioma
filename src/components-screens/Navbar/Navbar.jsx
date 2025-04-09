@@ -4,11 +4,11 @@ import homeIcon from '../../assets/icons/home.svg';
 import journalIcon from '../../assets/icons/journal.svg';
 import profileIcon from '../../assets/icons/profile.svg';
 import "./Navbar.css"
-const Navbar = () => {
+const Navbar = ({backgroundColor}) => {
 
     return(
         <div className='navbar'>
-            <ul className='navbar-list'>
+            <ul className='navbar-list' style = {{backgroundColor: backgroundColor || `rgba(69, 196, 132, 1)`}}>
                 <li className='navbar-item'>
                     <IconNav icon = {homeIcon} textIcon = "Home"></IconNav>
                 </li>

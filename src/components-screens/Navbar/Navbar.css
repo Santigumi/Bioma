@@ -10,7 +10,6 @@
 .navbar-list{
     display: flex;
     flex-direction: column;
-    background-color: rgba(69, 196, 132, 1);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 15px;
@@ -30,6 +29,7 @@
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: "Livvic", sans-serif;
 }
 
 .navbar-item:hover {
