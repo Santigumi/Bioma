@@ -15,7 +15,7 @@ const ProfilePage = () => {
     return(
         <>
             <div className='background' style={{ backgroundImage: `url(${backgroundImage})` }}>
-                {/* <Navbar backgroundColor= "rgba(237, 124, 124, 1)"></Navbar> */}
+                <Navbar backgroundColor= "rgba(237, 124, 124, 1)" hoverColor= "rgba(225, 67, 67, 1)" ></Navbar>
                 <div>
                     <CharacterProfile nameCharacter = "Capybara" imgCharacter={Capi} ></CharacterProfile>
                 </div>

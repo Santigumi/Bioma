@@ -4,11 +4,14 @@ import homeIcon from '../../assets/icons/home.svg';
 import journalIcon from '../../assets/icons/journal.svg';
 import profileIcon from '../../assets/icons/profile.svg';
 import "./Navbar.css"
-const Navbar = ({backgroundColor}) => {
+const Navbar = ({backgroundColor, hoverColor}) => {
 
     return(
         <div className='navbar'>
-            <ul className='navbar-list' style = {{backgroundColor: backgroundColor || `rgba(69, 196, 132, 1)`}}>
+            <ul className='navbar-list' style={{
+                    backgroundColor: backgroundColor || 'rgba(69, 196, 132, 1)',
+                    '--hover-color': hoverColor || 'rgba(6, 229, 117, 1)'
+                }}>
                 <li className='navbar-item'>
                     <IconNav icon = {homeIcon} textIcon = "Home"></IconNav>
                 </li>
