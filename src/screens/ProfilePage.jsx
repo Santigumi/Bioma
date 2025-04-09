@@ -4,6 +4,7 @@ import InfoCharacter from '../components-screens/InfoCharacter/InfoCharacter';
 import CharacterProfile from '../components-screens/CharacterProfile/CharacterProfile';
 import Capi from '../assets/characters/Capi.png';
 import backgroundImage from '../assets/backgrounds/fondoregister.jpg';
+import 
 
 const ProfilePage = () => {
     return(
