@@ -1,5 +1,5 @@
 
-export const TILE_SIZE = 50; // Tamaño de cada casilla
+export const TITLE_SIZE = 50; // Tamaño de cada casilla
 
 export const GRID_MAP = [
   [1, 1, 1, 1, 1, 1],
