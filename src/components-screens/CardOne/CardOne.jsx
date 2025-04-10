@@ -26,7 +26,7 @@ const CardOne = ({ name, image }) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          height: "35px"
+          height: "35px",
         }}
       >
         {name}
