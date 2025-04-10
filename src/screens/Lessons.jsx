@@ -1,18 +1,19 @@
 import { Box } from "@mui/material";
-
+import Navbar from "../components-screens/Navbar/Navbar";
 import Titule from "../components-screens/Titule/Titule";
 import Lesson from "../components-screens/Lesson/Lesson";
 
 const Lessons = () => {
   const arrayLesson = [
-    { index: 1, tituleText: "Introduction" },
-    { index: 2, tituleText: "Ecosystem" },
-    { index: 3, tituleText: "Comunitties" },
-    { index: 4, tituleText: "Problems" },
+    { index: 1, tituleText: "Introduction", disponible: true},
+    { index: 2, tituleText: "Ecosystem", disponible: false },
+    { index: 3, tituleText: "Comunitties", disponible: false },
+    { index: 4, tituleText: "Problems", disponible: false },
   ];
 
   return (
     <Box
+      className="Container"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -20,30 +21,44 @@ const Lessons = () => {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        gap: "5%",
-        paddingLeft: "2rem",
-        paddingRight: "2rem",
+        paddingLeft: "10rem",
+        backgroundImage:
+          "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
-      <Titule tituleText={"Savannah"}></Titule>
+      <Box>
+        <Navbar />
+      </Box>
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          borderRadius: 10,
-          width: "100%",
-          minHeight: "70%",
-          gap: 2
+          flexDirection: "Column",
+          justifyContent: "space-around",
+          height: "90vh",
+          width: "85vw"
         }}
       >
-        {arrayLesson.map((lesson) => {
-          return (
-            <Lesson
-              index={lesson.index}
-              tituleText={lesson.tituleText}
-            ></Lesson>
-          );
-        })}
+        <Titule tituleText={"Savannah"}></Titule>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            borderRadius: 10,
+            width: "100%",
+            minHeight: "70%",
+            gap: 2,
+          }}
+        >
+          {arrayLesson.map((lesson) => {
+            return (
+              <Lesson
+                index={lesson.index}
+                tituleText={lesson.tituleText}
+                boolean={lesson.disponible}
+              ></Lesson>
+            );
+          })}
+        </Box>
       </Box>
     </Box>
   );
