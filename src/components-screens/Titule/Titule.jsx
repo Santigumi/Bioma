@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-const Titule = ({ tituleText, size }) => {
+const Titule = ({ tituleText }) => {
   return (
     <Box
       sx={{
@@ -14,7 +14,7 @@ const Titule = ({ tituleText, size }) => {
         boxShadow: 3,
       }}
     >
-      <Typography variant={size}>{tituleText}</Typography>
+      <Typography variant="h4">{tituleText}</Typography>
     </Box>
   );
 };
