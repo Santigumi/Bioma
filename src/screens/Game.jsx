@@ -12,9 +12,9 @@ const Game = () => {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        gap: "5%",
-        paddingLeft: "2rem",
-        paddingRight: "2rem",
+        paddingLeft: "10rem",
+        backgroundImage:
+          "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
       <Titule tituleText={"Savannah > Lesson 1"}></Titule>
