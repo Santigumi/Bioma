@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./RegisterForm.css";
+import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
   const {
@@ -71,8 +72,8 @@ const RegisterForm = () => {
           )}
         </div>
         <div className="form-submit">
-          <a href="#">Already have an account? Log in</a>
-          <input type="submit" value="Sign in" />
+          <Link to="/Login">Already have an account? </Link>
+          <Link id="Signin"  to="/Login">Log in</Link>
         </div>
       </form>
     </div>
