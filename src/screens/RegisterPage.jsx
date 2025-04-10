@@ -8,7 +8,9 @@ const RegisterPage = () => {
         <>
             <div className='background' style={{ backgroundImage: `url(${backgroundImage})` }}>
                 <Navbar></Navbar>
+                <div id="estructure">
                 <RegisterForm></RegisterForm>
+                </div>
             </div>
 
         </>
