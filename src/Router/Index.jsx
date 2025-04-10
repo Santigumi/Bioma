@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "../screens/LandingPage";
 import Biomas from "../screens/BiomasPage/Biomas";
-import Journal from "../screens/Journal";
+import Journal from "../screens/JournalPage/Journal";
 import ProfilePage from "../screens/ProfilePage";
 import RegisterPage from "../screens/RegisterPage";
 import LoginPage from "../screens/LoginPage";
