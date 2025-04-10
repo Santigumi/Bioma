@@ -10,7 +10,7 @@ import palm from '../assets/icons/tree-palm.png';
 import atom from '../assets/icons/atom.png';
 import sprout from '../assets/icons/sprout.png';
 import sailboat from '../assets/icons/sailboat.png';
-
+import './ProfilePage.css'
 const ProfilePage = () => {
     return(
         <>

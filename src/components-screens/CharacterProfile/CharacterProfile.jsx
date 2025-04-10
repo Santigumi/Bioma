@@ -4,10 +4,10 @@ const CharacterProfile = ({nameCharacter, imgCharacter}) => {
     return (
         <>
         <div className='profile-container'>
-            <div>
+            <div className='title'>
                 <h1>{nameCharacter}</h1>
             </div>
-            <div>
+            <div className='img-character'>
                 <img src= {imgCharacter} alt="P" />
             </div>
         </div>
