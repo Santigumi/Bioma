@@ -5,7 +5,7 @@ const Banner = () => {
         <div className="banner-container">
             <div className="banner-image-container">
                 <img 
-                    src="https://i.pinimg.com/736x/25/d6/0b/25d60b1a2d96fbb4de2580984cdf7fd9.jpg" 
+                    src="https://images.unsplash.com/photo-1486787284432-3749cdce2660?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhaXNhamUlMjBkZSUyMGNvbG9tYmlhfGVufDB8fDB8fHww" 
                     alt="Nature background" 
                     className="banner-image"/>
                 <div className="banner-content">
