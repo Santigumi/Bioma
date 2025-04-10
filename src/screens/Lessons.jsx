@@ -27,7 +27,7 @@ const Lessons = () => {
       }}
     >
       <Box>
-        <Navbar />
+        <Navbar backgroundColor="#FFEE8B"/>
       </Box>
       <Box
         sx={{
