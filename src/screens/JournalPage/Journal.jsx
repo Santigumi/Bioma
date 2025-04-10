@@ -48,7 +48,7 @@ const Journal = () => {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        paddingLeft: "10rem",
+        paddingLeft: "5rem",
         backgroundImage:
         "url('../src/assets/backgrounds/Journal-Background.png')",
       }}
@@ -65,7 +65,6 @@ const Journal = () => {
           justifyContent: "space-around",
           height: "90vh",
           width: "85vw",
-          border: 1
         }}
       >
         <Box
@@ -130,7 +129,7 @@ const Journal = () => {
               borderRadius: 10,
               borderTopLeftRadius: 0,
               width: "100%",
-              minHeight: "100%",
+              minHeight: "94%",
               backgroundColor: "#F7F8F9",
               border: 4,
               borderColor: "#4AB8F0",
@@ -138,14 +137,20 @@ const Journal = () => {
               boxSizing: "border-box",
             }}
           >
-            <CustomTabPanel value={value} index={0}>
+            <CustomTabPanel value={value} index={0} >
+              <Typography variant="h6"sx={{color: "orange"}}>
               Ecosystem are empty
+              </Typography>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
+            <Typography variant="h6"sx={{color: "#D62828"}}>
               Animals are empty
+              </Typography>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
+            <Typography variant="h6"sx={{color: "#00E773"}}>
               Plants are empty
+              </Typography>
             </CustomTabPanel>
           </Box>
         </Box>
