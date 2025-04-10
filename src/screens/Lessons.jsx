@@ -5,10 +5,10 @@ import Lesson from "../components-screens/Lesson/Lesson";
 
 const Lessons = () => {
   const arrayLesson = [
-    { index: 1, tituleText: "Introduction", disponible: true},
-    { index: 2, tituleText: "Ecosystem", disponible: false },
-    { index: 3, tituleText: "Comunitties", disponible: false },
-    { index: 4, tituleText: "Problems", disponible: false },
+    { index: 1, tituleText: "Introduction", disponible: true, direction: "/Game"},
+    { index: 2, tituleText: "Ecosystem", disponible: false,  direction: "/Lessons" },
+    { index: 3, tituleText: "Comunitties", disponible: false,  direction: "/Lessons" },
+    { index: 4, tituleText: "Problems", disponible: false,  direction: "/Lessons" },
   ];
 
   return (
