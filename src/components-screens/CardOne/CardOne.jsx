@@ -5,13 +5,30 @@ const CardOne = ({ name, image }) => {
       sx={{
         width: "285px",
         height: "205px",
-        border: 1,
         backgroundColor: "#00E773",
-        borderRadius: 5
+        borderRadius: 5,
+        boxShadow: 8,
       }}
     >
-      <img src={image}></img>
-      <Typography variant="h6">{name}</Typography>
+      <img
+        style={{
+          width: "285px",
+          height: "150px",
+        }}
+        src={image}
+      ></img>
+      <Typography
+        variant="h6"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "50px"
+        }}
+      >
+        {name}
+      </Typography>
     </Box>
   );
 };
