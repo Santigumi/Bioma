@@ -2,12 +2,13 @@
 
 
 .register-container {
-    margin: 120px auto;
     padding: 3rem;
     font-family: "Livvic", sans-serif;
     background-color: rgba(237, 123, 123, 1);
     border-radius: 20px;
     width: 50%;
+    height: 60vh;
+    border: 2px solid black
 }
 
 .register-container h2 {
