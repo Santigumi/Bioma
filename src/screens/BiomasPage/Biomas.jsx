@@ -50,7 +50,8 @@ const Biomas = () => {
       sx={{
         display: "flex",
         flexDirection: "row",
-        justifyContent: "flex-end",
+        justifyContent: "center",
+        alignItems: "center",
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
@@ -68,8 +69,8 @@ const Biomas = () => {
           display: "flex",
           flexDirection: "Column",
           justifyContent: "space-around",
-          height: "99vh",
-          width: "100vw"
+          height: "90vh",
+          width: "100vw",
         }}
       >
         <Box
@@ -78,6 +79,7 @@ const Biomas = () => {
             flexDirection: "column",
             justifyContent: "center",
             height: "10%",
+            width: "90%",
             borderRadius: 7.5,
             paddingLeft: "3rem",
             backgroundColor: "#FFEE8B",
@@ -86,14 +88,32 @@ const Biomas = () => {
         >
           <Typography variant="h4">Biomas</Typography>
         </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "6%",
+            width: "90%",
+            borderRadius: 7.5,
+            paddingLeft: "3rem",
+            backgroundColor: "#FFEE8B",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="body1">
+            Explore the 8 types of Colombian ecosystems and learn about their
+            species, problems and opportunities through games.
+          </Typography>
+        </Box>
         <Grid
           container
           columnSpacing={6}
           spacing={4}
           sx={{
-            padding: "2rem",
+            justifyContent: "flex-start",
             width: "100%",
-            minHeight: "80vh",
+            minHeight: "60vh",
             boxSizing: "border-box",
           }}
         >
