@@ -5,6 +5,7 @@ import Journal from "../screens/Journal";
 import ProfilePage from "../screens/ProfilePage";
 import RegisterPage from "../screens/RegisterPage";
 import LoginPage from "../screens/LoginPage";
+import Lessons from "../screens/Lessons"
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
         <Route path="/Profile" element={<ProfilePage />}></Route>
         <Route path="/Login" element={<LoginPage />}></Route>
         <Route path="/Register" element={<RegisterPage />}></Route>
+        <Route path="/Lessons" element={<Lessons />}></Route>
       </Routes>
     </BrowserRouter>
   );
