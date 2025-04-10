@@ -4,65 +4,142 @@ import CardOne from "../../components-screens/CardOne/CardOne";
 import Navbar from "../../components-screens/Navbar/Navbar";
 const Biomas = () => {
   const arrayBiomas = [
-    { nombre: "Savannah" },
-    { nombre: "Moorland" },
-    { nombre: "Desert" },
-    { nombre: "Tropical Forest" },
-    { nombre: "Seagrass" },
-    { nombre: "Pelagic ecosystem" },
-    { nombre: "Mangroves" },
-    { nombre: "Reef" },
+    {
+      nombre: "Savannah",
+      image:
+        "https://i.pinimg.com/736x/b6/59/72/b65972ef8b00e9abd0b825d03530442a.jpg",
+      route: "/Lessons",
+    },
+    {
+      nombre: "Moorland",
+      image:
+        "https://i.pinimg.com/736x/d3/95/23/d395234cb987c50856d7106eb0ab20f5.jpg",
+      route: "/Lessons",
+    },
+    {
+      nombre: "Desert",
+      image:
+        "https://i.pinimg.com/474x/f6/b2/8b/f6b28b752e832291a4eebab3acb9f486.jpg",
+      route: "/Lessons",
+    },
+    {
+      nombre: "Tropical Forest",
+      image:
+        "https://i.pinimg.com/474x/dc/f9/50/dcf95015f213f050cca90622f8caf587.jpg",
+      route: "/Lessons",
+    },
+    {
+      nombre: "Seagrass",
+      image:
+        "https://i.pinimg.com/474x/10/a8/96/10a896df46c691a055d509bb9b9d9c54.jpg",
+      route: "/Lessons",
+    },
+    {
+      nombre: "Pelagic ecosystem",
+      image:
+        "https://animalesdecolombia.com.co/wp-content/uploads/2023/03/ecosistema-pelagico-1.jpg",
+      route: "/Lessons",
+    },
+    {
+      nombre: "Mangroves",
+      image:
+        "https://animalesdecolombia.com.co/wp-content/uploads/2023/03/manglares.jpg",
+      route: "/Lessons",
+    },
+    {
+      nombre: "Reef",
+      image:
+        "https://i.pinimg.com/474x/42/aa/11/42aa11b1c966179c8874cefe73c51497.jpg",
+      route: "/Lessons",
+    },
   ];
   return (
     <Box
+      className="Container"
       sx={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "row",
         justifyContent: "center",
+        alignItems: "center",
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        gap: "5%",
-        paddingLeft: "2rem",
-        paddingRight: "2rem",
-        backgroundImage: "url('../src/assets/backgrounds/fondolanding.jpg')"
+        paddingLeft: "10rem",
+        backgroundImage:
+          "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
       <Box>
         <Navbar />
       </Box>
+
       <Box
+        ClassName="Estructure"
         sx={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          height: "10%",
-          borderRadius: 7.5,
-          paddingLeft: "3rem",
-          backgroundColor: "#FFEE8B",
-          boxShadow: 3,
+          flexDirection: "Column",
+          justifyContent: "space-around",
+          height: "90vh",
+          width: "100vw",
         }}
       >
-        <Typography variant="h4">Biomas</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "10%",
+            width: "90%",
+            borderRadius: 7.5,
+            paddingLeft: "3rem",
+            backgroundColor: "#FFEE8B",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="h4">Biomas</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "6%",
+            width: "90%",
+            borderRadius: 7.5,
+            paddingLeft: "3rem",
+            backgroundColor: "#FFEE8B",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="body1">
+            Explore the 8 types of Colombian ecosystems and learn about their
+            species, problems and opportunities through games.
+          </Typography>
+        </Box>
+        <Grid
+          container
+          columnSpacing={6}
+          spacing={4}
+          sx={{
+            justifyContent: "flex-start",
+            width: "100%",
+            minHeight: "60vh",
+            boxSizing: "border-box",
+          }}
+        >
+          {arrayBiomas.map((bioma) => {
+            return (
+              <Grid item xs={12}>
+                <CardOne
+                  name={bioma.nombre}
+                  image={bioma.image}
+                  direction={bioma.route}
+                ></CardOne>
+              </Grid>
+            );
+          })}
+        </Grid>
       </Box>
-      <Grid
-        container
-        columnSpacing={6}
-        spacing={4}
-        sx={{
-          borderRadius: 10,
-          width: "100%",
-          minHeight: "70%",
-        }}
-      >
-        {arrayBiomas.map((bioma) => {
-          return (
-            <Grid item xs={12}>
-              <CardOne name={bioma.nombre}></CardOne>
-            </Grid>
-          );
-        })}
-      </Grid>
     </Box>
   );
 };

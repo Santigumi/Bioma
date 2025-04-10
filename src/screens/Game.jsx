@@ -1,7 +1,6 @@
-import { Box } from "@mui/material";
-import Titule from "../components-screens/Titule/Titule";
-import Level from "../components-Game/Level/Level"
-
+import { Box, Typography } from "@mui/material";
+import Level from "../components-Game/Level/Level";
+import Navbar from "../components-screens/Navbar/Navbar";
 const Game = () => {
   return (
     <Box
@@ -12,24 +11,68 @@ const Game = () => {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        gap: "5%",
-        paddingLeft: "2rem",
-        paddingRight: "2rem",
+        paddingLeft: "10rem",
+        backgroundImage:
+          "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
-      <Titule tituleText={"Savannah > Lesson 1"}></Titule>
+      <Box>
+        <Navbar />
+      </Box>
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          borderRadius: 10,
-          border: 1,
-          borderColor: 'red',
-          width: "100%",
-          minHeight: "40%",
+          flexDirection: "Column",
+          justifyContent: "space-between",
+          height: "95vh",
+          width: "85vw",
         }}
       >
-        <Level></Level>
+        <Box
+          className="Estructure"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "10%",
+            width: "90%",
+            borderRadius: 7.5,
+            paddingLeft: "3rem",
+            backgroundColor: "#FFEE8B",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="h4">Savannah - lesson 1</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "6%",
+            width: "90%",
+            borderRadius: 7.5,
+            paddingLeft: "3rem",
+            backgroundColor: "#FFEE8B",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="body1">
+            Learn the species that live in this place: Control de Capybara and
+            see how is their life.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            height: "75%",
+          }}
+        >
+          <Level></Level>
+        </Box>
       </Box>
     </Box>
   );

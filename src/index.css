@@ -8,3 +8,8 @@ body,
   overflow-x: hidden;
   color: black;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}

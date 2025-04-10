@@ -1,11 +1,11 @@
 import './Banner.css';
-
+import { Link } from "react-router-dom";
 const Banner = () => {
     return(
         <div className="banner-container">
             <div className="banner-image-container">
                 <img 
-                    src="https://i.pinimg.com/736x/7f/0d/10/7f0d10e28387eb68f8bbdd67d3baf094.jpg" 
+                    src="https://images.unsplash.com/photo-1486787284432-3749cdce2660?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhaXNhamUlMjBkZSUyMGNvbG9tYmlhfGVufDB8fDB8fHww" 
                     alt="Nature background" 
                     className="banner-image"/>
                 <div className="banner-content">
@@ -21,8 +21,8 @@ const Banner = () => {
                     </div>  
                 </div>
                 <div className="banner-buttons">
-                    <button>Log in</button>
-                    <button>Sign In</button>
+                    <Link id="login" to="/Login">Log in</Link>
+                    <Link id="Signin" to="/Register">Sign In</Link>
                 </div>
             </div>
         </div>
