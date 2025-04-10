@@ -70,7 +70,7 @@ const Biomas = () => {
       }}
     >
       <Box>
-        <Navbar />
+        <Navbar backgroundColor = "rgba(255, 238, 139, 1)" />
       </Box>
 
       <Box
