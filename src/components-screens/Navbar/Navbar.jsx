@@ -23,7 +23,7 @@ const Navbar = ({ backgroundColor, hoverColor  }) => {
         <Link to="/Journal" className="navbar-item">
           <IconNav icon={journalIcon} textIcon="Journal"></IconNav>
         </Link>
-        <Link to="/Register" className="navbar-item">
+        <Link to="/Profile" className="navbar-item">
           <IconNav icon={profileIcon} textIcon="Profile"></IconNav>
         </Link>
       </ul>
