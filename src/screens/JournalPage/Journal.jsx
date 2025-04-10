@@ -1,5 +1,6 @@
 import { Box, Typography, Tabs, Tab } from "@mui/material";
 import PropTypes from "prop-types";
+import Navbar from "../../components-screens/Navbar/Navbar";
 import { useState } from "react";
 
 function CustomTabPanel(props) {
@@ -52,6 +53,9 @@ const Journal = () => {
         paddingRight: "2rem",
       }}
     >
+      <Box>
+        <Navbar />
+      </Box>
       <Box
         sx={{
           display: "flex",
@@ -82,8 +86,8 @@ const Journal = () => {
                 borderTopRightRadius: 25,
                 color: "black",
                 "&.Mui-selected": {
-                    color: "F7F8F9"
-                }
+                  color: "F7F8F9",
+                },
               }}
               label="Ecosystem"
               {...a11yProps(0)}
