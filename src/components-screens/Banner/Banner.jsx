@@ -22,7 +22,7 @@ const Banner = () => {
                 </div>
                 <div className="banner-buttons">
                     <Link id="login" to="/Login">Log in</Link>
-                    <Link id="Signin" to="/Register">Sign In</Link>
+                    <Link id="Signin1" to="/Register">Sign In</Link>
                 </div>
             </div>
         </div>
