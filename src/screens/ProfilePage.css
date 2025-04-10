@@ -3,7 +3,6 @@
     display: flex;
     height: calc(100vh - 80px);
     padding: 20px;
-    gap: 20px;
 }
 
 .left-column, .right-column {
@@ -12,7 +11,7 @@
     display: flex;
 }
 .left-column {
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
