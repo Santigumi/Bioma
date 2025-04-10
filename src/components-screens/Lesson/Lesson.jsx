@@ -1,17 +1,20 @@
 import { Box, Typography, Divider } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { useState } from "react";
-const Lesson = ({ index, tituleText, boolean }) => {
+import { Link } from "react-router-dom";
+const Lesson = ({ index, tituleText, boolean, direction }) => {
   return (
+    <Link
+    to={direction}
+    >
     <Box
       sx={{
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         gap: 105,
-        height: "10%",
-        width: "95%",
+        height: "7vh",
+        width: "80vw",
         borderRadius: 7.5,
         paddingLeft: "3rem",
         backgroundColor: "#FFEE8B",
@@ -39,6 +42,8 @@ const Lesson = ({ index, tituleText, boolean }) => {
       </Box>
       <Box>{boolean === true ? <ArrowForwardIcon /> : <LockIcon />}</Box>
     </Box>
+    
+    </Link>
   );
 };
 
