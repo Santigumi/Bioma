@@ -18,31 +18,33 @@ const ProfilePage = () => {
                 <Navbar backgroundColor="rgba(237, 124, 124, 1)" hoverColor="rgba(225, 67, 67, 1)" />
                 
                 <div className="profile-layout">
-                    {/* Columna izquierda - Solo CharacterProfile centrado */}
                     <div className="left-column">
                         <CharacterProfile nameCharacter="Capybara" imgCharacter={Capi} />
                     </div>
                     
-                    {/* Columna derecha - InfoCharacter arriba, LevelProgress abajo */}
                     <div className="right-column">
-                        <InfoCharacter username="Capysanti" charactersFound={Capi} />
-                        
-                        <div className="progress-container">
-                            <div className="progress-column">
-                                <LevelProgress iconProgress={tree} percentage="96%" />
-                                <LevelProgress iconProgress={tree} percentage="45%" color="rgba(255, 228, 67, 1)" />
-                                <LevelProgress iconProgress={sprout} percentage="0%" />
+                        <div className='right-content'>
+                            <div className='info-character'>
+                                <InfoCharacter username="Capysanti" charactersFound={Capi} />
                             </div>
-                            <div className="progress-column">
-                                <LevelProgress iconProgress={palm} percentage="16%" color="rgba(255, 228, 67, 1)" />
-                                <LevelProgress iconProgress={tree} percentage="5%" color="rgba(0, 141, 213, 1)" />
-                                <LevelProgress iconProgress={sailboat} percentage="15%" color="rgba(71, 193, 255, 1)" />
-                            </div>
-                            <div className="progress-column">
-                                <LevelProgress iconProgress={tree} percentage="5%" color="rgba(0, 141, 213, 1)" />
-                                <LevelProgress iconProgress={rail} percentage="0%" color="rgba(71, 193, 255, 1)" />
-                                <LevelProgress iconProgress={atom} percentage="0%" color="rgba(0, 141, 213, 1)" />
-                            </div>
+                            
+                            <div className="progress-container">
+                                <div className="progress-column">
+                                    <LevelProgress iconProgress={tree} percentage="96%" />
+                                    <LevelProgress iconProgress={tree} percentage="45%" color="rgba(255, 228, 67, 1)" />
+                                    <LevelProgress iconProgress={sprout} percentage="0%" />
+                                </div>
+                                <div className="progress-column">
+                                    <LevelProgress iconProgress={palm} percentage="16%" color="rgba(255, 228, 67, 1)" />
+                                    <LevelProgress iconProgress={tree} percentage="5%" color="rgba(0, 141, 213, 1)" />
+                                    <LevelProgress iconProgress={sailboat} percentage="15%" color="rgba(71, 193, 255, 1)" />
+                                </div>
+                                <div className="progress-column">
+                                    <LevelProgress iconProgress={tree} percentage="5%" color="rgba(0, 141, 213, 1)" />
+                                    <LevelProgress iconProgress={rail} percentage="0%" color="rgba(71, 193, 255, 1)" />
+                                    <LevelProgress iconProgress={atom} percentage="0%" color="rgba(0, 141, 213, 1)" />
+                                </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
