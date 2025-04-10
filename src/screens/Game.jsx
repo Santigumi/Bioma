@@ -1,7 +1,6 @@
-import { Box } from "@mui/material";
-import Titule from "../components-screens/Titule/Titule";
-import Level from "../components-Game/Level/Level"
-
+import { Box, Typography } from "@mui/material";
+import Level from "../components-Game/Level/Level";
+import Navbar from "../components-screens/Navbar/Navbar";
 const Game = () => {
   return (
     <Box
@@ -17,14 +16,31 @@ const Game = () => {
           "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
-      <Titule tituleText={"Savannah > Lesson 1"}></Titule>
+      <Box>
+        <Navbar />
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          height: "10%",
+          width: "90%",
+          borderRadius: 7.5,
+          paddingLeft: "3rem",
+          backgroundColor: "#FFEE8B",
+          boxShadow: 3,
+        }}
+      >
+        <Typography variant="h4">Savannah - lessons</Typography>
+      </Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           borderRadius: 10,
           border: 1,
-          borderColor: 'red',
+          borderColor: "red",
           width: "100%",
           minHeight: "40%",
         }}
