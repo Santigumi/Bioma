@@ -2,7 +2,9 @@ import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 const CardOne = ({ name, image, direction }) => {
   return (
-    <Link to={direction}>
+    <Link
+      to={direction}
+    >
       <Box
         sx={{
           width: "285px",
