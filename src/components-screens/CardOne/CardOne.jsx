@@ -8,12 +8,14 @@ const CardOne = ({ name, image }) => {
         backgroundColor: "#00E773",
         borderRadius: 5,
         boxShadow: 8,
+        cursor: "pointer"
       }}
     >
       <img
         style={{
           width: "285px",
           height: "150px",
+          borderRadius: 5
         }}
         src={image}
       ></img>
