@@ -55,6 +55,7 @@ const Lessons = () => {
                 index={lesson.index}
                 tituleText={lesson.tituleText}
                 boolean={lesson.disponible}
+                direction={lesson.direction}
               ></Lesson>
             );
           })}
