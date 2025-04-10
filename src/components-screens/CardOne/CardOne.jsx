@@ -14,7 +14,7 @@ const CardOne = ({ name, image }) => {
       <img
         style={{
           width: "285px",
-          height: "150px",
+          height: "160px",
           borderRadius: 5
         }}
         src={image}
@@ -26,7 +26,7 @@ const CardOne = ({ name, image }) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          height: "50px"
+          height: "35px"
         }}
       >
         {name}
