@@ -1,4 +1,5 @@
 import { Box, Typography, Grid } from "@mui/material";
+
 import CardOne from "../../components-screens/CardOne/CardOne";
 import Navbar from "../../components-screens/Navbar/Navbar";
 const Biomas = () => {

@@ -1,0 +1,57 @@
+/* Estructura principal */
+.profile-layout {
+    display: flex;
+    height: calc(100vh - 80px); /* Ajusta según altura de tu navbar */
+    padding: 20px;
+    gap: 20px; /* Espacio entre columnas */
+}
+
+.left-column, .right-column {
+    flex: 1; /* Ocupan el mismo espacio */
+    min-width: 0; /* Permite que los elementos se ajusten */
+}
+
+/* Estilos para CharacterProfile (izquierda) */
+.left-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para InfoCharacter y LevelProgress (derecha) */
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container {
+    width: 100%;
+    /* Añade estilos específicos si es necesario */
+}
+
+.progress-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+.progress-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 100px; /* Ancho mínimo para cada columna */
+}
+
+/* Ajustes para los componentes individuales */
+.profile-container {
+    width: 100%;
+    max-width: 300px; /* Mantiene el tamaño original pero es flexible */
+}
+
+.progress-div {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 150px; /* Máximo ancho para mantener proporción */
+    margin: 0 auto; /* Centrado en su contenedor */
+}
