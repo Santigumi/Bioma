@@ -22,30 +22,59 @@ const Game = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          height: "10%",
-          width: "90%",
-          borderRadius: 7.5,
-          paddingLeft: "3rem",
-          backgroundColor: "#FFEE8B",
-          boxShadow: 3,
-        }}
-      >
-        <Typography variant="h4">Savannah - lessons</Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          borderRadius: 10,
+          flexDirection: "Column",
+          justifyContent: "space-around",
+          height: "90vh",
+          width: "85vw",
           border: 1,
-          borderColor: "red",
-          width: "100%",
-          minHeight: "40%",
         }}
       >
-        <Level></Level>
+        <Box
+          className="Estructure"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "10%",
+            width: "90%",
+            borderRadius: 7.5,
+            paddingLeft: "3rem",
+            backgroundColor: "#FFEE8B",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="h4">Savannah - lesson 1</Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "6%",
+            width: "90%",
+            borderRadius: 7.5,
+            paddingLeft: "3rem",
+            backgroundColor: "#FFEE8B",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="body1">
+          Learn the species that live in this place: Control de Capybara and see how is their life.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            border: 1,
+            borderColor: "red",
+            width: "100%",
+            height: "80%",
+          }}
+        >
+          <Level></Level>
+        </Box>
       </Box>
     </Box>
   );
