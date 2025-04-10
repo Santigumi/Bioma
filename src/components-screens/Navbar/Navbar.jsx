@@ -5,12 +5,14 @@ import journalIcon from "../../assets/icons/journal.svg";
 import profileIcon from "../../assets/icons/profile.svg";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-const Navbar = ({ backgroundColor }) => {
+const Navbar = ({ backgroundColor, hoverColor  }) => {
   return (
     <nav className="navbar">
       <ul
         className="navbar-list"
-        style={{ backgroundColor: backgroundColor || `rgba(69, 196, 132, 1)` }}
+        style={{ backgroundColor: backgroundColor || `rgba(69, 196, 132, 1)`,
+          "--hover-color": hoverColor || "rgba(50, 160, 100, 1)"
+         }}
       >
         <Link to="/" className="navbar-item">
           <IconNav icon={homeIcon} textIcon="Home"></IconNav>

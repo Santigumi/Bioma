@@ -34,6 +34,6 @@
 }
 
 .navbar-item:hover {
-    background-color: rgba(6, 229, 117, 1) !important; 
+    background-color: let(--hover-color) !important; 
     border-radius: 10px !important;
 }
