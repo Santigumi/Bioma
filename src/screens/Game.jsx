@@ -23,10 +23,9 @@ const Game = () => {
         sx={{
           display: "flex",
           flexDirection: "Column",
-          justifyContent: "space-around",
-          height: "90vh",
+          justifyContent: "space-between",
+          height: "95vh",
           width: "85vw",
-          border: 1,
         }}
       >
         <Box
@@ -59,7 +58,8 @@ const Game = () => {
           }}
         >
           <Typography variant="body1">
-          Learn the species that live in this place: Control de Capybara and see how is their life.
+            Learn the species that live in this place: Control de Capybara and
+            see how is their life.
           </Typography>
         </Box>
         <Box
@@ -67,10 +67,8 @@ const Game = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            border: 1,
-            borderColor: "red",
             width: "100%",
-            height: "80%",
+            height: "75%",
           }}
         >
           <Level></Level>
