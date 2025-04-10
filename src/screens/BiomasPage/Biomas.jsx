@@ -56,7 +56,7 @@ const Biomas = () => {
         height: "100%",
         boxSizing: "border-box",
         paddingLeft: "10rem",
-        backgroundImage: "url('../src/assets/backgrounds/fondolanding.jpg')",
+        backgroundImage: "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
       <Box>
