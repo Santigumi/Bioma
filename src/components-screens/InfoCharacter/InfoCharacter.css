@@ -26,7 +26,8 @@
 }
 
 .found-section {
-    background-color: rgba(237, 124, 124, 1);
+    border: 10px solid rgba(237, 124, 124, 1);
+    background-color: rgb(240, 234, 234);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
