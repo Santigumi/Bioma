@@ -2,7 +2,7 @@
     font-family: "Livvic", sans-serif;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
     gap: 30px;
     border-radius: 20px;
 }
