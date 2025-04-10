@@ -2,14 +2,21 @@
 
 .profile-container{
     background-color: rgba(237, 124, 124, 1);
-    font-family: "Livvic", sans-serif;
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 300px;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
     border-radius: 20px;
 
 }
 
+.title {
+    font-family: "Livvic", sans-serif;
+    font-size: 27px;
+    font-weight: 100;
+}
+.img-character img {
+    width: 300px;
+}
