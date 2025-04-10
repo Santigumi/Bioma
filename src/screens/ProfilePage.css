@@ -1,57 +1,78 @@
-/* Estructura principal */
+
 .profile-layout {
     display: flex;
-    height: calc(100vh - 80px); /* Ajusta según altura de tu navbar */
+    height: calc(100vh - 80px);
     padding: 20px;
-    gap: 20px; /* Espacio entre columnas */
+    gap: 20px;
 }
 
 .left-column, .right-column {
-    flex: 1; /* Ocupan el mismo espacio */
-    min-width: 0; /* Permite que los elementos se ajusten */
-}
-
-/* Estilos para CharacterProfile (izquierda) */
-.left-column {
+    flex: 1;
+    min-width: 0;
     display: flex;
+}
+.left-column {
     justify-content: center;
     align-items: center;
 }
 
-/* Estilos para InfoCharacter y LevelProgress (derecha) */
-.right-column {
+.character-wrapper {
+    width: 100%;
+    max-width: 400px; 
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
 
-.info-container {
+.right-column {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.right-content {
     width: 100%;
-    /* Añade estilos específicos si es necesario */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    gap: 30px;
+}
+
+.info-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .progress-container {
     display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Para responsividad */
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
 }
 
 .progress-column {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    min-width: 100px; /* Ancho mínimo para cada columna */
+    align-items: center; 
 }
 
-/* Ajustes para los componentes individuales */
+
 .profile-container {
-    width: 100%;
-    max-width: 300px; /* Mantiene el tamaño original pero es flexible */
+    width: 350px !important;
+    height: auto;
+    max-width: none;
+    padding: 30px;
 }
 
 .progress-div {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 150px; /* Máximo ancho para mantener proporción */
-    margin: 0 auto; /* Centrado en su contenedor */
+    width: 120px; 
+    margin: 0;
+}
+
+.background {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
