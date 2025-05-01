@@ -1,5 +1,5 @@
-import Navbar from '../components-screens/Navbar/Navbar';
-import LoginForm from '../components-screens/LoginForm/LoginForm';
+import Navbar from '../../components-screens/Navbar/Navbar';
+import LoginForm from '../../components-screens/LoginForm/LoginForm';
 import backgroundImage from '../assets/backgrounds/fondoregister.jpg';
 
 const LoginPage = () => {
