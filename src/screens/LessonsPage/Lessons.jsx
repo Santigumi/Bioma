@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import Navbar from "../components-screens/Navbar/Navbar";
-import Titule from "../components-screens/Titule/Titule";
-import Lesson from "../components-screens/Lesson/Lesson";
+import Navbar from "../../components-screens/Navbar/Navbar";
+import Titule from "../../components-screens/Titule/Titule";
+import Lesson from "../../components-screens/Lesson/Lesson";
 
 const Lessons = () => {
   const arrayLesson = [
