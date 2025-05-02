@@ -1,10 +1,16 @@
 import "./App.css";
 import Router from "./Router/Index";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./Themes/Theme";
 
 function App() {
   return (
     <>
-      <Router />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router />
+      </ThemeProvider>
     </>
   );
 }
