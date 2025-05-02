@@ -1,6 +1,6 @@
 import Navbar from '../../components-screens/Navbar/Navbar';
 import Banner from '../../components-screens/Banner/Banner';
-import backgroundImage from '../assets/backgrounds/fondolanding.jpg';
+import backgroundImage from '../../assets/backgrounds/fondolanding.jpg';
 import './LandingPage.css';
 
 const LandingPage = () => {

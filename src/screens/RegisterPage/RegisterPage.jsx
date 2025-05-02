@@ -1,6 +1,6 @@
 import Navbar from '../../components-screens/Navbar/Navbar';
 import RegisterForm from '../../components-screens/RegisterForm/RegisterForm';
-import backgroundImage from '../assets/backgrounds/fondoregister.jpg';
+import backgroundImage from '../../assets/backgrounds/fondoregister.jpg';
 import './RegisterPage.css';
 
 const RegisterPage = () => {
