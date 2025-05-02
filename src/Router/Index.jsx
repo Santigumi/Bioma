@@ -8,6 +8,7 @@ import RegisterPage from "../screens/RegisterPage/RegisterPage";
 import LoginPage from "../screens/LoginPage/LoginPage";
 import Lessons from "../screens/LessonsPage/Lessons"
 import Game from "../screens/GamePage/Game"
+import Trophy from "../screens/TrophyPage/Trophy";
 const Router = () => {
   return (
     <BrowserRouter>
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/Register" element={<RegisterPage />}></Route>
         <Route path="/Lessons" element={<Lessons />}></Route>
         <Route path="/Game" element={<Game />}></Route>
+        <Route path="/Trophy" element={<Trophy />}></Route>
       </Routes>
     </BrowserRouter>
   );

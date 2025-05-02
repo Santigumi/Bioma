@@ -33,36 +33,46 @@ const HomeBanner = () => {
             backgroundColor: "yellow",
             borderRadius: "2rem",
           }}
-        ></Box>
+        >
+        <Typography>Welcome back, your name</Typography>
+        </Box>
         <Grid container spacing={3}>
           <Button
             onClick={() => navigate("/Lessons")}
             sx={{
               width: "23.5rem",
               height: "15rem",
-              backgroundColor: "yellow",
+              backgroundColor: "black",
               borderRadius: "2rem",
-            }}
-          ></Button>
-          <Button
-            onClick={() => navigate("/Lessons")}
-            sx={{
-              width: "23.5rem",
-              height: "15rem",
-              backgroundColor: "yellow",
-              borderRadius: "2rem",
-            }}
-          ></Button>
-          <Button
-            onClick={() => navigate("/Lessons")}
-            sx={{
-              width: "23.5rem",
-              height: "15rem",
-              backgroundColor: "yellow",
-              borderRadius: "2rem",
+              color: "white",
             }}
           >
-            <Typography sx={{}}>Continue your lessons</Typography>
+            <Typography>Continue your lessons</Typography>
+          </Button>
+          <Button
+            onClick={() => navigate("/Lessons")}
+            sx={{
+              width: "23.5rem",
+              height: "15rem",
+              backgroundColor: "black",
+              borderRadius: "2rem",
+              color: "white",
+            }}
+          >
+            <Typography>Trophy trail</Typography>
+          </Button>
+
+          <Button
+            onClick={() => navigate("/Lessons")}
+            sx={{
+              width: "23.5rem",
+              height: "15rem",
+              backgroundColor: "black",
+              borderRadius: "2rem",
+              color: "white",
+            }}
+          >
+            <Typography sx={{}}>You can wacth, read</Typography>
           </Button>
         </Grid>
       </Box>
