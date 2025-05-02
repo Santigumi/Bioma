@@ -1,11 +1,14 @@
 import Navbar from '../../components-screens/Navbar/Navbar';
-import Banner from '../../components-screens/Banner/Banner';
+import HomeBanner from '../../components-screens/HomeBanner/HomeBanner';
 import { Box } from "@mui/material";
 const Home = () => {
     return(
-        <Box>
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'row'
+        }}>
         <Navbar></Navbar>
-        <Banner></Banner>
+        <HomeBanner></HomeBanner>
         </Box>
     )
 }
