@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import './Banner.css';
 import { Link } from "react-router-dom";
 const Banner = () => {
