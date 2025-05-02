@@ -2,13 +2,13 @@ import { Box, Typography } from '@mui/material';
 import './Banner.css';
 import { Link } from "react-router-dom";
 
-const Banner = () => {
+const Banner = ({backgroundImage, altImage}) => {
     return(
         <Box className="banner-container">
             <Box className="banner-image-container">
                 <img 
-                    src="https://images.unsplash.com/photo-1486787284432-3749cdce2660?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhaXNhamUlMjBkZSUyMGNvbG9tYmlhfGVufDB8fDB8fHww" 
-                    alt="Nature background" 
+                    src={backgroundImage} 
+                    alt={altImage} 
                     className="banner-image"/>
                 <Box className="banner-content">
                     <Box>
@@ -32,3 +32,5 @@ const Banner = () => {
 }
 
 export default Banner;
+
+//https://images.unsplash.com/photo-1486787284432-3749cdce2660?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhaXNhamUlMjBkZSUyMGNvbG9tYmlhfGVufDB8fDB8fHww
