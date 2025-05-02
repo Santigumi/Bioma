@@ -1,6 +1,7 @@
-import { Box, Typography, Grid } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Typography, Grid, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const HomeBanner = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -34,23 +35,26 @@ const HomeBanner = () => {
           }}
         ></Box>
         <Grid container spacing={3}>
-          <Box
+          <Button
+            onClick={() => navigate("/Lessons")}
             sx={{
               width: "23.5rem",
               height: "15rem",
               backgroundColor: "yellow",
               borderRadius: "2rem",
             }}
-          ></Box>
-          <Box
+          ></Button>
+          <Button
+            onClick={() => navigate("/Lessons")}
             sx={{
               width: "23.5rem",
               height: "15rem",
               backgroundColor: "yellow",
               borderRadius: "2rem",
             }}
-          ></Box>
-          <Box
+          ></Button>
+          <Button
+            onClick={() => navigate("/Lessons")}
             sx={{
               width: "23.5rem",
               height: "15rem",
@@ -58,10 +62,8 @@ const HomeBanner = () => {
               borderRadius: "2rem",
             }}
           >
-            <Link to="/Lessons" sx={{ width: "100%", height: "100%", backgroundColor: 'red' }}>
-              Continue your lessons
-            </Link>
-          </Box>
+            <Typography sx={{}}>Continue your lessons</Typography>
+          </Button>
         </Grid>
       </Box>
     </Box>
