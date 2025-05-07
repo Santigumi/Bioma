@@ -3,31 +3,57 @@ import biomaIcon from "../../assets/icons/hoja.svg";
 import homeIcon from "../../assets/icons/home.svg";
 import journalIcon from "../../assets/icons/journal.svg";
 import profileIcon from "../../assets/icons/profile.svg";
-import "./Navbar.css";
+import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
-const Navbar = ({ backgroundColor, hoverColor  }) => {
+const Navbar = ({ backgroundColor, hoverColor }) => {
   return (
-    <nav className="navbar">
-      <ul
-        className="navbar-list"
-        style={{ backgroundColor: backgroundColor || `rgba(69, 196, 132, 1)`,
-          "--hover-color": hoverColor || "rgba(50, 160, 100, 1)"
-         }}
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        width: "12vw",
+        height: "100vh",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: 2,
+          boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
+          width: "7rem",
+          height: "25rem",
+          borderRadius: "15px",
+          backgroundColor: backgroundColor || `rgba(69, 196, 132, 1)`,
+        }}
       >
         <Link to="/" className="navbar-item">
-          <IconNav icon={homeIcon} textIcon="Home"></IconNav>
+          <IconNav icon={homeIcon} textIcon="Home" alt="Home icon"></IconNav>
         </Link>
         <Link to="/Biomas" className="navbar-item">
-          <IconNav icon={biomaIcon} textIcon="Biomas"></IconNav>
+          <IconNav
+            icon={biomaIcon}
+            textIcon="Biomas"
+            alt="Biomas icon"
+          ></IconNav>
         </Link>
         <Link to="/Journal" className="navbar-item">
-          <IconNav icon={journalIcon} textIcon="Journal"></IconNav>
+          <IconNav
+            icon={journalIcon}
+            textIcon="Journal"
+            alt="Journal icon"
+          ></IconNav>
         </Link>
-        <Link to="/Profile" className="navbar-item">
-          <IconNav icon={profileIcon} textIcon="Profile"></IconNav>
+        <Link to="/Profile" className="navbaritem">
+          <IconNav
+            icon={profileIcon}
+            textIcon="Profile"
+            alt="Profile icon"
+          ></IconNav>
         </Link>
-      </ul>
-    </nav>
+      </Box>
+    </Box>
   );
 };
 
