@@ -1,5 +1,4 @@
 import { Box, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Banner = () => {
   const navigate = useNavigate();
@@ -10,7 +9,13 @@ const Banner = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "98vh",
-        width: "80vw",
+        width: {
+        sm: "80vw",
+        md: "80vw",
+        lg: "80vw",
+        xl: "80vw"
+        },
+        backgroundColor: "red"
       }}
     >
       <Box
@@ -34,9 +39,27 @@ const Banner = () => {
         <Box
           sx={{
             position: "absolute",
-            top: "60%",
-            width: "50%",
-            padding: "30px",
+            top: {
+                sm:"40%",
+                ms:"40%",
+                md:"40%",
+                lg:"60%",
+                xl:"60%"
+            },
+            width: {
+                sm:"100%",
+                ms:"100%",
+                md:"100%",
+                lg:"50%",
+                xl:"50%"
+            },
+            padding: {
+                sm:"15px",
+                ms:"15px",
+                md:"20px",
+                lg:"30px",
+                xl:"30px"
+            },
             zIndex: 2,
           }}
         >
@@ -100,7 +123,7 @@ const Banner = () => {
               boxSizing: "border-box",
               color: "white",
               "&:hover": {
-                backgroundColor: "rgba(3, 212, 108, 0.5)",
+                backgroundColor: "rgba(4, 193, 98, 0.5)",
                 boxShadow: "none",
               },
             }}
