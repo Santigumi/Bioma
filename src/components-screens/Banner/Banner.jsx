@@ -16,7 +16,7 @@ const Banner = () => {
       <Box
         sx={{
           width: "100%",
-          height: "100%",
+          height: "90%",
           boxShadow: "0.1rem 0.1rem 1rem 0.1rem rgb(133, 132, 132)",
           borderRadius: "2.5rem",
         }}
@@ -79,10 +79,10 @@ const Banner = () => {
             zIndex: "2",
             width: "20%",
             height: "8%",
-            backgroundColor: "red",
           }}
         >
           <Button
+            onClick={() => navigate("Login")}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -98,29 +98,40 @@ const Banner = () => {
               borderBottomLeftRadius: "2rem",
               borderTopLeftRadius: "2rem",
               boxSizing: "border-box",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "rgba(3, 212, 108, 0.5)",
+                boxShadow: "none",
+              },
             }}
           >
-            {" "}
             Login
           </Button>
           <Button
+            onClick={() => navigate("/Register")}
             sx={{
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
-              height: "91%",
+              height: "100%",
+              fontFamily: "Livvic",
               fontSize: "larger",
               borderBottomRightRadius: "2rem",
               borderTopRightRadius: "2rem",
               borderBottomLeftRadius: "0rem",
               borderTopLeftRadius: "0rem",
-              backgroundColor: "#00E773",
+              backgroundColor: "rgb(0, 231, 115)",
               border: "solid #00E773",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "rgb(4, 190, 97)",
+                boxShadow: "none",
+              },
             }}
           >
-              Sign in
+            Sign in
           </Button>
         </Box>
       </Box>
