@@ -5,7 +5,12 @@ const Home = () => {
     return(
         <Box sx={{
             display: 'flex',
-            flexDirection: 'row'
+            flexDirection: {
+            xs:"column",
+            md:"column",
+            lg:"row",
+            xl:"row",
+            }
         }}>
         <Navbar></Navbar>
         <HomeBanner></HomeBanner>
