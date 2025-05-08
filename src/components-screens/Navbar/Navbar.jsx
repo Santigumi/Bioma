@@ -10,20 +10,58 @@ const Navbar = ({ backgroundColor, hoverColor }) => {
     <Box
       sx={{
         display: "flex",
-        alignItems: "center",
-        width: "12vw",
-        height: "100vh",
+        alignItems: {
+          xs:'end',
+          sm:'end',
+          md:'center',
+          lg:'center',
+          xl:'center',         
+        },
+        justifyContent:'center',
+        width: {
+          xs:'100vw',
+          sm:'100vw',
+          md:'100vw',
+          lg:'12vw',
+          xl:'12vw',
+        },
+        height: {
+          xs:'10rem',
+          sm:'10rem',
+          md:'10rem',
+          lg:'100vh',
+          xl:'100vh',
+        },
+        backgroundColor: 'blue'
       }}
     >
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: {
+            xs:'row',
+            sm:'row',
+            md:'row',
+            lg:'column',
+            xl:'column'
+          },
           justifyContent: "center",
           gap: 2,
           boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
-          width: "7rem",
-          height: "25rem",
+          width:{
+            xs:'100vw',
+            sm:'100vw',
+            md:'100vw',
+            lg:'7rem',
+            xl:'7rem'
+          },
+          height:{
+            xs:'7rem',
+            sm:'7rem',
+            md:'7rem',
+            lg:'25rem',
+            xl:'25rem'
+          },
           borderRadius: "15px",
           backgroundColor: backgroundColor || `rgba(69, 196, 132, 1)`,
         }}
