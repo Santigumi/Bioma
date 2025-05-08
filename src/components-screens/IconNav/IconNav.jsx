@@ -1,45 +1,54 @@
 import { Box, Typography } from "@mui/material";
-const IconNav = ({ icon, textIcon, alt }) => {
+import { useNavigate } from "react-router-dom";
+const IconNav = ({ icon, textIcon, alt, route }) => {
+  const navigate = useNavigate();
   return (
     <Box
+      onClick={() => navigate( route )}
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         width: {
-          xs:'10rem',
-          ms:'100%',
-          md:'100%',
-          lg:'100%',
-          xl:'100%',
+          xs: "10vh",
+          sm: "10vh",
+          md: "10vh",
+          lg: "70%",
+          xl: "70%",
         },
         height: {
-          xs:'100%',
-          ms:'100%',
-          md:'100%',
-          lg:'100%',
-          xl:'100%',
+          xs: "100%",
+          sm: "100%",
+          md: "100%",
+          lg: "5rem",
+          xl: "5rem",
         },
         cursor: "pointer",
       }}
     >
-      <img src={icon} alt={alt} style={{ width:{
-        xs:'15rem',
-        sm:'15rem',
-        md:'15rem',
-        lg:'40%',
-        xl:'40%',
-      } }} />
+      <img
+        src={icon}
+        alt={alt}
+        style={{
+          width: "40%",
+          height: "40%",
+        }}
+      />
       <Box>
         <Typography
-          sx={{ fontSize: "0.9rem", textAlign: "center", width: "100%", display:{
-            xs:'none',
-            ms:'none',
-            md:'none',
-            lg:'flex',
-            xl:'flex'
-          } }}
+          sx={{
+            fontSize: "0.9rem",
+            textAlign: "center",
+            width: "100%",
+            display: {
+              xs: "none",
+              ms: "none",
+              md: "none",
+              lg: "flex",
+              xl: "flex",
+            },
+          }}
         >
           {textIcon}
         </Typography>
