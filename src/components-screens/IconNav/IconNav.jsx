@@ -15,7 +15,13 @@ const IconNav = ({ icon, textIcon, alt }) => {
       <img src={icon} alt={alt} style={{ width: "40%" }} />
       <Box>
         <Typography
-          sx={{ fontSize: "0.9rem", textAlign: "center", width: "100%" }}
+          sx={{ fontSize: "0.9rem", textAlign: "center", width: "100%", display:{
+            xs:'none',
+            ms:'none',
+            md:'none',
+            lg:'flex',
+            xl:'flex'
+          } }}
         >
           {textIcon}
         </Typography>
