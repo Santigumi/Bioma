@@ -7,12 +7,30 @@ const IconNav = ({ icon, textIcon, alt }) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        width: "100%",
-        height:"100%",
+        width: {
+          xs:'10rem',
+          ms:'100%',
+          md:'100%',
+          lg:'100%',
+          xl:'100%',
+        },
+        height: {
+          xs:'100%',
+          ms:'100%',
+          md:'100%',
+          lg:'100%',
+          xl:'100%',
+        },
         cursor: "pointer",
       }}
     >
-      <img src={icon} alt={alt} style={{ width: "40%" }} />
+      <img src={icon} alt={alt} style={{ width:{
+        xs:'15rem',
+        sm:'15rem',
+        md:'15rem',
+        lg:'40%',
+        xl:'40%',
+      } }} />
       <Box>
         <Typography
           sx={{ fontSize: "0.9rem", textAlign: "center", width: "100%", display:{

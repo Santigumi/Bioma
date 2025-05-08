@@ -45,7 +45,13 @@ const Navbar = ({ backgroundColor, hoverColor }) => {
             lg:'column',
             xl:'column'
           },
-          justifyContent: "center",
+          justifyContent: {
+            xs:'space-around',
+            ms:'space-around',
+            md:'space-around',
+            lg:'center',
+            xl:'center',
+          },
           gap: 2,
           boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
           width:{
@@ -56,9 +62,9 @@ const Navbar = ({ backgroundColor, hoverColor }) => {
             xl:'7rem'
           },
           height:{
-            xs:'7rem',
-            sm:'7rem',
-            md:'7rem',
+            xs:'8rem',
+            sm:'8rem',
+            md:'8rem',
             lg:'25rem',
             xl:'25rem'
           },
