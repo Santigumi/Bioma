@@ -10,7 +10,7 @@ const LandingPage = () => {
         flexDirection: {
           xs: "column-reverse",
           sm: "column-reverse",
-          md: "column-reverse",
+          md: "row",
           lg: "row",
           xl: "row",
         },

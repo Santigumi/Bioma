@@ -13,14 +13,14 @@ const IconNav = ({ icon, textIcon, alt, route }) => {
         width: {
           xs: "10vh",
           sm: "10vh",
-          md: "10vh",
+          md: "70%",
           lg: "70%",
           xl: "70%",
         },
         height: {
           xs: "100%",
           sm: "100%",
-          md: "100%",
+          md: "5rem",
           lg: "5rem",
           xl: "5rem",
         },
@@ -44,7 +44,7 @@ const IconNav = ({ icon, textIcon, alt, route }) => {
             display: {
               xs: "none",
               ms: "none",
-              md: "none",
+              md: "flex",
               lg: "flex",
               xl: "flex",
             },
