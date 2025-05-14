@@ -4,35 +4,119 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  getDoc,
+  serverTimestamp,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 import { auth, db } from "./firebaseConfig";
 
+// Función para verificar si el nombre de usuario ya existe
+const usernameExists = async (username) => {
+  try {
+    const usersRef = collection(db, "users");
+    const querySnapshot = await getDocs(usersRef);
+    let exists = false;
+
+    querySnapshot.forEach((doc) => {
+      if (doc.data().username === username) {
+        exists = true;
+      }
+    });
+
+    return exists;
+  } catch (error) {
+    console.error("Error al verificar el nombre de usuario:", error);
+    throw error;
+  }
+};
+
+// Función para registrar un nuevo usuario
 export const registerUser = async (email, password, username, birthday) => {
   try {
+    // Verificar si el nombre de usuario ya existe
+    const usernameAlreadyExists = await usernameExists(username);
+    if (usernameAlreadyExists) {
+      return {
+        success: false,
+        error: "El nombre de usuario ya está en uso. Por favor, elige otro.",
+      };
+    }
+
+    // Crear usuario en Firebase Authentication
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
     const user = userCredential.user;
+
+    console.log("Usuario creado en Authentication:", user.uid);
+
+    // Actualizar el perfil del usuario con el nombre de usuario
     await updateProfile(user, {
       displayName: username,
     });
 
-    await setDoc(doc(db, "users", user.uid), {
+    console.log("Perfil actualizado con displayName:", username);
+
+    // Datos para guardar en Firestore
+    const userData = {
       username,
       email,
       birthday,
       createdAt: serverTimestamp(),
       lastLogin: serverTimestamp(),
-    });
+      uid: user.uid,
+    };
+
+    console.log("Intentando guardar en Firestore:", userData);
+
+    // Crear documento del usuario en Firestore
+    try {
+      await setDoc(doc(db, "users", user.uid), userData);
+      console.log("Documento creado exitosamente en Firestore");
+    } catch (firestoreError) {
+      console.error("Error al crear documento en Firestore:", firestoreError);
+      // El usuario ya fue creado en Authentication, así que devolvemos éxito
+      // pero con una advertencia sobre el error de Firestore
+      return {
+        success: true,
+        user,
+        warning:
+          "Usuario creado, pero hubo un problema al guardar datos adicionales: " +
+          firestoreError.message,
+      };
+    }
 
     return { success: true, user };
   } catch (error) {
-    return { success: false, error: error.message };
+    console.error("Error en el registro:", error);
+
+    // Manejar errores específicos de Firebase Auth
+    let errorMessage = error.message;
+
+    if (error.code === "auth/email-already-in-use") {
+      errorMessage =
+        "Este correo electrónico ya está registrado. Prueba con otro o inicia sesión.";
+    } else if (error.code === "auth/invalid-email") {
+      errorMessage = "El formato del correo electrónico no es válido.";
+    } else if (error.code === "auth/weak-password") {
+      errorMessage =
+        "La contraseña es demasiado débil. Debe tener al menos 6 caracteres.";
+    } else if (error.code === "auth/network-request-failed") {
+      errorMessage =
+        "Error de conexión. Verifica tu conexión a internet e intenta nuevamente.";
+    }
+
+    return { success: false, error: errorMessage };
   }
 };
 
+// Función para iniciar sesión
 export const loginUser = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -41,20 +125,45 @@ export const loginUser = async (email, password) => {
       password
     );
     const user = userCredential.user;
-    await setDoc(
-      doc(db, "users", user.uid),
-      {
-        lastLogin: serverTimestamp(),
-      },
-      { merge: true }
-    );
+
+    try {
+      // Actualizar la fecha de último inicio de sesión
+      await setDoc(
+        doc(db, "users", user.uid),
+        {
+          lastLogin: serverTimestamp(),
+        },
+        { merge: true }
+      );
+    } catch (firestoreError) {
+      console.error("Error al actualizar último acceso:", firestoreError);
+      // Continuamos ya que el usuario pudo iniciar sesión correctamente
+    }
 
     return { success: true, user };
   } catch (error) {
-    return { success: false, error: error.message };
+    console.error("Error en el inicio de sesión:", error);
+
+    let errorMessage = error.message;
+
+    if (
+      error.code === "auth/user-not-found" ||
+      error.code === "auth/wrong-password"
+    ) {
+      errorMessage = "Correo electrónico o contraseña incorrectos.";
+    } else if (error.code === "auth/too-many-requests") {
+      errorMessage =
+        "Demasiados intentos fallidos. Intenta más tarde o restablece tu contraseña.";
+    } else if (error.code === "auth/network-request-failed") {
+      errorMessage =
+        "Error de conexión. Verifica tu conexión a internet e intenta nuevamente.";
+    }
+
+    return { success: false, error: errorMessage };
   }
 };
 
+// Función para cerrar sesión
 export const logoutUser = async () => {
   try {
     await signOut(auth);
@@ -64,6 +173,7 @@ export const logoutUser = async () => {
   }
 };
 
+// Función para obtener datos del usuario actual
 export const getCurrentUserData = async (userId) => {
   try {
     const userDoc = await getDoc(doc(db, "users", userId));
