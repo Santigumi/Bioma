@@ -87,7 +87,7 @@ const Trophy = () => {
                 borderRadius: 7.5,
                 width: "70%",
                 paddingLeft: 2.5,
-                paddingTop: 1.5
+                paddingTop: 1.5,
               }}
             >
               Trophy store
@@ -108,7 +108,7 @@ const Trophy = () => {
                     backgroundColor: theme.palette.yellow.main,
                     borderTopLeftRadius: 10,
                     borderTopRightRadius: 25,
-                    color: "black",
+                    color: theme.palette.green.contrastText,
                     "&.Mui-selected": {
                       color: "F7F8F9",
                     },
@@ -158,18 +158,27 @@ const Trophy = () => {
                 index={0}
                 sx={{ backgroundColor: "red" }}
               >
-                <Typography variant="h6" sx={{ color: "orange" }}>
-                  <CardThree price="100"></CardThree>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    display: "flex",
+                    flexDirection: "wrap",
+                    flexWrap: "wrap",
+                    gap: 1,
+                  }}
+                >
+                  <CardThree name={"Capybara"} price="100"></CardThree>
+                  <CardThree name={"Valle Cocora"} price="150"></CardThree>
                 </Typography>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
                 <Typography variant="h6" sx={{ color: "#D62828" }}>
-                  Characters
+                  <CardThree name={"Capybara"} price="100"></CardThree>
                 </Typography>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={2}>
                 <Typography variant="h6" sx={{ color: "#00E773" }}>
-                  Ilustrations
+                  <CardThree name={"Valle Cocora"} price="150"></CardThree>
                 </Typography>
               </CustomTabPanel>
             </Box>
