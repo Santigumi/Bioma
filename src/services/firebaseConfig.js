@@ -20,13 +20,3 @@ const firebaseConfig = {
 export const appFirebase = initializeApp(firebaseConfig);
 export const db = getFirestore(appFirebase);
 export const auth = getAuth(appFirebase);
-
-const [user, setUser] = useState(null);
-
-onAuthStateChanged(auth, (userFirebase) => {
-  if (userFirebase) {
-    setUser(userFirebase);
-  } else {
-    setUser(null);
-  }
-});

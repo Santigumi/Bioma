@@ -73,7 +73,9 @@ const RegisterForm = () => {
         </div>
         <div className="form-submit">
           <Link to="/Login">Already have an account? </Link>
-          <Link id="Signin"  to="/Login">Log in</Link>
+          <Link id="Signin" to="/Login">
+            Log in
+          </Link>
         </div>
       </form>
     </div>
