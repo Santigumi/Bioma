@@ -5,7 +5,7 @@ import Navbar from "../../components-screens/Navbar/Navbar";
 import theme from "../../Themes/Theme";
 const Biomas = () => {
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
       <Box
         sx={{
           display: "flex",
@@ -66,13 +66,6 @@ const Biomas = () => {
               lg: "space-between",
               xl: "space-between",
             },
-            alignItems: {
-              xs: "center",
-              sm: "center",
-              md: "start",
-              lg: "start",
-              xl: "start",
-            },
             height: {
               xs: "90%",
               sm: "90%",
@@ -82,6 +75,7 @@ const Biomas = () => {
             },
             width: "100%",
             gap: 3,
+            border: 1
           }}
         >
           <Box
@@ -137,20 +131,7 @@ const Biomas = () => {
               height: "auto",
               width: "90%",
               borderRadius: 7.5,
-              paddingLeft: {
-                xs: "0",
-                sm: "0",
-                md: "3rem",
-                lg: "3rem",
-                xl: "3rem",
-              },
-              padding: {
-                xs: "1rem",
-                sm: "1rem",
-                md: "0",
-                lg: "0",
-                xl: "0",
-              },
+              padding: "1rem",
               backgroundColor: "#FFEE8B",
               boxShadow: 3,
             }}
@@ -163,7 +144,13 @@ const Biomas = () => {
                   sm: "1rem",
                   md: "1.2rem",
                 },
-                textAlign: "center",
+                textAlign: {
+                  xs:'center',
+                  sm:'center',
+                  md:'start',
+                  lg:'start',
+                  xl:'start'
+                },
               }}
             >
               Explore the 8 types of Colombian ecosystems and learn about their
