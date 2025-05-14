@@ -4,8 +4,18 @@ import theme from "../../Themes/Theme";
 const Trophies = ({ Trophies }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ backgroundColor: theme.palette.green.main, width: "70%" }}>
-        <Typography variante="subtitule1">${Trophies}</Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: theme.palette.green.main,
+          width: "25%",
+          borderRadius: 7.5,
+        }}
+      >
+        <Typography variant="h4">${Trophies}</Typography>
       </Box>
     </ThemeProvider>
   );
