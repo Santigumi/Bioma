@@ -116,7 +116,6 @@ export const registerUser = async (email, password, username, birthday) => {
   }
 };
 
-// Función para iniciar sesión
 export const loginUser = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -127,7 +126,6 @@ export const loginUser = async (email, password) => {
     const user = userCredential.user;
 
     try {
-      // Actualizar la fecha de último inicio de sesión
       await setDoc(
         doc(db, "users", user.uid),
         {
@@ -137,7 +135,6 @@ export const loginUser = async (email, password) => {
       );
     } catch (firestoreError) {
       console.error("Error al actualizar último acceso:", firestoreError);
-      // Continuamos ya que el usuario pudo iniciar sesión correctamente
     }
 
     return { success: true, user };
@@ -163,7 +160,6 @@ export const loginUser = async (email, password) => {
   }
 };
 
-// Función para cerrar sesión
 export const logoutUser = async () => {
   try {
     await signOut(auth);
@@ -173,7 +169,6 @@ export const logoutUser = async () => {
   }
 };
 
-// Función para obtener datos del usuario actual
 export const getCurrentUserData = async (userId) => {
   try {
     const userDoc = await getDoc(doc(db, "users", userId));

@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import pecesImg from "../../assets/backgrounds/peceslogin.jpg";
 import "./LoginForm.css";
-import { loginUser } from "../../services/firebaseUtils"; // Asegúrate de ajustar la ruta
-
+import { loginUser } from "../../services/firebaseUtils";
 const LoginForm = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -24,8 +23,7 @@ const LoginForm = () => {
       const result = await loginUser(data.email, data.password);
 
       if (result.success) {
-        // Inicio de sesión exitoso, redirigir al usuario
-        navigate("/dashboard"); // Ajusta la ruta según tu aplicación
+        navigate("/Profile");
       } else {
         setLoginError(result.error);
       }
