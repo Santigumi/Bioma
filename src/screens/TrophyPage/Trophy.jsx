@@ -2,7 +2,7 @@ import { Box, Typography, Tabs, Tab } from "@mui/material";
 import PropTypes from "prop-types";
 import Navbar from "../../components-screens/Navbar/Navbar";
 import { useState } from "react";
-
+import CardThree from "../../components-screens/CardThree/CardThree";
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -48,9 +48,6 @@ const Trophy = () => {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        paddingLeft: "5rem",
-        backgroundImage:
-        "url('../src/assets/backgrounds/Journal-Background.png')",
       }}
     >
       <Box>
@@ -81,6 +78,7 @@ const Trophy = () => {
         >
           <Typography variant="h4">Trophy store</Typography>
         </Box>
+          <Typography variant="h4">$5000</Typography>
         <Box
           sx={{
             width: "100%",
@@ -139,17 +137,17 @@ const Trophy = () => {
           >
             <CustomTabPanel value={value} index={0} >
               <Typography variant="h6"sx={{color: "orange"}}>
-              Characters
+              <CardThree price="100"></CardThree>
               </Typography>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
             <Typography variant="h6"sx={{color: "#D62828"}}>
-              Banners
+              Characters
               </Typography>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
             <Typography variant="h6"sx={{color: "#00E773"}}>
-              Avatars
+              Ilustrations
               </Typography>
             </CustomTabPanel>
           </Box>
