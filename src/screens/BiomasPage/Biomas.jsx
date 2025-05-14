@@ -5,7 +5,7 @@ import Navbar from "../../components-screens/Navbar/Navbar";
 import theme from "../../Themes/Theme";
 const Biomas = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <Box
         sx={{
           display: "flex",
