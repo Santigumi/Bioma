@@ -9,7 +9,7 @@ const Lesson = ({ index, tituleText, boolean, direction }) => {
         display: "flex",
         flexDirection: "row",
         padding: "1rem",
-        height: "15%",
+        height: "12%",
         width: "100%",
         borderRadius: 7.5,
         backgroundColor: "#FFEE8B",
