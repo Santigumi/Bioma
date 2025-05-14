@@ -95,7 +95,13 @@ const Home = () => {
                   lg: "row",
                   xl: "row",
                 },
-                gap: 3,
+                gap: {
+                  xs: 1,
+                  sm: 1,
+                  md: 1,
+                  lg: 3,
+                  xl: 3,
+                },
                 border: 2,
                 width: {
                   xs: "90vw",
@@ -104,24 +110,31 @@ const Home = () => {
                   lg: "95%",
                   xl: "95%",
                 },
+                height: {
+                  xs: "35vh",
+                  sm: "35vh",
+                  md: "35vh",
+                  lg: "40%",
+                  xl: "40%",
+                },
               }}
             >
               <Button
                 onClick={() => navigate("/Lessons")}
                 sx={{
                   width: {
-                    xs: "40%",
-                    ms: "40%",
-                    md: "40%",
+                    xs: "100%",
+                    ms: "100%",
+                    md: "100%",
                     lg: "23.5rem",
                     xl: "23.5rem",
                   },
                   height: {
-                    xs: "100%",
-                    ms: "100%",
-                    md: "100%",
-                    lg: "15rem",
-                    xl: "15rem",
+                    xs: "30%",
+                    ms: "30%",
+                    md: "30%",
+                    lg: "100%",
+                    xl: "100%",
                   },
                   backgroundColor: "black",
                   borderRadius: "2rem",
@@ -134,18 +147,18 @@ const Home = () => {
                 onClick={() => navigate("/Lessons")}
                 sx={{
                   width: {
-                    xs: "40%",
-                    ms: "40%",
-                    md: "40%",
+                    xs: "100%",
+                    ms: "100%",
+                    md: "100%",
                     lg: "23.5rem",
                     xl: "23.5rem",
                   },
                   height: {
-                    xs: "50%",
-                    ms: "50%",
-                    md: "50%",
-                    lg: "15rem",
-                    xl: "15rem",
+                    xs: "30%",
+                    ms: "30%",
+                    md: "30%",
+                    lg: "100%",
+                    xl: "100%",
                   },
                   backgroundColor: "black",
                   borderRadius: "2rem",
@@ -166,11 +179,11 @@ const Home = () => {
                     xl: "23.5rem",
                   },
                   height: {
-                    sx: "50%",
-                    ms: "50%",
-                    md: "50%",
-                    lg: "15rem",
-                    xl: "15rem",
+                    xs: "30%",
+                    ms: "30%",
+                    md: "30%",
+                    lg: "100%",
+                    xl: "100%",
                   },
                   backgroundColor: "black",
                   borderRadius: "2rem",
