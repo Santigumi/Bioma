@@ -36,7 +36,7 @@ function a11yProps(index) {
 
 const Trophy = () => {
   const [value, setValue] = useState(0);
-  const [color, setColor] = useState(theme.palette.green.yellow);
+  const [color, setColor] = useState(theme.palette.yellow.main);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -76,12 +76,19 @@ const Trophy = () => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              height: "10%",   
+              height: "10%",
             }}
           >
             <Typography
               variant="h4"
-              sx={{ backgroundColor: theme.palette.green.main, boxShadow: 3, borderRadius: 7.5, width: "70%"}}
+              sx={{
+                backgroundColor: theme.palette.green.main,
+                boxShadow: 3,
+                borderRadius: 7.5,
+                width: "70%",
+                paddingLeft: 2.5,
+                paddingTop: 1.5
+              }}
             >
               Trophy store
             </Typography>
