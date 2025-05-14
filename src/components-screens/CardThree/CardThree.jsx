@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
- const CardThree = (price) => {
+ const CardThree = ({price}) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
