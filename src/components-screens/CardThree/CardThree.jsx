@@ -4,29 +4,35 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
- const CardThree = ({price}) => {
+import theme from "../../Themes/Theme";
+import { ThemeProvider } from "@mui/material";
+const CardThree = ({ price }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image=""
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5">
-          Capybara
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Buy: ${price}</Button>
-      </CardActions>
-    </Card>
+    <ThemeProvider theme={theme}>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia sx={{ height: 140 }} image="" title="green iguana" />
+        <CardContent>
+          <Typography gutterBottom variant="h5">
+            Capybara
+          </Typography>
+        </CardContent>
+        <CardActions sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'end'
+        }}>
+          <Button
+            size="medium"
+            sx={{ backgroundColor: theme.palette.green.main,
+                color: theme.palette.green.contrastText
+             }}
+          >
+            Buy: ${price}
+          </Button>
+        </CardActions>
+      </Card>
+    </ThemeProvider>
   );
-}
+};
 
-export default CardThree 
+export default CardThree;
