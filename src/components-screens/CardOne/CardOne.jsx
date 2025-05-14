@@ -11,9 +11,9 @@ const CardOne = ({ name, image }) => {
         boxShadow: 4,
         cursor: "pointer",
         width: {
-          xs:'40%',
-          sm:'40%',
-          md:'40%',
+          xs:'45%',
+          sm:'45%',
+          md:'45%',
           lg:'22%',
           xl:'22%'
         },

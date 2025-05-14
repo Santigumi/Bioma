@@ -81,7 +81,7 @@ const Navbar = ({ backgroundColor, hoverColor }) => {
             xl: "7rem",
           },
           height: {
-            xs: "8rem",
+            xs: "6rem",
             sm: "8rem",
             md: "25rem",
             lg: "25rem",
