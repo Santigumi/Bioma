@@ -9,7 +9,9 @@ const LoginPage = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <Navbar></Navbar>
-      <Box></Box>
+      <Box>
+        <LoginForm />
+      </Box>
     </Box>
   );
 };
