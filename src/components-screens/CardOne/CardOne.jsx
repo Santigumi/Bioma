@@ -7,8 +7,11 @@ const CardOne = ({ name, image, direction }) => {
     >
       <Box
         sx={{
-          width: "285px",
-          height: "205px",
+          display: "flex",
+          flexDirection: "column",
+          alignItemst: "center",
+          width: "18rem",
+          height: "13rem",
           backgroundColor: "#00E773",
           borderRadius: 5,
           boxShadow: 8,
@@ -17,8 +20,8 @@ const CardOne = ({ name, image, direction }) => {
       >
         <img
           style={{
-            width: "285px",
-            height: "160px",
+            width: "18rem",
+            height: "10rem",
             borderRadius: 5,
           }}
           src={image}
@@ -30,7 +33,7 @@ const CardOne = ({ name, image, direction }) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            height: "35px",
+            height: "5rem",
           }}
         >
           {name}

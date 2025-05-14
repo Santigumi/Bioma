@@ -37,7 +37,7 @@ const RegisterForm = () => {
       );
 
       if (result.success) {
-        navigate("/login");
+        navigate("/Login");
       } else {
         setRegisterError(result.error);
       }

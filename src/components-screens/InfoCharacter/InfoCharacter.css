@@ -2,7 +2,7 @@
     font-family: "Livvic", sans-serif;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 100%;
     gap: 30px;
     border-radius: 20px;
 }
@@ -26,7 +26,8 @@
 }
 
 .found-section {
-    background-color: rgba(237, 124, 124, 1);
+    border: 10px solid rgba(237, 124, 124, 1);
+    background-color: rgb(240, 234, 234);
     border-radius: 15px;
     display: flex;
     flex-direction: column;

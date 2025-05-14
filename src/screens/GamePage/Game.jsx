@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
-import Level from "../components-Game/Level/Level";
-import Navbar from "../components-screens/Navbar/Navbar";
+import Level from "../../components-Game/Level/Level";
+import Navbar from "../../components-screens/Navbar/Navbar";
 const Game = () => {
   return (
     <Box
@@ -17,7 +17,7 @@ const Game = () => {
       }}
     >
       <Box>
-        <Navbar />
+        <Navbar backgroundColor="#FFEE8B"/>
       </Box>
       <Box
         sx={{

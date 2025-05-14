@@ -1,12 +1,14 @@
 import "./App.css";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "./components-screens/Typography/Typography";
 import Router from "./Router/Index";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./Themes/Theme";
 
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Router />
       </ThemeProvider>
     </>

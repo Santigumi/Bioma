@@ -54,7 +54,7 @@ const Journal = () => {
       }}
     >
       <Box>
-        <Navbar backgroundColor="rgba(74, 184, 241, 1)" />
+        <Navbar backgroundColor="#4AB8F0" />
       </Box>
 
       <Box
