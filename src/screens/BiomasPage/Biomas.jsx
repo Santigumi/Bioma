@@ -41,7 +41,7 @@ const Biomas = () => {
           },
           boxSizing: "border-box",
           backgroundImage:
-            "url('../src/assets/backgrounds/Biomas-Background.png')",
+            "url('../src/assets/backgrounds/Biomas-Background.webp')",
           overflowY: {
             xs: "auto",
             sm: "auto",

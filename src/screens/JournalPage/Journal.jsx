@@ -54,7 +54,7 @@ const Journal = () => {
           height: "100%",
           boxSizing: "border-box",
           backgroundImage:
-            "url('../src/assets/backgrounds/Journal-Background.png')",
+            "url('../src/assets/backgrounds/Journal-Background.webp')",
           width: "100%",
           paddingBottom: {
             xs: 0,

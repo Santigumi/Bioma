@@ -15,9 +15,13 @@ const Home = () => {
             md: "column-reverse",
             lg: "row",
             xl: "row",
-            alignItems: "center",
-            backgroundImage: ``,
           },
+          alignItems: "center",
+          backgroundImage:
+            "url('../src/assets/backgrounds/fondolanding.webp')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
         }}
       >
         <Navbar></Navbar>
