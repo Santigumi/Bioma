@@ -21,7 +21,6 @@ const LandingPage = () => {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
-      <Navbar></Navbar>
       <Banner></Banner>
     </Box>
   );
