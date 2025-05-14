@@ -198,13 +198,12 @@ const Biomas = () => {
               },
               boxSizing: "border-box",
               gap: {
-                xs: 6,
-                sm: 6,
-                md: 6,
+                xs: 3,
+                sm: 3,
+                md: 3,
                 lg: 5,
                 xl: 5,
               },
-              border: 1,
             }}
           >
             {arrayBiomas.map((bioma) => {
