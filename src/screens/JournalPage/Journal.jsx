@@ -50,11 +50,11 @@ const Journal = () => {
         boxSizing: "border-box",
         paddingLeft: "5rem",
         backgroundImage:
-        "url('../src/assets/backgrounds/Journal-Background.png')",
+          "url('../src/assets/backgrounds/Journal-Background.webp')",
       }}
     >
       <Box>
-        <Navbar backgroundColor= "rgba(74, 184, 241, 1)" />
+        <Navbar backgroundColor="rgba(74, 184, 241, 1)" />
       </Box>
 
       <Box
@@ -137,19 +137,19 @@ const Journal = () => {
               boxSizing: "border-box",
             }}
           >
-            <CustomTabPanel value={value} index={0} >
-              <Typography variant="h6"sx={{color: "orange"}}>
-              Ecosystem are empty
+            <CustomTabPanel value={value} index={0}>
+              <Typography variant="h6" sx={{ color: "orange" }}>
+                Ecosystem are empty
               </Typography>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-            <Typography variant="h6"sx={{color: "#D62828"}}>
-              Animals are empty
+              <Typography variant="h6" sx={{ color: "#D62828" }}>
+                Animals are empty
               </Typography>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
-            <Typography variant="h6"sx={{color: "#00E773"}}>
-              Plants are empty
+              <Typography variant="h6" sx={{ color: "#00E773" }}>
+                Plants are empty
               </Typography>
             </CustomTabPanel>
           </Box>

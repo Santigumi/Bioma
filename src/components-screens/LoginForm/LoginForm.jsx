@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-import pecesImg from "../../assets/backgrounds/peceslogin.jpg";
 import "./LoginForm.css";
 import { loginUser } from "../../services/firebaseUtils";
 const LoginForm = () => {
@@ -75,7 +74,10 @@ const LoginForm = () => {
         </div>
       </form>
       <div className="login-img">
-        <img src={pecesImg} alt="Coral reef background" />
+        <img
+          src="https://i.pinimg.com/736x/c4/df/26/c4df263b7e2981197e3d7c559147baf8.jpg"
+          alt="Coral reef background"
+        />
       </div>
     </div>
   );

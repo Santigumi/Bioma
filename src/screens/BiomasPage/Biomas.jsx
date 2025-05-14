@@ -66,11 +66,11 @@ const Biomas = () => {
         boxSizing: "border-box",
         paddingLeft: "10rem",
         backgroundImage:
-          "url('../src/assets/backgrounds/Biomas-Background.png')",
+          "url('../src/assets/backgrounds/Biomas-Background.webp')",
       }}
     >
       <Box>
-        <Navbar backgroundColor = "rgba(255, 238, 139, 1)" />
+        <Navbar backgroundColor="rgba(255, 238, 139, 1)" />
       </Box>
 
       <Box
