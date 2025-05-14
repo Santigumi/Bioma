@@ -46,7 +46,6 @@ const Lessons = () => {
           width: "100%",
           height: "100%",
           boxSizing: "border-box",
-          justifyContent: "start",
           alignItems: "center",
           backgroundImage:
             "url('../src/assets/backgrounds/Biomas-Background.webp')",
@@ -64,12 +63,19 @@ const Lessons = () => {
               lg: "start",
               xl: "start",
             },
+            justifyContent: {
+              xs: "start",
+              sm: "start",
+              md: "space-between",
+              lg: "space-between",
+              xl: "space-between",
+            },
             gap: {
               xs: 5,
               sm: 5,
-              md: 1,
-              lg: 1,
-              xl: 1,
+              md: 3,
+              lg: 3,
+              xl: 3,
             },
             paddingTop: {
               xs: "2rem",
@@ -78,9 +84,14 @@ const Lessons = () => {
               lg: 0,
               xl: 0,
             },
-            height: "90vh",
+            height: {
+              xs: "100%",
+              sm: "100%",
+              md: "90vh",
+              lg: "90vh",
+              xl: "90vh",
+            },
             width: "85vw",
-            border: 1,
           }}
         >
           <Box
@@ -134,15 +145,14 @@ const Lessons = () => {
               flexDirection: "column",
               alignItems: "center",
               width: "100%",
-              minHeight: "70%",
+              minHeight: "80%",
               gap: {
-                xs:5,
-                sm:5,
-                md:5,
-                lg:5,
-                xl:5,
+                xs: 5,
+                sm: 5,
+                md: 3,
+                lg: 3,
+                xl: 3,
               },
-              border: 1
             }}
           >
             {arrayLesson.map((lesson) => {
