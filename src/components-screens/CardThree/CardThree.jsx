@@ -6,14 +6,21 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import theme from "../../Themes/Theme";
 import { ThemeProvider } from "@mui/material";
-const CardThree = ({ price }) => {
+const CardThree = ({ name, price }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Card sx={{ maxWidth: 345, borderRadius: 7.5 }}>
+      <Card sx={{ width: 245, borderRadius: 7.5 }}>
         <CardMedia sx={{ height: 140 }} image="" title="green iguana" />
-        <CardContent sx={{display: 'flex', flexDirection:'row', justifyContent:'space-between'}}>
-          <Typography gutterBottom variant="h5">
-            Capybara
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Typography gutterBottom variant="h6" sx={{ paddingTop: 0.2 }}>
+            {name}
           </Typography>
           <Button
             size="medium"
