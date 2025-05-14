@@ -15,7 +15,7 @@ const Home = () => {
             md: "column",
             lg: "row",
             xl: "row",
-            backgroundImage: ``
+            backgroundImage: ``,
           },
         }}
       >
@@ -45,13 +45,32 @@ const Home = () => {
           >
             <Box
               sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-start",
+                padding: 4,
                 height: "21rem",
                 width: "73rem",
-                backgroundColor: "yellow",
+                backgroundImage: `url("https://elidebio.com/wp-content/uploads/2020/10/A2-1-1024x640.jpg")`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "100% 100%",
+                backgroundPosition: "center",
                 borderRadius: "2rem",
+                color: "white",
               }}
             >
-              <Typography>Welcome back, your name</Typography>
+              <Typography
+                variant="h5"
+                sx={{
+                  width: "auto",
+                  height: "20%",
+                  backgroundColor: "rgba(0, 0, 0, 0.65)",
+                  borderRadius: "10px",
+                  padding: "10px 5px",
+                }}
+              >
+                Welcome back, your name
+              </Typography>
             </Box>
             <Grid container spacing={3}>
               <Button
