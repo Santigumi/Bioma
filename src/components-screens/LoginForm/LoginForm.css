@@ -84,18 +84,3 @@
     justify-content: space-between;
     height: 15%;
 }
-
-@media (max-width: 768px) {
-    .login-container {
-        flex-direction: column;
-        width: 90%;
-    }
-
-    .login-img {
-        height: 250px;
-    }
-
-    .login-form {
-        padding: 2rem;
-    }
-}

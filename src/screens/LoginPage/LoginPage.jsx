@@ -9,7 +9,22 @@ const LoginPage = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <Navbar></Navbar>
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: {
+            xs: "100%",
+            sm: "100%",
+            md: "80vw",
+            lg: "80vw",
+            xl: "80vw",
+          },
+          height: '100vh',
+        }}
+      >
         <LoginForm />
       </Box>
     </Box>
