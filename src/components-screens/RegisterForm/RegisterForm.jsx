@@ -197,7 +197,9 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.username && (
-                  <Typography sx={{margin: 0}} className="error-message">{errors.username.message}</Typography>
+                  <Typography sx={{ margin: 0 }} className="error-message">
+                    {errors.username.message}
+                  </Typography>
                 )}
               </Box>
               <Box sx={{ width: "80%" }}>
@@ -214,7 +216,9 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.email && (
-                  <Typography sx={{margin: 0}} className="error-message">{errors.email.message}</Typography>
+                  <Typography sx={{ margin: 0 }} className="error-message">
+                    {errors.email.message}
+                  </Typography>
                 )}
               </Box>
               <Box sx={{ width: "80%" }}>
@@ -233,7 +237,10 @@ const RegisterForm = () => {
                         slotProps={{}}
                       />
                       {errors.birthday && (
-                        <Typography sx={{margin: 0}} className="error-message">
+                        <Typography
+                          sx={{ margin: 0 }}
+                          className="error-message"
+                        >
                           {errors.birthday.message}
                         </Typography>
                       )}
@@ -291,7 +298,9 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.password && (
-                  <Typography sx={{margin: 0}} className="error-message">{errors.password.message}</Typography>
+                  <Typography sx={{ margin: 0 }} className="error-message">
+                    {errors.password.message}
+                  </Typography>
                 )}
               </Box>
 
@@ -307,7 +316,7 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.confirmPassword && (
-                  <Typography sx={{margin: 0}} className="error-message">
+                  <Typography sx={{ margin: 0 }} className="error-message">
                     {errors.confirmPassword.message}
                   </Typography>
                 )}
@@ -334,9 +343,18 @@ const RegisterForm = () => {
                 </Link>
 
                 <Button
-                  sx={{ width: "100%", border: 1 }}
+                  sx={{
+                    width: "100%",
+                    borderRadius: "2rem",
+                    backgroundColor: "rgb(17, 207, 112)",
+                    color: "white",
+                    boxShadow: 3,
+                    "&:hover": {
+                      backgroundColor: "rgb(4, 190, 97)",
+                      boxshadow: 6,
+                    },
+                  }}
                   type="submit"
-                  className="register-button"
                   disabled={isLoading}
                 >
                   {isLoading ? "Registrando..." : "Registrarse"}
@@ -349,6 +367,5 @@ const RegisterForm = () => {
     </LocalizationProvider>
   );
 };
-
 
 export default RegisterForm;
