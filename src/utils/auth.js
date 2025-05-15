@@ -9,3 +9,4 @@ export const login = () => {
 export const logout = () => {
   localStorage.removeItem("authenticated");
 };
+//auth
