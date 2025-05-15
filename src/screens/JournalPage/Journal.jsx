@@ -47,7 +47,13 @@ const Journal = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: {
+            xs:'column',
+            sm:'column',
+            md:'row',
+            lg:'row',
+            xl:'row'
+          },
           alignItems: "center",
           justifyContent: "start",
           width: "100%",
@@ -64,8 +70,8 @@ const Journal = () => {
             xl: 0,
           },
           paddingTop: {
-            xs: 0,
-            sm: 0,
+            xs: "2rem",
+            sm: "2rem",
             md: 0,
             lg: 0,
             xl: 0,
@@ -81,7 +87,7 @@ const Journal = () => {
         }}
       >
         <Box>
-          <Navbar backgroundColor="#4AB8F0" />
+          <Navbar backgroundColor={theme.palette.blue.main} />
         </Box>
 
         <Box
@@ -127,7 +133,7 @@ const Journal = () => {
                 lg: "3rem",
                 xl: "3rem",
               },
-              backgroundColor: "#4AB8F0",
+              backgroundColor: theme.palette.blue.main,
               boxShadow: 3,
             }}
           >
