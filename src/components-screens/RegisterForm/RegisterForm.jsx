@@ -1,5 +1,4 @@
 import { useForm, Controller } from "react-hook-form";
-import "./RegisterForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registerUser } from "../../services/firebaseUtils";
@@ -61,23 +60,61 @@ const RegisterForm = () => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Typography
+        variant="h4"
+        sx={{
+          display: {
+            xs: "flex",
+            sm: "flex",
+            md: "none",
+            lg: "none",
+            xl: "none",
+          },
+          flexDirection: "column",
+          height: "10%",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        Create your account
+      </Typography>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           backgroundColor: "rgb(244, 216, 216)",
           borderRadius: "20px",
-          width: "70vw",
-          height: "80vh",
+          width: {
+            xs: "100%",
+            sm: "100%",
+            md: "70%",
+            lg: "70%",
+            xl: "70%",
+          },
+          height: {
+            xs: "70vh",
+            sm: "70vh",
+            md: "80vh",
+            lg: "80vh",
+            xl: "80vh",
+          },
           boxShadow: "0.1rem 0.1rem 1rem 0.1rem rgb(133, 132, 132)",
           border: 5,
           borderColor: "rgb(251, 86, 86)",
+          justifyContent: "space-around",
         }}
       >
         <Typography
           variant="h4"
           sx={{
-            display: "flex",
+            display: {
+              xs: "none",
+              sm: "none",
+              md: "flex",
+              lg: "flex",
+              xl: "flex",
+            },
             flexDirection: "column",
             height: "40%",
             justifyContent: "center",
@@ -92,18 +129,62 @@ const RegisterForm = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
-              height: "90%",
+              flexDirection: {
+                xs: "column",
+                sm: "column",
+                md: "row",
+                lg: "row",
+                xl: "row",
+              },
+              height: {
+                xs: "100%",
+                sm: "100%",
+                md: "90%",
+                lg: "90%",
+                xl: "90%",
+              },
+              gap: {
+                xs: 2.8,
+                sm: 2.8,
+                md: 0,
+                lg: 0,
+                xl: 0,
+              },
             }}
           >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                width: "50%",
-                justifyContent: "start",
+                width: {
+                  xs: "100%",
+                  sm: "100%",
+                  md: "50%",
+                  lg: "50%",
+                  xl: "50%",
+                },
+                height: {
+                  xs: "80%",
+                  sm: "80%",
+                  md: "60%",
+                  lg: "60%",
+                  xl: "60%",
+                },
+                justifyContent: {
+                  xs: "space-around",
+                  sm: "space-around",
+                  md: "start",
+                  lg: "start",
+                  xl: "start",
+                },
                 alignItems: "center",
-                gap: 4,
+                gap: {
+                  xs: 2,
+                  sm: 2,
+                  md: 4,
+                  lg: 4,
+                  xl: 4,
+                },
               }}
             >
               <Box sx={{ width: "80%" }}>
@@ -165,10 +246,35 @@ const RegisterForm = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                width: "50%",
-                justifyContent: "start",
+                width: {
+                  xs: "100%",
+                  sm: "100%",
+                  md: "50%",
+                  lg: "50%",
+                  xl: "50%",
+                },
+                height: {
+                  xs: "80%",
+                  sm: "80%",
+                  md: "50%",
+                  lg: "50%",
+                  xl: "50%",
+                },
+                justifyContent: {
+                  xs: "space-around",
+                  sm: "space-around",
+                  md: "start",
+                  lg: "start",
+                  xl: "start",
+                },
                 alignItems: "center",
-                gap: 4,
+                gap: {
+                  xs: 2,
+                  sm: 2,
+                  md: 4,
+                  lg: 4,
+                  xl: 4,
+                },
               }}
             >
               <Box sx={{ width: "80%" }}>
@@ -206,25 +312,36 @@ const RegisterForm = () => {
                   </p>
                 )}
               </Box>
-
               <Box
                 sx={{
                   display: "flex",
-                  flexDirection: "row",
-                  height: "5%",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 2,
                   width: "80%",
+                  height: "40%",
                 }}
               >
-                <Link to="/Login">Already have an account? </Link>
+                <Link
+                  to="/Login"
+                  style={{
+                    textAlign: "start",
+                    textDecoration: "none",
+                    fontSize: "0.9rem",
+                  }}
+                >
+                  Already have an account?
+                </Link>
+
+                <Button
+                  sx={{ width: "100%", border: 1 }}
+                  type="submit"
+                  className="register-button"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Registrando..." : "Registrarse"}
+                </Button>
               </Box>
-              <Button
-                sx={{ height: "15%", width: "80%", border: 1 }}
-                type="submit"
-                className="register-button"
-                disabled={isLoading}
-              >
-                {isLoading ? "Registrando..." : "Registrarse"}
-              </Button>
             </Box>
           </Box>
         </form>
