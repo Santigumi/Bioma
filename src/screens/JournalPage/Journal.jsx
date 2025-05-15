@@ -48,11 +48,11 @@ const Journal = () => {
         sx={{
           display: "flex",
           flexDirection: {
-            xs:'column',
-            sm:'column',
-            md:'row',
-            lg:'row',
-            xl:'row'
+            xs: "column",
+            sm: "column",
+            md: "row",
+            lg: "row",
+            xl: "row",
           },
           alignItems: "center",
           justifyContent: "start",
@@ -204,6 +204,7 @@ const Journal = () => {
                     },
                   }}
                   label="Ecosystem"
+                  value={0}
                   {...a11yProps(0)}
                   onClick={() => handleTabClick(theme.palette.yellow.main)}
                 ></Tab>
@@ -214,6 +215,7 @@ const Journal = () => {
                     flexGrow: 1,
                   }}
                   label="Animals"
+                  value={1}
                   {...a11yProps(1)}
                   onClick={() => handleTabClick(theme.palette.red.main)}
                 ></Tab>
@@ -231,6 +233,7 @@ const Journal = () => {
                     },
                   }}
                   label="Plants"
+                  value={2}
                   {...a11yProps(2)}
                   onClick={() => handleTabClick(theme.palette.green.main)}
                 ></Tab>
