@@ -158,7 +158,7 @@ const Home = () => {
                 <Typography variant="h6">✿ Continue your lessons</Typography>
               </Button>
               <Button
-                onClick={() => navigate("/Lessons")}
+                onClick={() => navigate("/Trophy")}
                 sx={{
                   width: {
                     xs: "100%",
