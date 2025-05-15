@@ -3,11 +3,11 @@
     font-family: "Livvic", sans-serif;
     background-color: rgba(237, 123, 123, 1);
     border-radius: 20px;
-    width: 80%;
-    max-width: 1000px;
+    width: 60%;
+    height: 70vh;
     display: flex;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: hidden;
+    box-shadow: 0.1rem 0.1rem 1rem 0.1rem rgb(85, 85, 85);
 }
 
 .login-form {
@@ -47,7 +47,7 @@
 }
 
 .submit-btn {
-    background-color: rgba(69, 196, 132, 1);
+    background-color: #02c564;
     color: white;
     border: none;
     padding: 0.7rem 1.5rem;
@@ -58,11 +58,12 @@
     transition: background-color 0.2s;
     margin-top: 1rem;
     font-family: "Livvic", sans-serif;
-    margin: 20px;
+    box-shadow: 2px 2px 2px 2px rgba(66, 66, 66, 0.5);
 }
 
 .submit-btn:hover {
-    background-color: rgb(95, 207, 151)e20;
+    cursor:pointer;
+    background-color: #05da70; 
 }
 
 .login-img {
@@ -78,7 +79,10 @@
 }
 
 .data-user {
-    margin: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 15%;
 }
 
 @media (max-width: 768px) {
