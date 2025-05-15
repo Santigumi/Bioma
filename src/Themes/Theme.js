@@ -6,10 +6,12 @@ const theme = createTheme({
   palette: {
     green: {
       main: "#00E773",
+      secondary: '#45C084',
       contrastText: "#ffffff",
     },
     yellow: {
       main: "#FFEE8B",
+      secondary: "#FFE549",
       contrastText: "#fff",
     },
     blue: {
