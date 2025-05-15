@@ -7,6 +7,7 @@ const LandingPage = () => {
     <Box
       sx={{
         display: "flex",
+        justifyContent: "center",
         flexDirection: {
           xs: "column-reverse",
           sm: "column-reverse",

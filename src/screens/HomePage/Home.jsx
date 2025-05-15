@@ -11,12 +11,27 @@ const Home = () => {
         sx={{
           display: "flex",
           flexDirection: {
-            xs: "column",
-            md: "column",
+            xs: "column-reverse",
+            md: "column-reverse",
             lg: "row",
             xl: "row",
-            backgroundImage: ``,
           },
+          justifyContent: "start",
+          gap: {
+            xs: 0,
+            sm: 0,
+            md: 10,
+            lg: 10,
+            xl: 10
+          },
+          width: '100%',
+          height: '100%',
+          alignItems: "center",
+          backgroundImage: "url('../src/assets/backgrounds/fondolanding.webp')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
+          overflowY: "auto",
         }}
       >
         <Navbar></Navbar>
@@ -24,9 +39,15 @@ const Home = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            height: "100vh",
-            width: "80vw",
+            justifyContent: "space-around",
+            height: "90%",
+            width: {
+              sx: "100vw",
+              ms: "100vw",
+              md: "100vw",
+              lg: "75vw",
+              xl: "75vw",
+            },
           }}
         >
           <Box
@@ -35,9 +56,15 @@ const Home = () => {
               flexDirection: "column",
               justifyContent: "space-between",
               alignItems: "center",
-              height: "90%",
+              height: "100%",
               width: "100%",
-              backgroundColor: "#45C484",
+              backgroundColor: {
+                xs: "transparent",
+                sm: "transparent",
+                md: theme.palette.green.secondary,
+                lg: theme.palette.green.secondary,
+                xl: theme.palette.green.secondary,
+              },
               borderRadius: "2rem",
               paddingTop: "1rem",
               paddingBottom: "1rem",
@@ -49,8 +76,8 @@ const Home = () => {
                 flexDirection: "row",
                 justifyContent: "flex-start",
                 padding: 4,
-                height: "21rem",
-                width: "73rem",
+                height: "56%",
+                width: "95%",
                 backgroundImage: `url("https://elidebio.com/wp-content/uploads/2020/10/A2-1-1024x640.jpg")`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "100% 100%",
@@ -72,45 +99,116 @@ const Home = () => {
                 Welcome back, your name
               </Typography>
             </Box>
-            <Grid container spacing={3}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: {
+                  xs: "column",
+                  sm: "column",
+                  md: "column",
+                  lg: "row",
+                  xl: "row",
+                },
+                gap: {
+                  xs: 1,
+                  sm: 1,
+                  md: 1,
+                  lg: 3,
+                  xl: 3,
+                },
+                width: {
+                  xs: "90vw",
+                  sm: "90vw",
+                  md: "90vw",
+                  lg: "95%",
+                  xl: "95%",
+                },
+                height: {
+                  xs: "35vh",
+                  sm: "35vh",
+                  md: "35vh",
+                  lg: "40%",
+                  xl: "40%",
+                },
+              }}
+            >
               <Button
                 onClick={() => navigate("/Lessons")}
                 sx={{
-                  width: "23.5rem",
-                  height: "15rem",
-                  backgroundColor: "black",
+                  width: {
+                    xs: "100%",
+                    ms: "100%",
+                    md: "100%",
+                    lg: "23.5rem",
+                    xl: "23.5rem",
+                  },
+                  height: {
+                    xs: "30%",
+                    ms: "30%",
+                    md: "30%",
+                    lg: "100%",
+                    xl: "100%",
+                  },
+                  backgroundColor: theme.palette.yellow.secondary,
                   borderRadius: "2rem",
-                  color: "white",
+                  color: "black",
+                  boxShadow: 3,
                 }}
               >
-                Continue your lessons
+                <Typography variant="h6">✿ Continue your lessons</Typography>
               </Button>
               <Button
-                onClick={() => navigate("/Lessons")}
+                onClick={() => navigate("/Trophy")}
                 sx={{
-                  width: "23.5rem",
-                  height: "15rem",
-                  backgroundColor: "black",
+                  width: {
+                    xs: "100%",
+                    ms: "100%",
+                    md: "100%",
+                    lg: "23.5rem",
+                    xl: "23.5rem",
+                  },
+                  height: {
+                    xs: "30%",
+                    ms: "30%",
+                    md: "30%",
+                    lg: "100%",
+                    xl: "100%",
+                  },
+                  backgroundColor: theme.palette.blue.main,
                   borderRadius: "2rem",
-                  color: "white",
+                  color: "black",
+                  boxShadow: 3,
                 }}
               >
-                Trophy store
+                <Typography variant="h6">$ Trophy Store</Typography>
               </Button>
 
               <Button
                 onClick={() => navigate("/Lessons")}
                 sx={{
-                  width: "23.5rem",
-                  height: "15rem",
-                  backgroundColor: "black",
+                  width: {
+                    xs: "100%",
+                    ms: "100%",
+                    md: "100%",
+                    lg: "23.5rem",
+                    xl: "23.5rem",
+                  },
+                  height: {
+                    xs: "30%",
+                    ms: "30%",
+                    md: "30%",
+                    lg: "100%",
+                    xl: "100%",
+                  },
+                  backgroundColor: theme.palette.red.main,
                   borderRadius: "2rem",
-                  color: "white",
+                  color: "black",
+                  boxShadow: 3,
                 }}
               >
-                You can wacth, read
+                <Typography variant="h6">⬈ You can watch or read</Typography>
               </Button>
-            </Grid>
+            </Box>
           </Box>
         </Box>
       </Box>
