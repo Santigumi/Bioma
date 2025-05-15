@@ -1,6 +1,8 @@
 import { Box, Typography, Tabs, Tab } from "@mui/material";
 import PropTypes from "prop-types";
 import Navbar from "../../components-screens/Navbar/Navbar";
+import theme from "../../Themes/Theme";
+import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
 
 function CustomTabPanel(props) {
@@ -33,129 +35,258 @@ function a11yProps(index) {
 
 const Journal = () => {
   const [value, setValue] = useState(0);
-
+  const [color, setColor] = useState(theme.palette.yellow.main);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const handleTabClick = (newColor) => {
+    setColor(newColor);
+  };
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: "100%",
-        boxSizing: "border-box",
-        paddingLeft: "5rem",
-        backgroundImage:
-          "url('../src/assets/backgrounds/Journal-Background.webp')",
-      }}
-    >
-      <Box>
-        <Navbar backgroundColor="#4AB8F0" />
-      </Box>
-
+    <ThemeProvider theme={theme}>
       <Box
-        ClassName="Estructure"
         sx={{
           display: "flex",
-          flexDirection: "Column",
-          justifyContent: "space-around",
-          height: "90vh",
-          width: "85vw",
+          flexDirection: {
+            xs: "column",
+            sm: "column",
+            md: "row",
+            lg: "row",
+            xl: "row",
+          },
+          alignItems: "center",
+          justifyContent: "start",
+          width: "100%",
+          height: "100%",
+          boxSizing: "border-box",
+          backgroundImage:
+            "url('../src/assets/backgrounds/Journal-Background.webp')",
+          width: "100%",
+          paddingBottom: {
+            xs: 0,
+            sm: 0,
+            md: 0,
+            lg: 0,
+            xl: 0,
+          },
+          paddingTop: {
+            xs: "2rem",
+            sm: "2rem",
+            md: 0,
+            lg: 0,
+            xl: 0,
+          },
+          boxSizing: "border-box",
+          overflowY: {
+            xs: "auto",
+            sm: "auto",
+            md: "hidden",
+            lg: "hidden",
+            xl: "hidden",
+          },
         }}
       >
+        <Box>
+          <Navbar backgroundColor={theme.palette.blue.main} />
+        </Box>
+
         <Box
+          ClassName="Estructure"
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            height: "10%",
-            borderRadius: 7.5,
-            paddingLeft: "3rem",
-            backgroundColor: "#4AB8F0",
-            boxShadow: 3,
+            justifyContent: {
+              sx: "start",
+              sm: "start",
+              md: "center",
+              lg: "center",
+              xl: "center",
+            },
+            height: {
+              xs: "90%",
+              sm: "90%",
+              md: "90%",
+              lg: "100%",
+              xl: "100%",
+            },
+            width: {
+              xs: "90%",
+              sm: "90%",
+              md: "80%",
+              lg: "80%",
+              xl: "80%",
+            },
+            gap: 4,
           }}
         >
-          <Typography variant="h4">Journal</Typography>
-        </Box>
-        <Box
-          sx={{
-            width: "100%",
-            minHeight: "75%",
-            boxSizing: "border-box",
-          }}
-        >
-          <Box>
-            <Tabs onChange={handleChange}>
-              <Tab
-                sx={{
-                  backgroundColor: "#FFE549",
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 25,
-                  color: "black",
-                  "&.Mui-selected": {
-                    color: "F7F8F9",
-                  },
-                }}
-                label="Ecosystem"
-                {...a11yProps(0)}
-              ></Tab>
-              <Tab
-                sx={{
-                  backgroundColor: "#D62828",
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 25,
-                }}
-                label="Animals"
-                {...a11yProps(1)}
-              ></Tab>
-              <Tab
-                sx={{
-                  backgroundColor: "#00E773",
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 25,
-                }}
-                label="Plants"
-                {...a11yProps(2)}
-              ></Tab>
-            </Tabs>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              height: "10%",
+              borderRadius: 7.5,
+              paddingLeft: {
+                xs: "0",
+                sm: "0",
+                md: "3rem",
+                lg: "3rem",
+                xl: "3rem",
+              },
+              backgroundColor: theme.palette.blue.main,
+              boxShadow: 3,
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                textAlign: {
+                  xs: "center",
+                  sm: "center",
+                  md: "start",
+                  lg: "start",
+                  xl: "start",
+                },
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2rem",
+                  md: "2rem",
+                },
+              }}
+            >
+              Journal
+            </Typography>
           </Box>
           <Box
             sx={{
-              padding: "2rem",
-              borderRadius: 10,
-              borderTopLeftRadius: 0,
               width: "100%",
-              minHeight: "94%",
-              backgroundColor: "#F7F8F9",
-              border: 4,
-              borderColor: "#4AB8F0",
-              boxShadow: 3,
+              minHeight: "75%",
               boxSizing: "border-box",
             }}
           >
-            <CustomTabPanel value={value} index={0}>
-              <Typography variant="h6" sx={{ color: "orange" }}>
-                Ecosystem are empty
-              </Typography>
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={1}>
-              <Typography variant="h6" sx={{ color: "#D62828" }}>
-                Animals are empty
-              </Typography>
-            </CustomTabPanel>
-            <CustomTabPanel value={value} index={2}>
-              <Typography variant="h6" sx={{ color: "#00E773" }}>
-                Plants are empty
-              </Typography>
-            </CustomTabPanel>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: {
+                  xs: "100%",
+                  ms: "100%",
+                  md: "40%",
+                  lg: "40%",
+                  xl: "40%",
+                },
+                gap: 3,
+              }}
+            >
+              <Tabs onChange={handleChange} sx={{ width: "100%" }}>
+                <Tab
+                  sx={{
+                    backgroundColor: "#FFE549",
+                    borderTopLeftRadius: 10,
+                    borderTopRightRadius: 25,
+                    color: "black",
+                    flexGrow: 1,
+                    borderTopLeftRadius: {
+                      xs: 15,
+                      sm: 15,
+                      md: 25,
+                      lg: 25,
+                      xl: 25,
+                    },
+                    borderTopRightRadius: {
+                      xs: 0,
+                      sm: 0,
+                      md: 0,
+                      lg: 0,
+                      xl: 0,
+                    },
+                  }}
+                  label="Ecosystem"
+                  value={0}
+                  {...a11yProps(0)}
+                  onClick={() => handleTabClick(theme.palette.yellow.main)}
+                ></Tab>
+                <Tab
+                  sx={{
+                    backgroundColor: "#D62828",
+                    color: "black",
+                    flexGrow: 1,
+                  }}
+                  label="Animals"
+                  value={1}
+                  {...a11yProps(1)}
+                  onClick={() => handleTabClick(theme.palette.red.main)}
+                ></Tab>
+                <Tab
+                  sx={{
+                    backgroundColor: "#00E773",
+                    color: "black",
+                    flexGrow: 1,
+                    borderTopRightRadius: {
+                      xs: 15,
+                      sm: 15,
+                      md: 25,
+                      lg: 25,
+                      xl: 25,
+                    },
+                  }}
+                  label="Plants"
+                  value={2}
+                  {...a11yProps(2)}
+                  onClick={() => handleTabClick(theme.palette.green.main)}
+                ></Tab>
+              </Tabs>
+            </Box>
+            <Box
+              sx={{
+                padding: "2rem",
+                borderRadius: 10,
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: {
+                  xs: 0,
+                  sm: 0,
+                  md: 30,
+                  lg: 30,
+                  xl: 30,
+                },
+                width: "100%",
+                height: {
+                  xs: "120%",
+                  sm: "120%",
+                  md: "120%",
+                  lg: "90%",
+                  xl: "90%",
+                },
+                backgroundColor: "#F7F8F9",
+                border: 3,
+                borderColor: "#4AB8F0",
+                boxShadow: 3,
+                boxSizing: "border-box",
+                borderColor: color,
+              }}
+            >
+              <CustomTabPanel value={value} index={0}>
+                <Typography variant="h6" sx={{ color: "orange" }}>
+                  Ecosystem are empty
+                </Typography>
+              </CustomTabPanel>
+              <CustomTabPanel value={value} index={1}>
+                <Typography variant="h6" sx={{ color: "#D62828" }}>
+                  Animals are empty
+                </Typography>
+              </CustomTabPanel>
+              <CustomTabPanel value={value} index={2}>
+                <Typography variant="h6" sx={{ color: "#00E773" }}>
+                  Plants are empty
+                </Typography>
+              </CustomTabPanel>
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </ThemeProvider>
   );
 };
 

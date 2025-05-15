@@ -11,14 +11,10 @@ const Game = () => {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        paddingLeft: "10rem",
         backgroundImage:
           "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
-      <Box>
-        <Navbar backgroundColor="#FFEE8B"/>
-      </Box>
       <Box
         sx={{
           display: "flex",
@@ -58,7 +54,7 @@ const Game = () => {
           }}
         >
           <Typography variant="body1">
-            Learn the species that live in this place: Control de Capybara and
+            Learn the species that live in this place: Control the Capybara and
             see how is their life.
           </Typography>
         </Box>

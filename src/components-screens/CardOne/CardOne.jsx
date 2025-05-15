@@ -1,45 +1,61 @@
-import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-const CardOne = ({ name, image, direction }) => {
+import { Typography, Card, CardMedia, CardContent, CardActionArea } from "@mui/material";
+
+const CardOne = ({ name, image }) => {
   return (
-    <Link
-      to={direction}
+    <Card
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        backgroundColor: "#00E773",
+        borderRadius: 3,
+        boxShadow: 4,
+        cursor: "pointer",
+        width: {
+          xs:'45%',
+          sm:'45%',
+          md:'45%',
+          lg:'22%',
+          xl:'22%'
+        },
+        height: {
+          xs:'10rem',
+          sm:'10rem',
+          md:'45%',
+          lg:'45%',
+          xl:'45%'
+        }
+      }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItemst: "center",
-          width: "18rem",
-          height: "13rem",
-          backgroundColor: "#00E773",
-          borderRadius: 5,
-          boxShadow: 8,
-          cursor: "pointer",
-        }}
-      >
-        <img
-          style={{
-            width: "18rem",
-            height: "10rem",
-            borderRadius: 5,
-          }}
-          src={image}
-        ></img>
-        <Typography
-          variant="h6"
+      <CardActionArea sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+        <CardMedia
+          component="img"
+          image={image}
+          alt={name}
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "5rem",
+            width: "100%",
+            height: "80%",
+            objectFit: "cover",
+            borderTopLeftRadius: 12,
+            borderTopRightRadius: 12,
           }}
-        >
-          {name}
-        </Typography>
-      </Box>
-    </Link>
+        />
+        <CardContent sx={{ display: "flex", alignItems: "center", justifyContent: "center", padding: 1 }}>
+          <Typography 
+          variant="h6"
+          sx={{ fontSize:{
+            xs:'1rem',
+            sm:'1rem',
+            md:'1rem',
+            lg:'1rem',
+            xl:'1rem'
+          }}} align="center">
+            {name}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 };
-export default CardOne;
+
+export default CardOne
+

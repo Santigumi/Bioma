@@ -4,7 +4,6 @@ import homeIcon from "../../assets/icons/home.svg";
 import journalIcon from "../../assets/icons/journal.svg";
 import profileIcon from "../../assets/icons/profile.svg";
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
 const Navbar = ({ backgroundColor, hoverColor }) => {
   return (
     <Box
@@ -26,11 +25,31 @@ const Navbar = ({ backgroundColor, hoverColor }) => {
           xl: "12vw",
         },
         height: {
-          xs: "10rem",
-          sm: "10rem",
+          xs: "5rem",
+          sm: "5rem",
           md: "100vh",
           lg: "100vh",
           xl: "100vh",
+        },
+        position: {
+          xs: "fixed",
+          sm: "fixed",
+          md: "static",
+          lg: "static",
+          xl: "static",
+        },
+        zIndex: {
+          xs: 1000,
+          sm: 1000,
+          md: "auto",
+        },
+        bottom: {
+          xs: 0,
+          sm: 0,
+        },
+        left: {
+          xs: 0,
+          sm: 0,
         },
       }}
     >
@@ -62,7 +81,7 @@ const Navbar = ({ backgroundColor, hoverColor }) => {
             xl: "7rem",
           },
           height: {
-            xs: "8rem",
+            xs: "6rem",
             sm: "8rem",
             md: "25rem",
             lg: "25rem",
@@ -84,18 +103,18 @@ const Navbar = ({ backgroundColor, hoverColor }) => {
           alt="Biomas icon"
           route="/Biomas"
         ></IconNav>
-          <IconNav
-            icon={journalIcon}
-            textIcon="Journal"
-            alt="Journal icon"
-            route="/Journal"
-          ></IconNav>
-          <IconNav
-            icon={profileIcon}
-            textIcon="Profile"
-            alt="Profile icon"
-            route="/Profile"
-          ></IconNav>
+        <IconNav
+          icon={journalIcon}
+          textIcon="Journal"
+          alt="Journal icon"
+          route="/Journal"
+        ></IconNav>
+        <IconNav
+          icon={profileIcon}
+          textIcon="Profile"
+          alt="Profile icon"
+          route="/Profile"
+        ></IconNav>
       </Box>
     </Box>
   );
