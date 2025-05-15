@@ -191,9 +191,18 @@ const LoginForm = () => {
             >
               <Link to="/register">Don't have an account? Sign in</Link>
               <Button
-                sx={{ width: "100%" }}
+                sx={{
+                  width: "100%",
+                  backgroundColor: "rgb(17, 207, 112)",
+                  color: "white",
+                  borderRadius: "2rem",
+                  boxShadow: 3,
+                  "&:hover": {
+                    backgroundColor: "rgb(4, 190, 97)",
+                    boxshadow: 6
+                  },
+                }}
                 type="submit"
-                className="submit-btn"
                 disabled={isLoading}
               >
                 {isLoading ? "Iniciando sesión..." : "Log in"}
