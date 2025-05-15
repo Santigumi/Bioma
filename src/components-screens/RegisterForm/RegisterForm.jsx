@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import "./RegisterForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -23,6 +23,7 @@ const RegisterForm = () => {
     register,
     formState: { errors },
     handleSubmit,
+    control,
     watch,
   } = useForm();
 
@@ -75,16 +76,19 @@ const RegisterForm = () => {
       >
         <Typography
           variant="h4"
-          sx={{ display: 'flex', flexDirection:'column', height: "30%", justifyContent: "center", paddingLeft: '3rem' }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "40%",
+            justifyContent: "center",
+            paddingLeft: "3rem",
+          }}
         >
           Create your account
         </Typography>
 
         {registerError && <div className="error-alert">{registerError}</div>}
-        <form
-          style={{ height: "90%" }}
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form style={{ height: "90%" }} onSubmit={handleSubmit(onSubmit)}>
           <Box
             sx={{
               display: "flex",
@@ -99,7 +103,7 @@ const RegisterForm = () => {
                 width: "50%",
                 justifyContent: "start",
                 alignItems: "center",
-                gap: 3,
+                gap: 4,
               }}
             >
               <Box sx={{ width: "80%" }}>
@@ -133,16 +137,28 @@ const RegisterForm = () => {
                 )}
               </Box>
               <Box sx={{ width: "80%" }}>
-                <DatePicker
-                  sx={{ width: "100%" }}
-                  label="Birthday"
-                  {...register("birthday", {
-                    required: "Birthday is required",
-                  })}
+                <Controller
+                  name="birthday"
+                  control={control}
+                  defaultValue={null}
+                  rules={{ required: "Birthday is required" }}
+                  render={({ field }) => (
+                    <>
+                      <DatePicker
+                        label="Birthday"
+                        value={field.value}
+                        onChange={(date) => field.onChange(date)}
+                        sx={{ width: "100%" }}
+                        slotProps={{}}
+                      />
+                      {errors.birthday && (
+                        <p className="error-message">
+                          {errors.birthday.message}
+                        </p>
+                      )}
+                    </>
+                  )}
                 />
-                {errors.birthday && (
-                  <p className="error-message">{errors.birthday.message}</p>
-                )}
               </Box>
             </Box>
             <Box
@@ -152,7 +168,7 @@ const RegisterForm = () => {
                 width: "50%",
                 justifyContent: "start",
                 alignItems: "center",
-                gap: 3,
+                gap: 4,
               }}
             >
               <Box sx={{ width: "80%" }}>
@@ -177,6 +193,7 @@ const RegisterForm = () => {
                 <TextField
                   sx={{ width: "100%" }}
                   label="Confirm password"
+                  type="password"
                   {...register("confirmPassword", {
                     required: "Please confirm your password",
                     validate: (value) =>
@@ -199,17 +216,15 @@ const RegisterForm = () => {
                 }}
               >
                 <Link to="/Login">Already have an account? </Link>
-              
               </Box>
               <Button
-                sx={{ height: "15%", width: "80%", border: 1, }}
+                sx={{ height: "15%", width: "80%", border: 1 }}
                 type="submit"
                 className="register-button"
                 disabled={isLoading}
               >
                 {isLoading ? "Registrando..." : "Registrarse"}
               </Button>
-
             </Box>
           </Box>
         </form>
