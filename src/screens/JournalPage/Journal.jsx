@@ -204,7 +204,6 @@ const Journal = () => {
                 <Tab
                   sx={{
                     backgroundColor: "#D62828",
-                    flexGrow: 1,
                     color: "black",
                     flexGrow: 1,
                   }}
