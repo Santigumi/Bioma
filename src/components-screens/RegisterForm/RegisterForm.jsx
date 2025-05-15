@@ -95,9 +95,9 @@ const RegisterForm = () => {
           height: {
             xs: "80vh",
             sm: "80vh",
-            md: "100vh",
-            lg: "100vh",
-            xl: "100vh",
+            md: "75%",
+            lg: "75%",
+            xl: "75%",
           },
           boxShadow: "0.1rem 0.1rem 1rem 0.1rem rgb(133, 132, 132)",
           border: 5,

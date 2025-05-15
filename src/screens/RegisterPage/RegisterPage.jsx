@@ -23,7 +23,6 @@ const RegisterPage = () => {
             xl: "80vw",
           },
           height: "100vh",
-          border: 1,
         }}
       >
         <RegisterForm></RegisterForm>

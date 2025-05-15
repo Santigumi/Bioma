@@ -74,6 +74,8 @@
   font-size: 0.8rem;
   margin-top: 0.3rem;
   display: block;
+  margin: 0;
+  padding: 0
 }
 
 .form-submit {
