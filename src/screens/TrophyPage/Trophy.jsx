@@ -55,10 +55,14 @@ const Trophy = () => {
           width: "100%",
           height: "100%",
           boxSizing: "border-box",
+          backgroundImage: "url('../src/assets/backgrounds/fondolanding.webp')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
         }}
       >
         <Box>
-          <Navbar backgroundColor={theme.palette.green.main} />
+          <Navbar backgroundColor={theme.palette.green.secondary} />
         </Box>
 
         <Box
@@ -82,7 +86,7 @@ const Trophy = () => {
             <Typography
               variant="h4"
               sx={{
-                backgroundColor: theme.palette.green.main,
+                backgroundColor: theme.palette.green.secondary,
                 boxShadow: 3,
                 borderRadius: 7.5,
                 width: "70%",
@@ -105,7 +109,7 @@ const Trophy = () => {
               <Tabs onChange={handleChange}>
                 <Tab
                   sx={{
-                    backgroundColor: theme.palette.yellow.main,
+                    backgroundColor: theme.palette.yellow.secondary,
                     borderTopLeftRadius: 10,
                     borderTopRightRadius: 25,
                     color: theme.palette.green.contrastText,
@@ -114,8 +118,9 @@ const Trophy = () => {
                     },
                   }}
                   label="All"
+                  value={0}
                   {...a11yProps(0)}
-                  onClick={() => handleTabClick(theme.palette.yellow.main)}
+                  onClick={() => handleTabClick(theme.palette.yellow.secondary)}
                 ></Tab>
                 <Tab
                   sx={{
@@ -124,6 +129,7 @@ const Trophy = () => {
                     borderTopRightRadius: 25,
                   }}
                   label="Avatars"
+                  value={1}
                   {...a11yProps(1)}
                   onClick={() => handleTabClick(theme.palette.blue.main)}
                 ></Tab>
@@ -134,6 +140,7 @@ const Trophy = () => {
                     borderTopRightRadius: 25,
                   }}
                   label="Wallpapers"
+                  value={2}
                   {...a11yProps(2)}
                   onClick={() => handleTabClick(theme.palette.red.main)}
                 ></Tab>
