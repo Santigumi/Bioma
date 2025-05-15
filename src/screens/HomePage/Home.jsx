@@ -16,12 +16,22 @@ const Home = () => {
             lg: "row",
             xl: "row",
           },
+          justifyContent: "start",
+          gap: {
+            xs: 0,
+            sm: 0,
+            md: 10,
+            lg: 10,
+            xl: 10
+          },
+          width: '100%',
+          height: '100%',
           alignItems: "center",
-          backgroundImage:
-            "url('../src/assets/backgrounds/fondolanding.webp')",
+          backgroundImage: "url('../src/assets/backgrounds/fondolanding.webp')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
           backgroundPosition: "center",
+          overflowY: "auto",
         }}
       >
         <Navbar></Navbar>
@@ -29,14 +39,14 @@ const Home = () => {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            height: "100dvh",
+            justifyContent: "space-around",
+            height: "90%",
             width: {
               sx: "100vw",
               ms: "100vw",
               md: "100vw",
-              lg: "80vw",
-              xl: "80vw",
+              lg: "75vw",
+              xl: "75vw",
             },
           }}
         >
@@ -46,14 +56,14 @@ const Home = () => {
               flexDirection: "column",
               justifyContent: "space-between",
               alignItems: "center",
-              height: "90%",
+              height: "100%",
               width: "100%",
               backgroundColor: {
                 xs: "transparent",
                 sm: "transparent",
-                md: theme.palette.green.main,
-                lg: theme.palette.green.main,
-                xl: theme.palette.green.main,
+                md: theme.palette.green.secondary,
+                lg: theme.palette.green.secondary,
+                xl: theme.palette.green.secondary,
               },
               borderRadius: "2rem",
               paddingTop: "1rem",
@@ -106,7 +116,6 @@ const Home = () => {
                   lg: 3,
                   xl: 3,
                 },
-                border: 2,
                 width: {
                   xs: "90vw",
                   sm: "90vw",
@@ -140,12 +149,13 @@ const Home = () => {
                     lg: "100%",
                     xl: "100%",
                   },
-                  backgroundColor: "black",
+                  backgroundColor: theme.palette.yellow.secondary,
                   borderRadius: "2rem",
-                  color: "white",
+                  color: "black",
+                  boxShadow: 3,
                 }}
               >
-                Continue your lessons
+                <Typography variant="h6">✿ Continue your lessons</Typography>
               </Button>
               <Button
                 onClick={() => navigate("/Lessons")}
@@ -164,12 +174,13 @@ const Home = () => {
                     lg: "100%",
                     xl: "100%",
                   },
-                  backgroundColor: "black",
+                  backgroundColor: theme.palette.blue.main,
                   borderRadius: "2rem",
-                  color: "white",
+                  color: "black",
+                  boxShadow: 3,
                 }}
               >
-                Trophy store
+                <Typography variant="h6">$ Trophy Store</Typography>
               </Button>
 
               <Button
@@ -189,12 +200,13 @@ const Home = () => {
                     lg: "100%",
                     xl: "100%",
                   },
-                  backgroundColor: "black",
+                  backgroundColor: theme.palette.red.main,
                   borderRadius: "2rem",
-                  color: "white",
+                  color: "black",
+                  boxShadow: 3,
                 }}
               >
-                You can wacth, read
+                <Typography variant="h6">⬈ You can watch or read</Typography>
               </Button>
             </Box>
           </Box>
