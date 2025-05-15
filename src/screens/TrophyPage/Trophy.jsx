@@ -50,7 +50,7 @@ const Trophy = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "start",
           alignItems: "center",
           width: "100%",
           height: "100%",
@@ -69,10 +69,29 @@ const Trophy = () => {
           ClassName="Estructure"
           sx={{
             display: "flex",
-            flexDirection: "Column",
-            justifyContent: "space-around",
-            height: "90vh",
-            width: "85vw",
+            flexDirection: "column",
+            justifyContent: {
+              sx: "start",
+              sm: "start",
+              md: "center",
+              lg: "center",
+              xl: "center",
+            },
+            height: {
+              xs: "90%",
+              sm: "90%",
+              md: "90%",
+              lg: "100%",
+              xl: "100%",
+            },
+            width: {
+              xs: "90%",
+              sm: "90%",
+              md: "80%",
+              lg: "80%",
+              xl: "80%",
+            },
+            gap: 4,
           }}
         >
           <Box
