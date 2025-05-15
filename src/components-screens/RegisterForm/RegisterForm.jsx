@@ -93,11 +93,11 @@ const RegisterForm = () => {
             xl: "70%",
           },
           height: {
-            xs: "70vh",
-            sm: "70vh",
-            md: "80vh",
-            lg: "80vh",
-            xl: "80vh",
+            xs: "80vh",
+            sm: "80vh",
+            md: "100vh",
+            lg: "100vh",
+            xl: "100vh",
           },
           boxShadow: "0.1rem 0.1rem 1rem 0.1rem rgb(133, 132, 132)",
           border: 5,
@@ -144,8 +144,8 @@ const RegisterForm = () => {
                 xl: "90%",
               },
               gap: {
-                xs: 2.8,
-                sm: 2.8,
+                xs: 1,
+                sm: 1,
                 md: 0,
                 lg: 0,
                 xl: 0,
@@ -164,8 +164,8 @@ const RegisterForm = () => {
                   xl: "50%",
                 },
                 height: {
-                  xs: "80%",
-                  sm: "80%",
+                  xs: "65%",
+                  sm: "65%",
                   md: "60%",
                   lg: "60%",
                   xl: "60%",
@@ -197,7 +197,7 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.username && (
-                  <p className="error-message">{errors.username.message}</p>
+                  <Typography sx={{margin: 0}} className="error-message">{errors.username.message}</Typography>
                 )}
               </Box>
               <Box sx={{ width: "80%" }}>
@@ -214,7 +214,7 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.email && (
-                  <p className="error-message">{errors.email.message}</p>
+                  <Typography sx={{margin: 0}} className="error-message">{errors.email.message}</Typography>
                 )}
               </Box>
               <Box sx={{ width: "80%" }}>
@@ -233,9 +233,9 @@ const RegisterForm = () => {
                         slotProps={{}}
                       />
                       {errors.birthday && (
-                        <p className="error-message">
+                        <Typography sx={{margin: 0}} className="error-message">
                           {errors.birthday.message}
-                        </p>
+                        </Typography>
                       )}
                     </>
                   )}
@@ -254,8 +254,8 @@ const RegisterForm = () => {
                   xl: "50%",
                 },
                 height: {
-                  xs: "80%",
-                  sm: "80%",
+                  xs: "70%",
+                  sm: "70%",
                   md: "50%",
                   lg: "50%",
                   xl: "50%",
@@ -291,7 +291,7 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.password && (
-                  <p className="error-message">{errors.password.message}</p>
+                  <Typography sx={{margin: 0}} className="error-message">{errors.password.message}</Typography>
                 )}
               </Box>
 
@@ -307,9 +307,9 @@ const RegisterForm = () => {
                   })}
                 />
                 {errors.confirmPassword && (
-                  <p className="error-message">
+                  <Typography sx={{margin: 0}} className="error-message">
                     {errors.confirmPassword.message}
-                  </p>
+                  </Typography>
                 )}
               </Box>
               <Box
@@ -319,7 +319,7 @@ const RegisterForm = () => {
                   alignItems: "center",
                   gap: 2,
                   width: "80%",
-                  height: "40%",
+                  height: "30%",
                 }}
               >
                 <Link
