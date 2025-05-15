@@ -17,6 +17,7 @@ const Biomas = () => {
             xl: "row",
           },
           alignItems: "center",
+          
           width: "100%",
           height: {
             xs: "fit-content",
@@ -59,6 +60,13 @@ const Biomas = () => {
           sx={{
             display: "flex",
             flexDirection: "Column",
+            alignItems: {
+              xs: "center",
+              sm: "center",
+              md: "start",
+              lg: "start",
+              xl: "start",
+            },
             justifyContent: {
               xs: "space-around",
               sm: "space-around",
@@ -74,8 +82,7 @@ const Biomas = () => {
               xl: "90%",
             },
             width: "100%",
-            gap: 3,
-            border: 1
+            gap: 3
           }}
         >
           <Box
