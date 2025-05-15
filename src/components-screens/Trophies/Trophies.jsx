@@ -10,7 +10,7 @@ const Trophies = ({ Trophies }) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: theme.palette.green.main,
+          backgroundColor: theme.palette.green.secondary,
           width: "25%",
           borderRadius: 7.5,
         }}
