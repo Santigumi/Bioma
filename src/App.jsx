@@ -4,14 +4,17 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "./Themes/Theme";
 import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Router />
+        </ThemeProvider>
+      </Provider>
     </>
   );
 }

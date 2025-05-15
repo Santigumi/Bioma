@@ -45,8 +45,6 @@ export const registerUser = async (email, password, username, birthday) => {
         error: "El nombre de usuario ya está en uso. Por favor, elige otro.",
       };
     }
-
-    // Crear usuario en Firebase Authentication
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -56,7 +54,6 @@ export const registerUser = async (email, password, username, birthday) => {
 
     console.log("Usuario creado en Authentication:", user.uid);
 
-    // Actualizar el perfil del usuario con el nombre de usuario
     await updateProfile(user, {
       displayName: username,
     });
@@ -75,14 +72,12 @@ export const registerUser = async (email, password, username, birthday) => {
 
     console.log("Intentando guardar en Firestore:", userData);
 
-    // Crear documento del usuario en Firestore
+    // crear documento del usuario en Firestore
     try {
       await setDoc(doc(db, "users", user.uid), userData);
       console.log("Documento creado exitosamente en Firestore");
     } catch (firestoreError) {
       console.error("Error al crear documento en Firestore:", firestoreError);
-      // El usuario ya fue creado en Authentication, así que devolvemos éxito
-      // pero con una advertencia sobre el error de Firestore
       return {
         success: true,
         user,
@@ -95,8 +90,6 @@ export const registerUser = async (email, password, username, birthday) => {
     return { success: true, user };
   } catch (error) {
     console.error("Error en el registro:", error);
-
-    // Manejar errores específicos de Firebase Auth
     let errorMessage = error.message;
 
     if (error.code === "auth/email-already-in-use") {
