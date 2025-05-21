@@ -10,33 +10,53 @@ import palm from "../../assets/icons/tree-palm.png";
 import atom from "../../assets/icons/atom.png";
 import sprout from "../../assets/icons/sprout.png";
 import sailboat from "../../assets/icons/sailboat.png";
-import "./ProfilePage.css";
+import { Box, ThemeProvider, Grid, Button } from "@mui/material";
+import theme from "../../Themes/Theme";
 const ProfilePage = () => {
+  const dataBiomas = [
+    {}
+  ]
   return (
-    <>
-      <div
+    <ThemeProvider theme={theme}>
+      <Box
         className="background"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        sx={{ backgroundImage: `url(${backgroundImage})`, display:"flex", flexDirection:'row' }}
       >
-        <Navbar
-          backgroundColor="rgba(237, 124, 124, 1)"
-          hoverColor="rgba(225, 67, 67, 1)"
-        />
-
-        <div className="estructure">
-          <div className="profile-layout">
-            <div className="left-column">
+        <Navbar />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "80vw",
+            height: "100vh",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              width: "80%",
+              height: "90%",
+              border: 1,
+            }}
+          >
+            <Box sx={{
+                width: "50%",
+                border: 1
+            }}>
               <CharacterProfile nameCharacter="Capybara" imgCharacter={Capi} />
-            </div>
+            </Box>
 
-            <div className="right-column">
-              <div className="right-content">
-                <div className="info-character">
+            <Box sx={{
+              width: "50%",
+              border: 1
+            }}>
                   <InfoCharacter username="Capysanti" charactersFound={Capi} />
-                </div>
 
-                <div className="progress-container">
-                  <div className="progress-column">
+                    <Grid container spacing= "2" sx={{border: 1, height: "50%"}}>
+
                     <LevelProgress iconProgress={tree} percentage="96%" />
                     <LevelProgress
                       iconProgress={tree}
@@ -44,8 +64,7 @@ const ProfilePage = () => {
                       color="rgba(255, 228, 67, 1)"
                     />
                     <LevelProgress iconProgress={sprout} percentage="0%" />
-                  </div>
-                  <div className="progress-column">
+ 
                     <LevelProgress
                       iconProgress={palm}
                       percentage="16%"
@@ -61,8 +80,6 @@ const ProfilePage = () => {
                       percentage="15%"
                       color="rgba(71, 193, 255, 1)"
                     />
-                  </div>
-                  <div className="progress-column">
                     <LevelProgress
                       iconProgress={tree}
                       percentage="5%"
@@ -78,14 +95,15 @@ const ProfilePage = () => {
                       percentage="0%"
                       color="rgba(0, 141, 213, 1)"
                     />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+                    </Grid>
+
+                    <Button>Cerrar sesión</Button>
+                </Box>
+
+          </Box>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 };
 
