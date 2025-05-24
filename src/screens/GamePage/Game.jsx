@@ -1,7 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Level from "../../components-Game/Level/Level";
-import Navbar from "../../components-screens/Navbar/Navbar";
+import Modal from "@mui/material/Modal";
+import { useState } from "react";
 const Game = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <Box
       sx={{
@@ -15,6 +19,21 @@ const Game = () => {
           "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
+      <Box>
+        <Button onClick={handleOpen}>Open modal</Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box>
+            <Button>Resume</Button>
+            <Button>Restart</Button>
+            <Button>Quit</Button>
+          </Box>
+        </Modal>
+      </Box>
       <Box
         sx={{
           display: "flex",
@@ -25,46 +44,12 @@ const Game = () => {
         }}
       >
         <Box
-          className="Estructure"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            height: "10%",
-            width: "90%",
-            borderRadius: 7.5,
-            paddingLeft: "3rem",
-            backgroundColor: "#FFEE8B",
-            boxShadow: 3,
-          }}
-        >
-          <Typography variant="h4">Savannah - lesson 1</Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            height: "6%",
-            width: "90%",
-            borderRadius: 7.5,
-            paddingLeft: "3rem",
-            backgroundColor: "#FFEE8B",
-            boxShadow: 3,
-          }}
-        >
-          <Typography variant="body1">
-            Learn the species that live in this place: Control the Capybara and
-            see how is their life.
-          </Typography>
-        </Box>
-        <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            height: "75%",
+            height: "100%",
           }}
         >
           <Level></Level>
