@@ -45,6 +45,7 @@ const Router = () => {
           path="/Home"
           element={
             <ProtectedRoute>
+              
               <HomePage />
             </ProtectedRoute>
           }
