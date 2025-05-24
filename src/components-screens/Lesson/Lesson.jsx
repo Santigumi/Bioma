@@ -1,10 +1,12 @@
 import { Box, Typography, Divider } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
+import { useNavigate } from "react-router-dom";
 const Lesson = ({ index, tituleText, boolean, direction }) => {
+  const navigate = useNavigate();
   return (
     <Box
+      onClick={() => navigate(direction)}
       sx={{
         display: "flex",
         flexDirection: "row",
@@ -34,9 +36,16 @@ const Lesson = ({ index, tituleText, boolean, direction }) => {
           sx={{ borderRightWidth: 2, borderColor: "black" }}
         ></Divider>
         <Typography variant="h6">{tituleText}</Typography>
-        </Box>
-        <Box sx={{ display:"flex", flexDirection:"column", justifyContent: "center", height:'100%' }}>
-          {boolean === true ? <ArrowForwardIcon /> : <LockIcon />}
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          height: "100%",
+        }}
+      >
+        {boolean === true ? <ArrowForwardIcon /> : <LockIcon />}
       </Box>
     </Box>
   );
