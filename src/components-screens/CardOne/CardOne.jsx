@@ -1,8 +1,10 @@
 import { Typography, Card, CardMedia, CardContent, CardActionArea } from "@mui/material";
-
-const CardOne = ({ name, image }) => {
+import { useNavigate } from "react-router-dom";
+const CardOne = ({ name, image, direction }) => {
+  const navigate = useNavigate();
   return (
     <Card
+      onClick={()=> navigate(direction)}
       sx={{
         display: "flex",
         flexDirection: "column",
