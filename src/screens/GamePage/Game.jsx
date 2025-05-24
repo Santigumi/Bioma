@@ -2,38 +2,66 @@ import { Box, Button } from "@mui/material";
 import Level from "../../components-Game/Level/Level";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Game = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
+  const [openStart, setOpenStart] = useState(true);
+  const [openPause, setOpenPause] = useState(false);
+  const [openVictory, setVictoryModal] = useState(false);
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    bgcolor: "white",
+    padding: 4,
+    borderRadius: 2,
+    textAlign: "center",
+  };
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        width: "100%",
-        height: "100%",
+        width: "100vw",
+        height: "100vh",
         boxSizing: "border-box",
+        overflow: "hidden",
+        position: "relative",
         backgroundImage:
           "url('../src/assets/backgrounds/Biomas-Background.png')",
       }}
     >
-      <Box>
-        <Button onClick={handleOpen}>Open modal</Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box>
-            <Button>Resume</Button>
-            <Button>Restart</Button>
-            <Button>Quit</Button>
-          </Box>
-        </Modal>
-      </Box>
+      <Button
+        sx={{ position: "absolute", top: 10, right: 10, zIndex: 10 }}
+        onClick={() => setOpenPause(true)}
+      >
+        ||
+      </Button>
+      <Modal open={openStart} onClose={() => setOpenStart(false)}>
+        <Box sx={modalStyle}>
+          <h2>¡Bienvenido!</h2>
+          <Button onClick={() => setOpenStart(false)}>Iniciar</Button>
+        </Box>
+      </Modal>
+
+      <Modal open={openPause} onClose={() => setOpenPause(false)}>
+        <Box sx={modalStyle}>
+          <h2>Juego en Pausa</h2>
+          <Button onClick={() => setOpenPause(false)}>Continuar</Button>
+          <Button onClick={() => window.location.reload()}>Reiniciar</Button>
+        </Box>
+      </Modal>
+
+      <Modal open={openVictory} onClose={() => {}}>
+        <Box sx={modalStyle}>
+          <h2>¡Ganaste!</h2>
+          <Button onClick={() => window.location.reload()}>
+            Volver a jugar
+          </Button>
+        </Box>
+      </Modal>
       <Box
         sx={{
           display: "flex",
@@ -45,14 +73,11 @@ const Game = () => {
       >
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
             width: "100%",
             height: "100%",
           }}
         >
-          <Level></Level>
+          <Level onVictory={() => setVictoryModal(true)}></Level>
         </Box>
       </Box>
     </Box>
