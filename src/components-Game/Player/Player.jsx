@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Layer, Image as KonvaImage } from "react-konva";
-import { TITLE_SIZE, PLAYER_START } from "../../utils/constants";
+import { PLAYER_START } from "../../utils/constants";
 import useImage from "use-image";
 
-const Player = ({ grid }) => {
+const Player = ({ grid, onVictory, tileSize }) => {
   const [position, setPosition] = useState(PLAYER_START);
   const [playerImage] = useImage("../src/assets/Sprites/Capi.png");
 
   const canMove = (x, y) => {
-    return grid[y] && grid[y][x] === 0;
+    return grid[y] && grid[y][x] === 0 || grid[y][x] === 2;
   };
 
   useEffect(() => {
@@ -25,22 +25,24 @@ const Player = ({ grid }) => {
         if (e.key === "ArrowRight" && canMove(prev.x + 1, prev.y)) {
           newX++;
         }
-
+        if (grid[newY] && grid[newY][newX] === 2){
+          onVictory?.()
+        }
         return { x: newX, y: newY };
       });
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [grid]);
+  }, [grid, onVictory]);
 
   return (
     <Layer>
       <KonvaImage
-        x={position.x * TITLE_SIZE}
-        y={position.y * TITLE_SIZE}
-        width={TITLE_SIZE}
-        height={TITLE_SIZE}
+        x={position.x * tileSize}
+        y={position.y * tileSize}
+        width={tileSize}
+        height={tileSize}
         image={playerImage}
       ></KonvaImage>
     </Layer>
