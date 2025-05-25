@@ -57,7 +57,7 @@ const Game = () => {
       <Modal open={openVictory} onClose={() => {}}>
         <Box sx={modalStyle}>
           <h2>¡Ganaste!</h2>
-          <Button onClick={() => window.location.reload()}>
+          <Button onClick={() => navigate("/Lessons")}>
             Volver a jugar
           </Button>
         </Box>
