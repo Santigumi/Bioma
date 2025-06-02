@@ -3,7 +3,7 @@ import { Layer, Image as KonvaImage } from "react-konva";
 import { PLAYER_START } from "../../utils/constants";
 import useImage from "use-image";
 
-const Player = ({ grid, onVictory, tileSize }) => {
+const Player = ({ grid, onVictory, tileSize, offsetX = 0, offsetY = 0 }) => {
   const [position, setPosition] = useState(PLAYER_START);
   const [playerImage] = useImage("../src/assets/Sprites/Capi.png");
 
@@ -37,7 +37,7 @@ const Player = ({ grid, onVictory, tileSize }) => {
   }, [grid, onVictory]);
 
   return (
-    <Layer>
+    <Layer x={offsetX} y={offsetY}>
       <KonvaImage
         x={position.x * tileSize}
         y={position.y * tileSize}
