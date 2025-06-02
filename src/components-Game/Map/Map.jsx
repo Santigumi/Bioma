@@ -4,8 +4,11 @@ import useImage from "use-image";
 const Map = ({ grid, tileSize, offsetX = 0, offsetY = 0 }) => {
   const [pastoImage] = useImage("../src/assets/Sprites/Pasto.png");
   const [arbolImage] = useImage("../src/assets/Sprites/PlantaSavanah.png");
+  const roundedTileSize = Math.round(tileSize);
+  console.log(roundedTileSize);
+  
   return (
-    <Layer x={offsetX} y={offsetY}>
+    <Layer x={Math.round(offsetX)} y={Math.round(offsetY)}>
       {grid.map((row, y) =>
         row.map((cell, x) => {
           const posX = x * tileSize;
@@ -17,8 +20,8 @@ const Map = ({ grid, tileSize, offsetX = 0, offsetY = 0 }) => {
                 key={`${x}-${y}`}
                 x={posX}
                 y={posY}
-                width={tileSize}
-                height={tileSize}
+                width={roundedTileSize}
+                height={roundedTileSize}
                 image={arbolImage}
               ></KonvaImage>
             );
@@ -29,8 +32,8 @@ const Map = ({ grid, tileSize, offsetX = 0, offsetY = 0 }) => {
               key={`${x}-${y}`}
               x={posX}
               y={posY}
-              width={tileSize}
-              height={tileSize}
+              width={roundedTileSize}
+              height={roundedTileSize}
               image={pastoImage}
             ></KonvaImage>
           );
