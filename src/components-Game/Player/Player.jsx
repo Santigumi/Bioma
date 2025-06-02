@@ -3,7 +3,7 @@ import { Layer, Image as KonvaImage } from "react-konva";
 import { PLAYER_START } from "../../utils/constants";
 import useImage from "use-image";
 
-const Player = ({ grid, onVictory, tileSize, offsetX = 0, offsetY = 0 }) => {
+const Player = ({ grid, onVictory, tileSize, offsetX = 0, offsetY = 0, isPaused }) => {
   const [position, setPosition] = useState(PLAYER_START);
   const [playerImage] = useImage("../src/assets/Sprites/Capi.png");
 
@@ -13,6 +13,7 @@ const Player = ({ grid, onVictory, tileSize, offsetX = 0, offsetY = 0 }) => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (isPaused) return;
       setPosition((prev) => {
         let newX = prev.x;
         let newY = prev.y;

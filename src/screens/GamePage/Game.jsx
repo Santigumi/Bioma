@@ -67,7 +67,6 @@ const Game = () => {
           display: "flex",
           flexDirection: "Column",
           justifyContent: "space-between",
-          height: "95vh",
           width: "85vw",
         }}
       >
@@ -77,7 +76,7 @@ const Game = () => {
             height: "100%",
           }}
         >
-          <Level onVictory={() => setVictoryModal(true)}></Level>
+          <Level onVictory={() => setVictoryModal(true)} isPaused={openStart || openPause || openVictory}></Level>
         </Box>
       </Box>
     </Box>

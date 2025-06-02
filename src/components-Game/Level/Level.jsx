@@ -1,10 +1,10 @@
-import { Stage, Group } from "react-konva";
+import { Stage } from "react-konva";
 import Map from "../Map/Map";
 import Player from "../Player/Player";
 import { GRID_MAP } from "../../utils/constants";
 import { useRef, useState, useEffect } from "react";
 
-const Level = ({ onVictory }) => {
+const Level = ({ onVictory, isPaused }) => {
   const containerRef = useRef();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -43,7 +43,6 @@ const Level = ({ onVictory }) => {
         <Stage
           width={dimensions.width}
           height={dimensions.height}
-          styles={{ backgroundColor: "#00000" }}
         >
           <Map
             grid={GRID_MAP}
@@ -57,6 +56,7 @@ const Level = ({ onVictory }) => {
             tileSize={tileSize}
             offsetX={offsetX}
             offsetY={offsetY}
+            isPaused={isPaused}
           />
         </Stage>
       ) : (
