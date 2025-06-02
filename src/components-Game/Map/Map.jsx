@@ -18,10 +18,10 @@ const Map = ({ grid, tileSize, offsetX = 0, offsetY = 0 }) => {
             return (
               <KonvaImage
                 key={`${x}-${y}`}
-                x={posX}
-                y={posY}
-                width={roundedTileSize}
-                height={roundedTileSize}
+                x={posX - 0.5}
+                y={posY - 0.5}
+                width={tileSize + 1}
+                height={tileSize + 1 }
                 image={arbolImage}
               ></KonvaImage>
             );
@@ -30,10 +30,10 @@ const Map = ({ grid, tileSize, offsetX = 0, offsetY = 0 }) => {
           return (
             <KonvaImage
               key={`${x}-${y}`}
-              x={posX}
-              y={posY}
-              width={roundedTileSize}
-              height={roundedTileSize}
+              x={posX - 0.5}
+              y={posY - 0.5}
+              width={roundedTileSize + 1}
+              height={roundedTileSize + 1}
               image={pastoImage}
             ></KonvaImage>
           );
