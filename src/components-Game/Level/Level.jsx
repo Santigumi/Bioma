@@ -3,10 +3,24 @@ import Map from "../Map/Map";
 import Player from "../Player/Player";
 import { GRID_MAP } from "../../utils/constants";
 import { useRef, useState, useEffect } from "react";
-
+import { useDispatch } from "react-redux";
+import { setItems } from "../../redux/game/itemsSlice";
 const Level = ({ onVictory, isPaused }) => {
   const containerRef = useRef();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const collectibleItems = [];
+    GRID_MAP.forEach((row, y) => {
+      row.forEach((cell, x) => {
+        if (cell === 3) {
+          collectibleItems.push({ x, y });
+        }
+      });
+    });
+    dispatch(setItems(collectibleItems))
+  }, [dispatch]);
 
   useEffect(() => {
     const updateSize = () => {
@@ -40,10 +54,7 @@ const Level = ({ onVictory, isPaused }) => {
       style={{ width: "100vw", height: "100vh", overflow: "hidden" }}
     >
       {ready ? (
-        <Stage
-          width={dimensions.width}
-          height={dimensions.height}
-        >
+        <Stage width={dimensions.width} height={dimensions.height}>
           <Map
             grid={GRID_MAP}
             tileSize={tileSize}
