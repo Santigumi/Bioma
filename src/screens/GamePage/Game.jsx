@@ -1,13 +1,21 @@
 import { Box, Button } from "@mui/material";
 import Level from "../../components-Game/Level/Level";
 import Modal from "@mui/material/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const Game = () => {
   const navigate = useNavigate();
   const [openStart, setOpenStart] = useState(true);
   const [openPause, setOpenPause] = useState(false);
   const [openVictory, setVictoryModal] = useState(false);
+  const items = useSelector((state) => state.items.items);
+  useEffect(()=>{
+    if(items.length === 0){
+      setVictoryModal(true)
+    }
+  },[items]);
   const modalStyle = {
     position: "absolute",
     top: "50%",
@@ -57,9 +65,7 @@ const Game = () => {
       <Modal open={openVictory} onClose={() => {}}>
         <Box sx={modalStyle}>
           <h2>¡Ganaste!</h2>
-          <Button onClick={() => navigate("/Lessons")}>
-            Volver a jugar
-          </Button>
+          <Button onClick={() => navigate("/Lessons")}>Volver a jugar</Button>
         </Box>
       </Modal>
       <Box
@@ -76,7 +82,10 @@ const Game = () => {
             height: "100%",
           }}
         >
-          <Level onVictory={() => setVictoryModal(true)} isPaused={openStart || openPause || openVictory}></Level>
+          <Level
+            onVictory={() => setVictoryModal(true)}
+            isPaused={openStart || openPause || openVictory}
+          ></Level>
         </Box>
       </Box>
     </Box>
