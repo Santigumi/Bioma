@@ -1,10 +1,12 @@
 import Navbar from "../../components-screens/Navbar/Navbar";
 import { ThemeProvider } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Box, Typography, Grid, Button } from "@mui/material";
 import theme from "../../Themes/Theme";
 const Home = () => {
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -22,10 +24,10 @@ const Home = () => {
             sm: 0,
             md: 10,
             lg: 10,
-            xl: 10
+            xl: 10,
           },
-          width: '100%',
-          height: '100%',
+          width: "100%",
+          height: "100%",
           alignItems: "center",
           backgroundImage: "url('../src/assets/backgrounds/fondolanding.webp')",
           backgroundRepeat: "no-repeat",
@@ -96,7 +98,7 @@ const Home = () => {
                   padding: "10px 5px",
                 }}
               >
-                Welcome back, your name
+                {user ? `Welcome back, ${user.username}!` : "Welcome back!"}
               </Typography>
             </Box>
             <Box
