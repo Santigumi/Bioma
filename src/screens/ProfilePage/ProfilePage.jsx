@@ -13,7 +13,7 @@ import sailboat from "../../assets/icons/sailboat.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearUser } from "../../redux/auth/AuthSlice";
-import { loginUser, logoutUser } from "../../services/firebaseUtils";
+import { logoutUser } from "../../services/firebaseUtils";
 import { Box, ThemeProvider, Grid, Button } from "@mui/material";
 import { useSelector } from "react-redux";
 
