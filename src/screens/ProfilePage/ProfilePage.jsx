@@ -13,12 +13,15 @@ import sailboat from "../../assets/icons/sailboat.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearUser } from "../../redux/auth/AuthSlice";
-import { logoutUser } from "../../services/firebaseUtils";
+import { loginUser, logoutUser } from "../../services/firebaseUtils";
 import { Box, ThemeProvider, Grid, Button } from "@mui/material";
+import { useSelector } from "react-redux";
+
 import theme from "../../Themes/Theme";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
   const dataBiomas = [
     { icon: { tree }, percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
     { icon: { rail }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
@@ -178,7 +181,10 @@ const ProfilePage = () => {
                 paddingRight: 2,
               }}
             >
-              <InfoCharacter username="Capysanti" charactersFound={Capi} />
+              <InfoCharacter
+                username={user?.username || "Usuario"}
+                charactersFound={Capi}
+              />
 
               <Grid
                 container
