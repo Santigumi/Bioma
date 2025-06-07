@@ -5,9 +5,13 @@ import { GRID_MAP } from "../../utils/constants";
 import { useRef, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setItems } from "../../redux/game/itemsSlice";
+import Trap from "../Trap/Trap";
+
 const Level = ({ onVictory, isPaused }) => {
   const containerRef = useRef();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [playerPos, setPlayerPos] = useState({ x: 0, y: 0 });
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +23,7 @@ const Level = ({ onVictory, isPaused }) => {
         }
       });
     });
-    dispatch(setItems(collectibleItems))
+    dispatch(setItems(collectibleItems));
   }, [dispatch]);
 
   useEffect(() => {
@@ -68,6 +72,20 @@ const Level = ({ onVictory, isPaused }) => {
             offsetX={offsetX}
             offsetY={offsetY}
             isPaused={isPaused}
+            onMove={setPlayerPos}
+            onPlayerMove={(pos) => setPlayerPos(pos)}
+          />
+          <Trap
+            x={4}
+            y={3}
+            tileSize={tileSize}
+            offsetX={offsetX}
+            offsetY={offsetY}
+            playerPosition={playerPos}
+            isPaused={isPaused}
+            onGameOver={() => {
+              alert("¡Caíste en una trampa!");
+            }}
           />
         </Stage>
       ) : (
