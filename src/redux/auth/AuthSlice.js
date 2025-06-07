@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginUserThunk } from "./thunkSlice"; // Asegúrate de que la ruta sea correcta
+import { loginUserThunk } from "./thunkSlice";
 const initialState = {
   user: null,
   status: "idle",
