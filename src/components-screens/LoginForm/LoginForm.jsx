@@ -165,6 +165,7 @@ const LoginForm = () => {
                 sx={{ width: "100%" }}
                 label="Password"
                 type="password"
+                
                 {...register("password", {
                   required: "Password is required",
                 })}

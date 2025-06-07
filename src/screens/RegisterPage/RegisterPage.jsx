@@ -8,7 +8,7 @@ const RegisterPage = () => {
     <ThemeProvider theme={theme}>
       <Box
         className="background"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        sx={{ backgroundImage: `url(${backgroundImage})`, display: "flex", flexDirection: "row" }}
       >
         <Navbar backgroundColor={theme.palette.red.secondary}></Navbar>
         <Box

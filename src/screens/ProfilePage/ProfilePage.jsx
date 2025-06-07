@@ -10,82 +10,217 @@ import palm from "../../assets/icons/tree-palm.png";
 import atom from "../../assets/icons/atom.png";
 import sprout from "../../assets/icons/sprout.png";
 import sailboat from "../../assets/icons/sailboat.png";
-import "./ProfilePage.css";
+import { Box, ThemeProvider, Grid, Button } from "@mui/material";
+import theme from "../../Themes/Theme";
 const ProfilePage = () => {
+  const dataBiomas = [
+    { icon: { tree }, percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
+    { icon: { rail }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
+    { icon: { palm }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
+    { icon: { atom }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
+    { icon: { sprout }, percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
+    { icon: { sailboat }, percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
+    { icon: "", percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
+    { icon: "", percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
+    { icon: "", percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
+  ];
   return (
-    <>
-      <div
+    <ThemeProvider theme={theme}>
+      <Box
         className="background"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        sx={{
+          backgroundImage: `url(${backgroundImage})`,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          paddingBottom: {
+            xs: "2.5rem",
+            sm: "2.5rem",
+            md: 0,
+            lg: 0,
+            xl: 0,
+          },
+          overflowY: {
+            xs: "auto",
+            sm: "auto",
+            md: "hidden",
+            lg: "hidden",
+            xl: "hidden",
+          },
+        }}
       >
-        <Navbar
-          backgroundColor="rgba(237, 124, 124, 1)"
-          hoverColor="rgba(225, 67, 67, 1)"
-        />
-
-        <div className="estructure">
-          <div className="profile-layout">
-            <div className="left-column">
+        <Navbar />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: {
+              xs: "column-reverse",
+              sm: "column-reverse",
+              md: "row",
+              lg: "row",
+              xl: "row",
+            },
+            justifyContent: {
+              xs: "start",
+              sm: "start",
+              md: "start",
+              lg: "center",
+              xl: "center",
+            },
+            alignItems: {
+              xs: "start",
+              sm: "start",
+              md: "start",
+              lg: "center",
+              xl: "center",
+            },
+            width: "80vw",
+            height: {
+              xs: "150vh",
+              sm: "150vh",
+              md: "150vh",
+              lg: "100vh",
+              xl: "100vh",
+            },
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: {
+                xs: "column-reverse",
+                sm: "column-reverse",
+                md: "row",
+                lg: "row",
+                xl: "row",
+              },
+              width: {
+                xs: "100%",
+                sm: "100%",
+                md: "80%",
+                lg: "80%",
+                xl: "80%",
+              },
+              height: "90%",
+            }}
+          >
+            <Box
+              sx={{
+                width: {
+                  xs: "100%",
+                  sm: "100%",
+                  md: "50%",
+                  lg: "50%",
+                  xl: "50%",
+                },
+                height: {
+                  xs: "50%",
+                  sm: "50%",
+                  md: "100%",
+                  lg: "100%",
+                  xl: "100%",
+                },
+              }}
+            >
               <CharacterProfile nameCharacter="Capybara" imgCharacter={Capi} />
-            </div>
+              <Button
+                sx={{
+                  display: {
+                    xs: "flex",
+                    sm: "flex",
+                    md: "none",
+                    lg: "none",
+                    xl: "none",
+                  },
+                }}
+                variant="contained"
+              >
+                Cerrar sesión
+              </Button>
+            </Box>
 
-            <div className="right-column">
-              <div className="right-content">
-                <div className="info-character">
-                  <InfoCharacter username="Capysanti" charactersFound={Capi} />
-                </div>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: 'column',
+                gap: 3,
+                width: {
+                  xs: "100%",
+                  sm: "100%",
+                  md: "50%",
+                  lg: "50%",
+                  xl: "50%",
+                },
+                height: {
+                  xs: "80%",
+                  sm: "80%",
+                  md: "80%",
+                  lg: "100%",
+                  xl: "100%",
+                },
+                paddingLeft: 2,
+                paddingRight: 2,
+              }}
+            >
+              <InfoCharacter username="Capysanti" charactersFound={Capi} />
 
-                <div className="progress-container">
-                  <div className="progress-column">
-                    <LevelProgress iconProgress={tree} percentage="96%" />
-                    <LevelProgress
-                      iconProgress={tree}
-                      percentage="45%"
-                      color="rgba(255, 228, 67, 1)"
-                    />
-                    <LevelProgress iconProgress={sprout} percentage="0%" />
-                  </div>
-                  <div className="progress-column">
-                    <LevelProgress
-                      iconProgress={palm}
-                      percentage="16%"
-                      color="rgba(255, 228, 67, 1)"
-                    />
-                    <LevelProgress
-                      iconProgress={tree}
-                      percentage="5%"
-                      color="rgba(0, 141, 213, 1)"
-                    />
-                    <LevelProgress
-                      iconProgress={sailboat}
-                      percentage="15%"
-                      color="rgba(71, 193, 255, 1)"
-                    />
-                  </div>
-                  <div className="progress-column">
-                    <LevelProgress
-                      iconProgress={tree}
-                      percentage="5%"
-                      color="rgba(0, 141, 213, 1)"
-                    />
-                    <LevelProgress
-                      iconProgress={rail}
-                      percentage="0%"
-                      color="rgba(71, 193, 255, 1)"
-                    />
-                    <LevelProgress
-                      iconProgress={atom}
-                      percentage="0%"
-                      color="rgba(0, 141, 213, 1)"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+              <Grid
+                container
+                spacing={2}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  height: "40%",
+                }}
+              >
+                {dataBiomas.map((bioma) => {
+                  return (
+                    <Grid
+                      item
+                      xs={4}
+                      sm={4}
+                      md={4}
+                      lg={4}
+                      xl={4}
+                      key={bioma.index}
+                      sx={{ width: "25%" }}
+                    >
+                      <LevelProgress
+                        iconProgress={bioma.icon}
+                        percentage={bioma.percentaje}
+                        color={bioma.color}
+                      ></LevelProgress>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <Button
+                  sx={{
+                    display: {
+                      xs: "none",
+                      sm: "none",
+                      md: "flex",
+                      lg: "flex",
+                      xl: "flex",
+                    },
+                  }}
+                  variant="contained"
+                >
+                  Cerrar sesión
+                </Button>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 };
 
