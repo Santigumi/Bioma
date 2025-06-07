@@ -11,6 +11,7 @@ const Player = ({
   offsetX = 0,
   offsetY = 0,
   isPaused,
+  onPlayerMove,
 }) => {
   const [position, setPosition] = useState(PLAYER_START);
   const [playerImage] = useImage("../src/assets/Sprites/Capi.png");
@@ -43,7 +44,9 @@ const Player = ({
         onVictory?.();
       }
 
-      setPosition({ x: newX, y: newY });
+      const newPosition = { x: newX, y: newY };
+      setPosition(newPosition);
+      onPlayerMove?.(newPosition); // ← Notifica al padre
     };
 
     window.addEventListener("keydown", handleKeyDown);
