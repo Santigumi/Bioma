@@ -18,6 +18,15 @@ const Game = ({ background, characters, map, text, color }) => {
       setVictoryModal(true);
     }
   }, [items]);
+
+  useEffect(() => {
+    setVictoryModal(false);
+  }, []);
+  const handleContinue = () => {
+    setVictoryModal(false);
+    navigate("/Lessons");
+  };
+
   const modalStyle = {
     display: "flex",
     flexDirection: "column",
@@ -117,12 +126,12 @@ const Game = ({ background, characters, map, text, color }) => {
         </Box>
       </Modal>
 
-      <Modal open={openVictory} onClose={() => {}}>
+      <Modal open={openVictory} onClose={() => setVictoryModal(false)}>
         <Box sx={modalStyle}>
           <h2>¡Ganaste!</h2>
           <Button
             sx={{ backgroundColor: "#FFE549", color: "#000000" }}
-            onClick={() => navigate("/Lessons")}
+            onClick={handleContinue}
           >
             Continuar
           </Button>
