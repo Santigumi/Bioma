@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { setItems } from "../../redux/game/itemsSlice";
 import Trap from "../Trap/Trap";
 
-const Level = ({ onVictory, isPaused }) => {
+const Level = ({ onVictory, isPaused, onGameOver }) => {
   const containerRef = useRef();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [playerPos, setPlayerPos] = useState({ x: 0, y: 0 });
@@ -59,34 +59,32 @@ const Level = ({ onVictory, isPaused }) => {
     >
       {ready ? (
         <Stage width={dimensions.width} height={dimensions.height}>
-          <Map
-            grid={GRID_MAP}
-            tileSize={tileSize}
-            offsetX={offsetX}
-            offsetY={offsetY}
-          />
-          <Player
-            grid={GRID_MAP}
-            onVictory={onVictory}
-            tileSize={tileSize}
-            offsetX={offsetX}
-            offsetY={offsetY}
-            isPaused={isPaused}
-            onMove={setPlayerPos}
-            onPlayerMove={(pos) => setPlayerPos(pos)}
-          />
-          <Trap
-            x={4}
-            y={3}
-            tileSize={tileSize}
-            offsetX={offsetX}
-            offsetY={offsetY}
-            playerPosition={playerPos}
-            isPaused={isPaused}
-            onGameOver={() => {
-              alert("¡Caíste en una trampa!");
-            }}
-          />
+            <Map
+              grid={GRID_MAP}
+              tileSize={tileSize}
+              offsetX={offsetX}
+              offsetY={offsetY}
+            />
+            <Player
+              grid={GRID_MAP}
+              onVictory={onVictory}
+              tileSize={tileSize}
+              offsetX={offsetX}
+              offsetY={offsetY}
+              isPaused={isPaused}
+              onMove={setPlayerPos}
+              onPlayerMove={(pos) => setPlayerPos(pos)}
+            />
+            <Trap
+              x={4}
+              y={3}
+              tileSize={tileSize}
+              offsetX={offsetX}
+              offsetY={offsetY}
+              playerPosition={playerPos}
+              isPaused={isPaused}
+              onGameOver={onGameOver}
+            />
         </Stage>
       ) : (
         <p>Loading map...</p>

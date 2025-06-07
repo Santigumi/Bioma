@@ -10,6 +10,8 @@ const Game = ({ background, characters, map, text, color }) => {
   const [openStart, setOpenStart] = useState(true);
   const [openPause, setOpenPause] = useState(false);
   const [openVictory, setVictoryModal] = useState(false);
+  const [openGameOver, setOpenGameOver] = useState(false);
+
   const items = useSelector((state) => state.items.items);
   useEffect(() => {
     if (items.length === 0) {
@@ -45,6 +47,7 @@ const Game = ({ background, characters, map, text, color }) => {
     alignItems: "center",
     boxShadow: 24,
   };
+
   return (
     <Box
       sx={{
@@ -57,7 +60,7 @@ const Game = ({ background, characters, map, text, color }) => {
         overflow: "hidden",
         position: "relative",
         backgroundImage:
-           "url('../src/assets/backgrounds/Biomas-Background.webp')",
+          "url('../src/assets/backgrounds/Biomas-Background.webp')",
       }}
     >
       <Button
@@ -91,7 +94,13 @@ const Game = ({ background, characters, map, text, color }) => {
           <Typography variant="h4" sx={{ color: "#000000" }}>
             Juego en Pausa
           </Typography>
-          <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
             <Button
               sx={{ backgroundColor: "#FFE549", color: "#000000" }}
               onClick={() => setOpenPause(false)}
@@ -111,9 +120,24 @@ const Game = ({ background, characters, map, text, color }) => {
       <Modal open={openVictory} onClose={() => {}}>
         <Box sx={modalStyle}>
           <h2>¡Ganaste!</h2>
-          <Button 
-          sx={{ backgroundColor: "#FFE549", color: "#000000" }}
-          onClick={() => navigate("/Lessons")}>Continuar</Button>
+          <Button
+            sx={{ backgroundColor: "#FFE549", color: "#000000" }}
+            onClick={() => navigate("/Lessons")}
+          >
+            Continuar
+          </Button>
+        </Box>
+      </Modal>
+
+      <Modal open={openGameOver} onClose={() => {}}>
+        <Box sx={modalStyle}>
+          <h2>¡Perdiste!</h2>
+          <Button
+            sx={{ backgroundColor: "#FFE549", color: "#000000" }}
+            onClick={() => navigate("/Lessons")}
+          >
+            Volver
+          </Button>
         </Box>
       </Modal>
       <Box
@@ -133,6 +157,7 @@ const Game = ({ background, characters, map, text, color }) => {
           <Level
             onVictory={() => setVictoryModal(true)}
             isPaused={openStart || openPause || openVictory}
+            onGameOver={() => setOpenGameOver(true)}
           ></Level>
         </Box>
       </Box>

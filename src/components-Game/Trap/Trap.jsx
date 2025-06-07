@@ -1,38 +1,48 @@
-import { Layer, Rect } from "react-konva";
 import { useEffect, useState } from "react";
-
-const Trap = ({ x, y, tileSize, offsetX = 0, offsetY = 0, playerPosition, onGameOver, isPaused }) => {
-  const [active, setActive] = useState(false);
+import { Rect } from "react-konva";
+import { Layer } from "react-konva";
+const Trap = ({
+  x,
+  y,
+  tileSize,
+  offsetX,
+  offsetY,
+  playerPosition,
+  isPaused,
+  onGameOver,
+}) => {
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (isPaused) return;
-
     const interval = setInterval(() => {
-      setActive((prev) => !prev); // alterna estado cada X tiempo
-    }, 1500); // cambia cada 1.5s
-
+      if (!isPaused) {
+        setVisible((prev) => !prev);
+      }
+    }, 1000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
-  // Detectar colisión solo si está activa
   useEffect(() => {
-    if (active && playerPosition.x === x && playerPosition.y === y) {
-      onGameOver();
+    if (
+      !isPaused &&
+      visible &&
+      playerPosition.x === x &&
+      playerPosition.y === y
+    ) {
+      onGameOver?.();
     }
-  }, [active, playerPosition, x, y, onGameOver]);
+  }, [playerPosition, isPaused, visible]);
 
   return (
-    <Layer x={offsetX} y={offsetY}>
-      {active && (
-        <Rect
-          x={x * tileSize}
-          y={y * tileSize}
-          width={tileSize}
-          height={tileSize}
-          fill="red"
-          opacity={0.6}
-        />
-      )}
+    <Layer>
+      <Rect
+        x={x * tileSize + offsetX}
+        y={y * tileSize + offsetY}
+        width={tileSize}
+        height={tileSize}
+        fill="red"
+        opacity={visible ? 1 : 0} // 👈 Esto evita devolver null
+      />
     </Layer>
   );
 };
