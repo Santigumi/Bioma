@@ -2,7 +2,7 @@ import Navbar from "../../components-screens/Navbar/Navbar";
 import LevelProgress from "../../components-screens/LevelProgress/LevelProgress";
 import InfoCharacter from "../../components-screens/InfoCharacter/InfoCharacter";
 import CharacterProfile from "../../components-screens/CharacterProfile/CharacterProfile";
-import Capi from "../../assets/characters/Capi.png";
+import Capi from "../../assets/characters/Capibara.png";
 import backgroundImage from "../../assets/backgrounds/fondoregister.webp";
 import tree from "../../assets/icons/tree-pine.png";
 import rail from "../../assets/icons/rail-symbol.png";
