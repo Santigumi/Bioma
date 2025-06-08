@@ -1,70 +1,33 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+// faunaSlice.js
+import { createSlice } from "@reduxjs/toolkit";
 
-// Async thunk para obtener fauna
-export const fetchFauna = createAsyncThunk(
-  "fauna/fetchFauna",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await fetch(
-        "https://api.catalogo.biodiversidad.co/search?fq=REINO:TERRAE"
-      );
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log("API Response:", data); // Para debugging
-
-      // La API de biodiversidad.co devuelve los datos en diferentes estructuras
-      // Probamos varios campos posibles
-      return (
-        data?.results || data?.docs || data?.response?.docs || data?.data || []
-      );
-    } catch (error) {
-      console.error("Error fetching fauna:", error);
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// Thunk
 
 const faunaSlice = createSlice({
   name: "fauna",
   initialState: {
-    items: [],
+    faunaApi: [],
     loading: false,
     error: null,
   },
   reducers: {
-    // Reducer para limpiar errores
-    clearError: (state) => {
-      state.error = null;
+    setApiFauna: (state, action) => {
+      state.faunaApi = action.payload;
     },
-    // Reducer para limpiar datos
-    clearFauna: (state) => {
-      state.items = [];
-      state.loading = false;
-      state.error = null;
+    addNewFauna: (state, action) => {
+      const alreadyExists = state.faunaApi.some(
+        (d) => d.id === action.payload.id
+      );
+      if (!alreadyExists) {
+        state.faunaApi.push(action.payload);
+      }
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchFauna.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchFauna.fulfilled, (state, action) => {
-        state.loading = false;
-        state.items = action.payload;
-        state.error = null;
-      })
-      .addCase(fetchFauna.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload || action.error.message;
-        state.items = [];
-      });
+    removeFauna: (state, action) => {
+      state.faunaApi = state.faunaApi.filter(
+        (dig) => dig.id !== action.payload
+      );
+    },
   },
 });
 
-export const { clearError, clearFauna } = faunaSlice.actions;
 export default faunaSlice.reducer;

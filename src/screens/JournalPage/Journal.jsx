@@ -10,6 +10,33 @@ import { fetchFauna } from "../../redux/auth/apiSlice";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
+  const [error, setError] = useState("");
+  const [fauna, setFauna] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const faunaApi = useSelector((state) => state.fauna.faunaApi);
+  console.log("faunaApi", faunaApi);
+
+  useEffect(() => {
+    fetchFauna();
+  }, []);
+
+  const fetchFauna = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `https://api.catalogo.biodiversidad.co/search?fq=REINO:TERRAE`
+      );
+      if (!response.ok) {
+        throw new Error("Fauna no encontrada");
+      }
+      const data = await response.json();
+      setFauna(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div
