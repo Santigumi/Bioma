@@ -5,13 +5,20 @@ export const fetchFauna = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetch(
-        "http://api.catalogo.biodiversidad.co/record_search/search?q=Leopardus%20pardalis"
+        "https://api.catalogo.biodiversidad.co/record_search/search?q=Animalia&size=30"
       );
       const data = await response.json();
-      console.log("Fetched Fauna Data:", data);
+      console.log("API Response", data);
+      const filtered = data.filter(
+        (item) => item.imageInfo?.mainImage || item.imageInfo?.thumbnailImage
+      );
 
-      return data;
+      console.log(
+        `Elementos filtrados con imagen: ${filtered.length} de ${data.length}`
+      );
+      return filtered.slice(0, 10);
     } catch (error) {
+      console.error("Error fetching fauna:", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -48,13 +55,18 @@ const faunaSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchFauna.fulfilled, (state, action) => {
-        state.loading = false;
-        state.faunaApi = action.payload;
-      })
       .addCase(fetchFauna.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchFauna.fulfilled, (state, action) => {
+        state.loading = false;
+        state.faunaApi = action.payload;
+        console.log(
+          "Fauna cargada exitosamente:",
+          action.payload.length,
+          "elementos"
+        );
       });
   },
 });

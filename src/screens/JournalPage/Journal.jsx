@@ -47,12 +47,50 @@ const Journal = () => {
     dispatch(fetchFauna());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (faunaApi.length > 0) {
+      console.log("✅ Datos cargados:", faunaApi.length);
+      console.log("✅ Primer animal:", faunaApi[0]);
+      console.log(
+        "✅ Imagen del primer animal:",
+        faunaApi[0].imageInfo?.mainImage
+      );
+    }
+  }, [faunaApi]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const handleTabClick = (newColor) => {
     setColor(newColor);
   };
+
+  useEffect(() => {
+    if (faunaApi.length > 0) {
+      console.log("Primer elemento completo:", faunaApi[0]);
+
+      // Verificar imágenes disponibles
+      const elementsWithImages = faunaApi.filter(
+        (animal) => animal.imageInfo?.mainImage
+      );
+      console.log(
+        `Elementos con imágenes: ${elementsWithImages.length} de ${faunaApi.length}`
+      );
+
+      // Ver ejemplos de nombres
+      faunaApi.slice(0, 3).forEach((animal, i) => {
+        const spanishName = animal.commonNames?.find(
+          (cn) => cn.language === "Español"
+        )?.name;
+        console.log(`Animal ${i + 1}:`, {
+          spanish: spanishName,
+          first: animal.commonNames?.[0]?.name,
+          scientific: animal.scientificNameSimple,
+          hasImage: !!animal.imageInfo?.mainImage,
+        });
+      });
+    }
+  }, [faunaApi]);
+
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -275,6 +313,7 @@ const Journal = () => {
                 borderColor: "#4AB8F0",
                 boxShadow: 3,
                 boxSizing: "border-box",
+                overflowY: "auto",
               }}
             >
               <CustomTabPanel value={value} index={0}>
@@ -289,23 +328,40 @@ const Journal = () => {
                   </Typography>
                 ) : error ? (
                   <Typography variant="h6" sx={{ color: "#D62828" }}>
-                    {error}
+                    Error: {error}
                   </Typography>
                 ) : faunaApi.length === 0 ? (
                   <Typography variant="h6" sx={{ color: "#D62828" }}>
                     Animals are empty
                   </Typography>
                 ) : (
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 2,
+                      justifyContent: "flex-start",
+                    }}
+                  >
                     {faunaApi.map((animal, index) => (
                       <CardOne
-                        key={animal.id || index}
+                        key={animal._id || index}
+                        // Accediendo correctamente a commonNames
                         name={
+                          animal.commonNames?.find(
+                            (cn) => cn.language === "Español"
+                          )?.name ||
                           animal.commonNames?.[0]?.name ||
-                          animal.scientificName ||
+                          animal.scientificNameSimple ||
                           "Nombre no disponible"
                         }
-                        image={animal.image}
+                        // Accediendo correctamente a imageInfo
+                        image={
+                          animal.imageInfo?.mainImage ||
+                          animal.imageInfo?.thumbnailImage ||
+                          "https://via.placeholder.com/300x200?text=Sin+Imagen"
+                        }
+                        direction="/animal-detail"
                       />
                     ))}
                   </Box>
