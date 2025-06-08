@@ -185,7 +185,11 @@ const Journal = () => {
                 gap: 3,
               }}
             >
-              <Tabs onChange={handleChange} sx={{ width: "100%" }}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                sx={{ width: "100%" }}
+              >
                 <Tab
                   sx={{
                     backgroundColor: "#FFE549",
@@ -288,7 +292,7 @@ const Journal = () => {
                   </Typography>
                 ) : faunaApi.length === 0 ? (
                   <Typography variant="h6" sx={{ color: "#D62828" }}>
-                    No hay animales disponibles
+                    Animals are empty
                   </Typography>
                 ) : (
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
@@ -296,7 +300,7 @@ const Journal = () => {
                       <CardOne
                         key={animal.id}
                         name={animal.name}
-                        image={animal.image} // o el link que necesites
+                        image={animal.image}
                       />
                     ))}
                   </Box>
