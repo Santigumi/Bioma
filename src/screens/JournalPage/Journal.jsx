@@ -19,7 +19,7 @@ function CustomTabPanel(props) {
       id={`simple-tabpanel-%{index}`}
       aria-labelledby={`simple-tab-${index}`}
     >
-      {value === index && <box sx={{ p: 3 }}>{children}</box>}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -40,7 +40,13 @@ function a11yProps(index) {
 const Journal = () => {
   const [value, setValue] = useState(0);
   const [color, setColor] = useState(theme.palette.yellow.main);
+  const dispatch = useDispatch();
   const { faunaApi, loading, error } = useSelector((state) => state.fauna);
+
+  useEffect(() => {
+    dispatch(fetchFauna());
+  }, [dispatch]);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -66,7 +72,6 @@ const Journal = () => {
           boxSizing: "border-box",
           backgroundImage:
             "url('../src/assets/backgrounds/Journal-Background.webp')",
-          width: "100%",
           paddingBottom: {
             xs: 0,
             sm: 0,
@@ -81,7 +86,6 @@ const Journal = () => {
             lg: 0,
             xl: 0,
           },
-          boxSizing: "border-box",
           overflowY: {
             xs: "auto",
             sm: "auto",
@@ -96,7 +100,7 @@ const Journal = () => {
         </Box>
 
         <Box
-          ClassName="Estructure"
+          className="Estructure"
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -193,8 +197,6 @@ const Journal = () => {
                 <Tab
                   sx={{
                     backgroundColor: "#FFE549",
-                    borderTopLeftRadius: 10,
-                    borderTopRightRadius: 25,
                     color: "black",
                     flexGrow: 1,
                     borderTopLeftRadius: {
@@ -273,7 +275,6 @@ const Journal = () => {
                 borderColor: "#4AB8F0",
                 boxShadow: 3,
                 boxSizing: "border-box",
-                borderColor: color,
               }}
             >
               <CustomTabPanel value={value} index={0}>
@@ -296,10 +297,14 @@ const Journal = () => {
                   </Typography>
                 ) : (
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
-                    {faunaApi.map((animal) => (
+                    {faunaApi.map((animal, index) => (
                       <CardOne
-                        key={animal.id}
-                        name={animal.name}
+                        key={animal.id || index}
+                        name={
+                          animal.commonNames?.[0]?.name ||
+                          animal.scientificName ||
+                          "Nombre no disponible"
+                        }
                         image={animal.image}
                       />
                     ))}

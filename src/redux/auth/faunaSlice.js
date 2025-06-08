@@ -5,9 +5,11 @@ export const fetchFauna = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await fetch(
-        "https://api.catalogo.biodiversidad.co/search?fq=REINO:TERRAE"
+        "http://api.catalogo.biodiversidad.co/record_search/search?q=Leopardus%20pardalis"
       );
       const data = await response.json();
+      console.log("Fetched Fauna Data:", data);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
