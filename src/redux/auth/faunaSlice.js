@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// Async thunk para traer los datos
 export const fetchFauna = createAsyncThunk(
   "fauna/fetchFauna",
   async (_, thunkAPI) => {

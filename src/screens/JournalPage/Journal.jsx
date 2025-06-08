@@ -4,6 +4,10 @@ import Navbar from "../../components-screens/Navbar/Navbar";
 import theme from "../../Themes/Theme";
 import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchFauna } from "../../redux/auth/faunaSlice";
+import CardOne from "../../components-screens/CardOne/CardOne";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,6 +40,7 @@ function a11yProps(index) {
 const Journal = () => {
   const [value, setValue] = useState(0);
   const [color, setColor] = useState(theme.palette.yellow.main);
+  const { faunaApi, loading, error } = useSelector((state) => state.fauna);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -273,9 +278,29 @@ const Journal = () => {
                 </Typography>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
-                <Typography variant="h6" sx={{ color: "#D62828" }}>
-                  Animals are empty
-                </Typography>
+                {loading ? (
+                  <Typography variant="h6" sx={{ color: "#D62828" }}>
+                    Cargando animales...
+                  </Typography>
+                ) : error ? (
+                  <Typography variant="h6" sx={{ color: "#D62828" }}>
+                    {error}
+                  </Typography>
+                ) : faunaApi.length === 0 ? (
+                  <Typography variant="h6" sx={{ color: "#D62828" }}>
+                    No hay animales disponibles
+                  </Typography>
+                ) : (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                    {faunaApi.map((animal) => (
+                      <CardOne
+                        key={animal.id}
+                        name={animal.name}
+                        image={animal.image} // o el link que necesites
+                      />
+                    ))}
+                  </Box>
+                )}
               </CustomTabPanel>
               <CustomTabPanel value={value} index={2}>
                 <Typography variant="h6" sx={{ color: "#00E773" }}>
