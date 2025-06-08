@@ -3,51 +3,19 @@ import PropTypes from "prop-types";
 import Navbar from "../../components-screens/Navbar/Navbar";
 import theme from "../../Themes/Theme";
 import { ThemeProvider } from "@mui/material";
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import CardOne from "../../components-screens/CardOne/CardOne";
-import { fetchFauna } from "../../redux/auth/apiSlice";
+import { useState } from "react";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
-  const [error, setError] = useState("");
-  const [fauna, setFauna] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const faunaApi = useSelector((state) => state.fauna.faunaApi);
-  console.log("faunaApi", faunaApi);
-
-  useEffect(() => {
-    fetchFauna();
-  }, []);
-
-  const fetchFauna = async () => {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `https://api.catalogo.biodiversidad.co/search?fq=REINO:TERRAE`
-      );
-      if (!response.ok) {
-        throw new Error("Fauna no encontrada");
-      }
-      const data = await response.json();
-      setFauna(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`simple-tabpanel-${index}`} // ✅ Corregido el template literal
+      id={`simple-tabpanel-%{index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}{" "}
-      {/* ✅ Box con mayúscula */}
+      {value === index && <box sx={{ p: 3 }}>{children}</box>}
     </div>
   );
 }
@@ -68,23 +36,12 @@ function a11yProps(index) {
 const Journal = () => {
   const [value, setValue] = useState(0);
   const [color, setColor] = useState(theme.palette.yellow.main);
-
-  // ✅ Redux logic moved to main component
-  const dispatch = useDispatch();
-  const { items: fauna, loading, error } = useSelector((state) => state.fauna);
-
-  useEffect(() => {
-    dispatch(fetchFauna());
-  }, [dispatch]);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   const handleTabClick = (newColor) => {
     setColor(newColor);
   };
-
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -104,6 +61,7 @@ const Journal = () => {
           boxSizing: "border-box",
           backgroundImage:
             "url('../src/assets/backgrounds/Journal-Background.webp')",
+          width: "100%",
           paddingBottom: {
             xs: 0,
             sm: 0,
@@ -118,6 +76,7 @@ const Journal = () => {
             lg: 0,
             xl: 0,
           },
+          boxSizing: "border-box",
           overflowY: {
             xs: "auto",
             sm: "auto",
@@ -132,12 +91,12 @@ const Journal = () => {
         </Box>
 
         <Box
-          className="Structure" // ✅ Corregido className
+          ClassName="Estructure"
           sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: {
-              xs: "start", // ✅ Corregido de 'sx' a 'xs'
+              sx: "start",
               sm: "start",
               md: "center",
               lg: "center",
@@ -213,7 +172,7 @@ const Journal = () => {
                 alignItems: "center",
                 width: {
                   xs: "100%",
-                  sm: "100%", // ✅ Corregido de 'ms' a 'sm'
+                  ms: "100%",
                   md: "40%",
                   lg: "40%",
                   xl: "40%",
@@ -221,14 +180,14 @@ const Journal = () => {
                 gap: 3,
               }}
             >
-              <Tabs
-                value={value} // ✅ Agregado value prop
-                onChange={handleChange}
-                sx={{ width: "100%" }}
-              >
+              <Tabs onChange={handleChange} sx={{ width: "100%" }}>
                 <Tab
                   sx={{
                     backgroundColor: "#FFE549",
+                    borderTopLeftRadius: 10,
+                    borderTopRightRadius: 25,
+                    color: "black",
+                    flexGrow: 1,
                     borderTopLeftRadius: {
                       xs: 15,
                       sm: 15,
@@ -243,13 +202,12 @@ const Journal = () => {
                       lg: 0,
                       xl: 0,
                     },
-                    color: "black",
-                    flexGrow: 1,
                   }}
                   label="Ecosystem"
+                  value={0}
                   {...a11yProps(0)}
                   onClick={() => handleTabClick(theme.palette.yellow.main)}
-                />
+                ></Tab>
                 <Tab
                   sx={{
                     backgroundColor: "#D62828",
@@ -257,9 +215,10 @@ const Journal = () => {
                     flexGrow: 1,
                   }}
                   label="Animals"
+                  value={1}
                   {...a11yProps(1)}
                   onClick={() => handleTabClick(theme.palette.red.main)}
-                />
+                ></Tab>
                 <Tab
                   sx={{
                     backgroundColor: "#00E773",
@@ -274,9 +233,10 @@ const Journal = () => {
                     },
                   }}
                   label="Plants"
+                  value={2}
                   {...a11yProps(2)}
                   onClick={() => handleTabClick(theme.palette.green.main)}
-                />
+                ></Tab>
               </Tabs>
             </Box>
             <Box
@@ -301,9 +261,10 @@ const Journal = () => {
                 },
                 backgroundColor: "#F7F8F9",
                 border: 3,
-                borderColor: color, // ✅ Solo una declaración de borderColor
+                borderColor: "#4AB8F0",
                 boxShadow: 3,
                 boxSizing: "border-box",
+                borderColor: color,
               }}
             >
               <CustomTabPanel value={value} index={0}>
@@ -311,47 +272,11 @@ const Journal = () => {
                   Ecosystem are empty
                 </Typography>
               </CustomTabPanel>
-
               <CustomTabPanel value={value} index={1}>
-                {loading ? (
-                  <Typography variant="h6">Loading fauna...</Typography>
-                ) : error ? (
-                  <Typography variant="h6" color="error">
-                    Error: {error}
-                  </Typography>
-                ) : fauna && fauna.length > 0 ? (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 2,
-                      justifyContent: "center",
-                    }}
-                  >
-                    {fauna.map((animal, index) => (
-                      <CardOne
-                        key={animal?.id || `fauna-${index}`}
-                        name={
-                          animal?.nombre_cientifico ||
-                          animal?.canonicalName ||
-                          "No Name"
-                        }
-                        image={
-                          animal?.imagen ||
-                          animal?.image ||
-                          "https://via.placeholder.com/150"
-                        }
-                        direction={`/Trophy/${animal?.id || index}`}
-                      />
-                    ))}
-                  </Box>
-                ) : (
-                  <Typography variant="h6" sx={{ color: "#D62828" }}>
-                    No fauna found
-                  </Typography>
-                )}
+                <Typography variant="h6" sx={{ color: "#D62828" }}>
+                  Animals are empty
+                </Typography>
               </CustomTabPanel>
-
               <CustomTabPanel value={value} index={2}>
                 <Typography variant="h6" sx={{ color: "#00E773" }}>
                   Plants are empty
