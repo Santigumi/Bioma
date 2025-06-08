@@ -13,8 +13,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { auth, db } from "./firebaseConfig";
+import { setUser } from "../redux/auth/AuthSlice";
 
-// Función para verificar si el nombre de usuario ya existe
 const usernameExists = async (username) => {
   try {
     const usersRef = collection(db, "users");
@@ -34,10 +34,8 @@ const usernameExists = async (username) => {
   }
 };
 
-// Función para registrar un nuevo usuario
 export const registerUser = async (email, password, username, birthday) => {
   try {
-    // Verificar si el nombre de usuario ya existe
     const usernameAlreadyExists = await usernameExists(username);
     if (usernameAlreadyExists) {
       return {
@@ -72,7 +70,6 @@ export const registerUser = async (email, password, username, birthday) => {
 
     console.log("Intentando guardar en Firestore:", userData);
 
-    // crear documento del usuario en Firestore
     try {
       await setDoc(doc(db, "users", user.uid), userData);
       console.log("Documento creado exitosamente en Firestore");

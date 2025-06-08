@@ -10,9 +10,18 @@ import palm from "../../assets/icons/tree-palm.png";
 import atom from "../../assets/icons/atom.png";
 import sprout from "../../assets/icons/sprout.png";
 import sailboat from "../../assets/icons/sailboat.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clearUser } from "../../redux/auth/AuthSlice";
+import { logoutUser } from "../../services/firebaseUtils";
 import { Box, ThemeProvider, Grid, Button } from "@mui/material";
+import { useSelector } from "react-redux";
+
 import theme from "../../Themes/Theme";
 const ProfilePage = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
   const dataBiomas = [
     { icon: { tree }, percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
     { icon: { rail }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
@@ -24,6 +33,16 @@ const ProfilePage = () => {
     { icon: "", percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
     { icon: "", percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
   ];
+  const handleLogout = async () => {
+    const result = await logoutUser();
+    if (result.success) {
+      dispatch(clearUser());
+      navigate("/");
+    } else {
+      console.error("Error al cerrar sesión:", result.error);
+      alert("Error al cerrar sesión. Por favor, inténtalo de nuevo.");
+    }
+  };
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -142,7 +161,7 @@ const ProfilePage = () => {
             <Box
               sx={{
                 display: "flex",
-                flexDirection: 'column',
+                flexDirection: "column",
                 gap: 3,
                 width: {
                   xs: "100%",
@@ -162,7 +181,10 @@ const ProfilePage = () => {
                 paddingRight: 2,
               }}
             >
-              <InfoCharacter username="Capysanti" charactersFound={Capi} />
+              <InfoCharacter
+                username={user?.username || "Usuario"}
+                charactersFound={Capi}
+              />
 
               <Grid
                 container
@@ -202,6 +224,7 @@ const ProfilePage = () => {
                 }}
               >
                 <Button
+                  onClick={handleLogout}
                   sx={{
                     display: {
                       xs: "none",

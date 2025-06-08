@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"; // Importación faltante
 import { useNavigate, Link } from "react-router-dom";
 import "./LoginForm.css";
-import { loginUser } from "../../services/firebaseUtils";
+import { useDispatch } from "react-redux";
+import { loginUserThunk } from "../../redux/auth/thunkSlice";
 import {
   Box,
   Typography,
@@ -10,11 +11,14 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [loginError, setLoginError] = useState(null);
 
+  // Añadir el hook useForm
   const {
     register,
     handleSubmit,
@@ -26,15 +30,20 @@ const LoginForm = () => {
     setLoginError(null);
 
     try {
-      const result = await loginUser(data.email, data.password);
+      const result = await dispatch(
+        loginUserThunk({
+          email: data.email,
+          password: data.password,
+        })
+      );
 
-      if (result.success) {
+      if (loginUserThunk.fulfilled.match(result)) {
         navigate("/Profile");
-      } else {
-        setLoginError(result.error);
+      } else if (loginUserThunk.rejected.match(result)) {
+        setLoginError(result.payload || "Error al iniciar sesión");
       }
     } catch (error) {
-      setLoginError("Error al iniciar sesión: " + error.message);
+      setLoginError("Error inesperado: " + error.message);
     } finally {
       setIsLoading(false);
     }
@@ -123,7 +132,7 @@ const LoginForm = () => {
               height: "80%",
               width: "100%",
             }}
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(onSubmit)} // Usar handleSubmit de useForm
           >
             {loginError && <div className="error-alert">{loginError}</div>}
             <Typography
@@ -165,7 +174,6 @@ const LoginForm = () => {
                 sx={{ width: "100%" }}
                 label="Password"
                 type="password"
-                
                 {...register("password", {
                   required: "Password is required",
                 })}
@@ -200,7 +208,7 @@ const LoginForm = () => {
                   boxShadow: 3,
                   "&:hover": {
                     backgroundColor: "rgb(4, 190, 97)",
-                    boxshadow: 6
+                    boxshadow: 6,
                   },
                 }}
                 type="submit"
