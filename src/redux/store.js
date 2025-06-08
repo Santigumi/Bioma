@@ -5,6 +5,6 @@ import AnimalsReducer from "./auth/apiSlice.js";
 export const store = configureStore({
   reducer: {
     auth: AuthReducer,
-    animals: AnimalsReducer,
+    fauna: AnimalsReducer,
   },
 });
