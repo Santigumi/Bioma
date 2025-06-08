@@ -3,7 +3,9 @@ import { arrayBiomas } from "../../Data/DataBiomas";
 import CardOne from "../../components-screens/CardOne/CardOne";
 import Navbar from "../../components-screens/Navbar/Navbar";
 import theme from "../../Themes/Theme";
+import { useNavigate } from "react-router-dom";
 const Biomas = () => {
+  const navigate = useNavigate();
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -199,8 +201,9 @@ const Biomas = () => {
                 <CardOne
                   name={bioma.nombre}
                   image={bioma.image}
-                  direction={bioma.route}
+                  direction={`/Lessons/${bioma.id}`}
                   key={bioma.nombre}
+                  lessons={bioma.lessons}
                 />
               );
             })}
