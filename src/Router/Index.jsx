@@ -75,7 +75,7 @@ const Router = () => {
           }
         ></Route>
         <Route
-          path="/Lessons"
+          path="/Lessons/:biomaId"
           element={
             <ProtectedRoute>
               <Lessons />
@@ -83,7 +83,7 @@ const Router = () => {
           }
         ></Route>
         <Route
-          path="/Game"
+          path="/Game/:biomaId/lessonId"
           element={
             <ProtectedRoute>
               <Game />
