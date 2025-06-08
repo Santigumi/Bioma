@@ -4,9 +4,19 @@ import Navbar from "../../components-screens/Navbar/Navbar";
 import theme from "../../Themes/Theme";
 import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchFauna } from "../../redux/auth/apiSlice";
+import CardOne from "../../components-screens/CardOne/CardOne";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
+  const dispatch = useDispatch();
+  const { items: animals, loading } = useSelector((state) => state.fauna);
+
+  useEffect(() => {
+    dispatch(fetchFauna());
+  }, [dispatch]);
 
   return (
     <div
@@ -15,7 +25,7 @@ function CustomTabPanel(props) {
       id={`simple-tabpanel-%{index}`}
       aria-labelledby={`simple-tab-${index}`}
     >
-      {value === index && <box sx={{ p: 3 }}>{children}</box>}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -273,9 +283,29 @@ const Journal = () => {
                 </Typography>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
-                <Typography variant="h6" sx={{ color: "#D62828" }}>
-                  Animals are empty
-                </Typography>
+                {animals.length === 0 ? (
+                  <Typography variant="h6">No animals found.</Typography>
+                ) : (
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 2,
+                      justifyContent: "center",
+                    }}
+                  >
+                    {animals.map((animal, index) => (
+                      <CardOne
+                        key={index}
+                        name={animal?.nombre_cientifico || "No Name"}
+                        image={
+                          animal?.imagen || "https://via.placeholder.com/150"
+                        }
+                        direction={`/Trophy/${animal?.id || index}`} // Ajusta si tienes routing por ID
+                      />
+                    ))}
+                  </Box>
+                )}
               </CustomTabPanel>
               <CustomTabPanel value={value} index={2}>
                 <Typography variant="h6" sx={{ color: "#00E773" }}>
