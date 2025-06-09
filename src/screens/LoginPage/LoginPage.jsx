@@ -8,7 +8,14 @@ const LoginPage = () => {
     <ThemeProvider theme={theme}>
       <Box
         className="background"
-        sx={{ backgroundImage: `url(${backgroundImage})`, display: "flex", flexDirection: "row" }}
+        sx={{
+          backgroundImage: `url(${backgroundImage})`,
+          display: "flex",
+          flexDirection: "row",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
       >
         <Navbar backgroundColor={theme.palette.red.secondary}></Navbar>
         <Box

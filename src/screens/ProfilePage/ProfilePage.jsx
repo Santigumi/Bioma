@@ -17,9 +17,11 @@ const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-  const completedLevels = useSelector((state) => state.progress.completedLevels)
+  const completedLevels = useSelector(
+    (state) => state.progress.completedLevels
+  );
   console.log(completedLevels);
-  
+
   const dataBiomas = [
     { percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
     { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
@@ -47,6 +49,9 @@ const ProfilePage = () => {
         className="background"
         sx={{
           backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
@@ -66,7 +71,7 @@ const ProfilePage = () => {
           },
         }}
       >
-        <Navbar />
+        <Navbar backgroundColor={theme.palette.red.secondary}/>
         <Box
           sx={{
             display: "flex",
