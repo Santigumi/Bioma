@@ -75,7 +75,7 @@ const Game = () => {
         overflow: "hidden",
         position: "relative",
         backgroundImage:
-          "url('/assets/backgrounds/Biomas-Background.webp')",
+          `url(${bioma.backgroundImage})`,
       }}
     >
       <Button
