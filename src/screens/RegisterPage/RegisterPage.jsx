@@ -1,4 +1,3 @@
-import Navbar from "../../components-screens/Navbar/Navbar";
 import RegisterForm from "../../components-screens/RegisterForm/RegisterForm";
 import backgroundImage from "/assets/backgrounds/fondoregister.webp";
 import { Box, ThemeProvider } from "@mui/material";
@@ -8,7 +7,14 @@ const RegisterPage = () => {
     <ThemeProvider theme={theme}>
       <Box
         className="background"
-        sx={{ backgroundImage: `url(${backgroundImage})`, display: "flex", flexDirection: "row" }}
+        sx={{
+          backgroundImage: `url(${backgroundImage})`,
+          display: "flex",
+          flexDirection: "row",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
       >
         <Box
           sx={{
@@ -19,9 +25,9 @@ const RegisterPage = () => {
             width: {
               xs: "100%",
               sm: "100%",
-              md: "80vw",
-              lg: "80vw",
-              xl: "80vw",
+              md: "100vw",
+              lg: "100vw",
+              xl: "100vw",
             },
             height: "100vh",
           }}

@@ -26,11 +26,12 @@ const LoginPage = () => {
             width: {
               xs: "100%",
               sm: "100%",
-              md: "80vw",
-              lg: "80vw",
-              xl: "80vw",
+              md: "100vw",
+              lg: "100vw",
+              xl: "100vw",
             },
             height: "100vh",
+            border: 2
           }}
         >
           <LoginForm />
