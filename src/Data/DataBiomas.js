@@ -199,7 +199,7 @@ export const arrayBiomas = [
         ],
       },
     ],
-    Sprites: {
+    sprites: {
       Floor: "/assets/Sprites/Moorland1.png",
       Obstacule1: "/assets/Sprites/Moorland2.png",
       Obstacule2: "/assets/Sprites/Moorland3.png",
