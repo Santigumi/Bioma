@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { setItems } from "../../redux/game/itemsSlice";
 import Trap from "../Trap/Trap";
 
-const Level = ({ onVictory, isPaused, onGameOver }) => {
+const Level = ({ onVictory, isPaused, onGameOver, sprites, mapData }) => {
   const containerRef = useRef();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [playerPos, setPlayerPos] = useState({ x: 0, y: 0 });
@@ -64,6 +64,8 @@ const Level = ({ onVictory, isPaused, onGameOver }) => {
               tileSize={tileSize}
               offsetX={offsetX}
               offsetY={offsetY}
+              sprites={sprites}
+              mapData={mapData}
             />
             <Player
               grid={GRID_MAP}
