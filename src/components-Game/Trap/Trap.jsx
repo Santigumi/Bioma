@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Rect } from "react-konva";
-import { Layer } from "react-konva";
+import useImage from "use-image";
+import { Image as KonvaImage } from "react-konva";
 const Trap = ({
   x,
   y,
@@ -12,7 +12,7 @@ const Trap = ({
   onGameOver,
 }) => {
   const [visible, setVisible] = useState(true);
-
+  const [trapImage] = useImage("/assets/Sprites/Pinchos.png");
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isPaused) {
@@ -34,16 +34,17 @@ const Trap = ({
   }, [playerPosition, isPaused, visible]);
 
   return (
-    <Layer>
-      <Rect
-        x={x * tileSize + offsetX}
-        y={y * tileSize + offsetY}
-        width={tileSize}
-        height={tileSize}
-        fill="red"
-        opacity={visible ? 1 : 0} // 👈 Esto evita devolver null
-      />
-    </Layer>
+    <>
+      {visible && trapImage && (
+        <KonvaImage
+          image={trapImage}
+          x={x * tileSize + offsetX}
+          y={y * tileSize + offsetY}
+          width={tileSize}
+          height={tileSize}
+        />
+      )}
+    </>
   );
 };
 
