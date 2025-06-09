@@ -2,8 +2,10 @@ import { Box, Typography, Divider } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
-const Lesson = ({ index, tituleText, boolean, direction }) => {
+import { arrayBiomas } from "../../Data/DataBiomas";
+const Lesson = ({ index, tituleText, boolean, color, direction }) => {
   const navigate = useNavigate();
+  
   return (
     <Box
       onClick={() => navigate(direction)}
@@ -14,7 +16,7 @@ const Lesson = ({ index, tituleText, boolean, direction }) => {
         height: "12%",
         width: "100%",
         borderRadius: 7.5,
-        backgroundColor: "#FFEE8B",
+        backgroundColor: color,
         boxShadow: 3,
         cursor: "pointer",
       }}
