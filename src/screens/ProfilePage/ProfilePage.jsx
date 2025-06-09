@@ -17,8 +17,11 @@ const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
+  const completedLevels = useSelector((state) => state.progress.completedLevels)
+  console.log(completedLevels);
+  
   const dataBiomas = [
-    {  percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
+    { percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
     { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
     { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
     { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
