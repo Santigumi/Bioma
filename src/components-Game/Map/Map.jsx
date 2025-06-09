@@ -6,10 +6,10 @@ const Map = ({ tileSize, offsetX = 0, offsetY = 0, sprites, mapData }) => {
   const [Obstaculo1Image] = useImage(sprites.Obstacule1);
   const [Obstaculo2Image] = useImage(sprites.Obstacule2);
   const [FloorImage] = useImage(sprites.Floor);
-  const [itemImage] = useImage("../src/assets/Sprites/moneda.webp");
+  const [itemImage] = useImage("/assets/Sprites/moneda.webp");
   const roundedTileSize = Math.round(tileSize);
   const items = useSelector((state) => state.items.items);
-  console.log(FloorImage)
+
   return (
     <Layer x={Math.round(offsetX)} y={Math.round(offsetY)}>
       {mapData.map((row, y) =>
