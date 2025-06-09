@@ -10,7 +10,6 @@ const RegisterPage = () => {
         className="background"
         sx={{ backgroundImage: `url(${backgroundImage})`, display: "flex", flexDirection: "row" }}
       >
-        <Navbar backgroundColor={theme.palette.red.secondary}></Navbar>
         <Box
           sx={{
             display: "flex",

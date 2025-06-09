@@ -17,7 +17,6 @@ const LoginPage = () => {
           backgroundPosition: "center",
         }}
       >
-        <Navbar backgroundColor={theme.palette.red.secondary}></Navbar>
         <Box
           sx={{
             display: "flex",
