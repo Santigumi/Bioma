@@ -130,7 +130,7 @@ const Game = () => {
             </Button>
             <Button
               sx={{ backgroundColor: "#FFE549", color: "#000000" }}
-              onClick={() => navigate("/Lessons")}
+              onClick={() => navigate(`/Lessons/${biomaId}`)}
             >
               Salir
             </Button>
@@ -155,7 +155,7 @@ const Game = () => {
           <h2>¡Perdiste!</h2>
           <Button
             sx={{ backgroundColor: "#FFE549", color: "#000000" }}
-            onClick={() => navigate("/Lessons")}
+            onClick={() => navigate("/Lessons/${biomaId}")}
           >
             Volver
           </Button>
