@@ -66,18 +66,13 @@ Before running this project, make sure you have:
    git clone https://github.com/Santigumi/Bioma.git
    cd Bioma
    ```
-
-2. **Switch to development branch**
-   ```bash
-   git checkout develop
-   ```
-
-3. **Install dependencies**
+   
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-4. **Install additional required packages**
+3. **Install additional required packages**
    ```bash
    # Core dependencies
    npm install @reduxjs/toolkit react-redux
