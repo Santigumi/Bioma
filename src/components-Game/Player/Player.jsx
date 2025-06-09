@@ -14,8 +14,7 @@ const Player = ({
   onPlayerMove,
 }) => {
   const [position, setPosition] = useState(PLAYER_START);
-  const [playerImage] = useImage("../src/assets/Sprites/Capi.png");
-
+  const [playerImage] = useImage("/assets/characters/Capibara.png");
   const items = useSelector((state) => state.items.items);
   const dispatch = useDispatch();
   const canMove = (x, y) => {
