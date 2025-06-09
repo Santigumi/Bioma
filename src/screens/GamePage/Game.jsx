@@ -6,8 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { arrayBiomas } from "../../Data/DataBiomas";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { completeLesson } from "../../redux/game/statsSlice";
 const Game = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [openStart, setOpenStart] = useState(true);
   const [openPause, setOpenPause] = useState(false);
   const [openVictory, setVictoryModal] = useState(false);
@@ -29,8 +32,9 @@ const Game = () => {
     setVictoryModal(false);
   }, []);
   const handleContinue = () => {
+    dispatch(completeLesson({bioma: bioma.nombre, lesson: lesson.lessonId}))
     setVictoryModal(false);
-    navigate("/Lessons");
+    navigate(`/Lessons/${biomaId}`);
   };
 
   const modalStyle = {
