@@ -14,4 +14,17 @@ export const GRID_MAP = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
-export const PLAYER_START = { x: 2, y: 2 }; // Posición inicial del jugador
+export const PLAYER_START = { x: 2, y: 2 }; 
+
+
+export const trapPositions = [
+  { x: 4, y: 3 },
+  { x: 6, y: 5 },
+  { x: 9, y: 4 },
+  { x: 11, y: 6 },
+  { x: 13, y: 7 },
+  { x: 16, y: 4 },
+  { x: 17, y: 6 },
+];
+
+
