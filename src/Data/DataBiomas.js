@@ -12,7 +12,7 @@ export const arrayBiomas = [
         index: 1,
         name: "Introducion",
         disponible: true,
-        descripcion: "Lorem ipsum",
+        descripcion: "The Colombian savanna is a wide grassland known for its warm climate and seasonal rains. It plays an important role in local agriculture and wildlife.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -34,7 +34,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "This ecosystem consists mainly of grasses, scattered trees, and shrubs. It supports many herbivores and predators adapted to open spaces.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -56,7 +56,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Various birds, mammals, and insects live here, including deer, armadillos, and numerous bird species. Local farmers rely on the land for cattle grazing.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -78,7 +78,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Habitat loss from farming and urbanization threatens native species. Fires and soil degradation also harm this fragile ecosystem.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -116,7 +116,7 @@ export const arrayBiomas = [
         name: "Introducion",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Moorlands are unique high-altitude ecosystems found only in the Andes. They are crucial for water supply in Colombia.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -138,7 +138,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Characterized by cold temperatures and wet conditions, páramos have specialized plants like frailejones and shrubs. They regulate water flow and store carbon.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -160,7 +160,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Endemic plants and animals, such as the páramo rabbit and unique birds, thrive here. Indigenous communities depend on páramos for freshwater.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -182,7 +182,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Climate change and agriculture threaten páramos by altering temperature and introducing invasive species. Mining also causes damage.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -213,6 +213,7 @@ export const arrayBiomas = [
     route: "/Lessons",
     backgroundImage: "/assets/backgrounds/Biomas-Background.webp",
     color: "#FFEE8B",
+    description: "Colombian deserts are dry, arid regions with extreme temperature changes. These areas host specially adapted life forms.",
     lessons: [
       {
         lessonId: 31,
@@ -242,7 +243,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Sparse vegetation such as cacti and tough shrubs survive in low water conditions. Soils are sandy and rocky with little organic matter.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -264,7 +265,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Animals like reptiles, rodents, and insects inhabit the desert. Local communities often face water scarcity and harsh living conditions.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -286,7 +287,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Overgrazing, water extraction, and climate change worsen desertification. Human activity threatens the fragile balance of desert ecosystems.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -311,7 +312,7 @@ export const arrayBiomas = [
   },
   {
     id: 4,
-    nombre: "Tropical Forest",
+    nombre: "Tropical_Forest",
     image:
       "https://i.pinimg.com/474x/dc/f9/50/dcf95015f213f050cca90622f8caf587.jpg",
     route: "/Lessons",
@@ -324,7 +325,7 @@ export const arrayBiomas = [
         name: "Introducion",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "The tropical forest in Colombia is one of the most biodiverse places on Earth. It features warm temperatures and heavy rainfall year-round.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -346,7 +347,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Dense trees, vines, and plants create multiple layers of vegetation. This ecosystem plays a key role in carbon storage and climate regulation.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -368,7 +369,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Thousands of species, including monkeys, birds, insects, and amphibians, live in this forest. Indigenous peoples have sustainably lived here for centuries.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -390,7 +391,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Deforestation, illegal logging, and land conversion for agriculture threaten the tropical forest’s health and biodiversity.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -428,7 +429,7 @@ export const arrayBiomas = [
         name: "Introducion",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Seagrass beds are underwater meadows found in shallow coastal waters. They provide key habitat and improve water quality.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -450,7 +451,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Seagrasses stabilize sediment and absorb carbon. They support a wide variety of marine organisms.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -472,7 +473,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Fish, sea turtles, crustaceans, and other species depend on seagrass for shelter and food. Coastal communities also benefit from fisheries.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -494,7 +495,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Coastal development, pollution, and boat damage threaten seagrass habitats worldwide.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -519,7 +520,7 @@ export const arrayBiomas = [
   },
   {
     id: 6,
-    nombre: "Pelagic ecosystem",
+    nombre: "Pelagic_Ecosystem",
     image:
       "https://animalesdecolombia.com.co/wp-content/uploads/2023/03/ecosistema-pelagico-1.jpg",
     route: "/Lessons",
@@ -532,7 +533,7 @@ export const arrayBiomas = [
         name: "Introducion",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "The pelagic ecosystem covers the open ocean waters far from the coast. It is vital for global marine life and climate regulation.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -554,7 +555,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "This vast area is home to plankton, fish, whales, and seabirds. Nutrient cycles here support the ocean food web.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -576,7 +577,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Marine mammals, migratory fish, and seabirds rely on pelagic waters for feeding and breeding. Human fishing activities impact their populations.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -598,7 +599,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Overfishing, plastic pollution, and climate change threaten the pelagic zone’s health and biodiversity.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -636,7 +637,7 @@ export const arrayBiomas = [
         name: "Introducion",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Mangroves are coastal forests that grow in salty, tropical waters. They protect shorelines and provide rich habitats.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -658,7 +659,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Mangroves trap sediments, reduce erosion, and filter pollutants. Their roots offer shelter for many aquatic species.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -680,7 +681,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Fish, crabs, birds, and other wildlife depend on mangroves. Local communities rely on them for fishing and protection from storms.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -702,7 +703,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Deforestation, pollution, and land reclamation threaten mangrove areas globally.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -740,7 +741,7 @@ export const arrayBiomas = [
         name: "Introducion",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Coral reefs are vibrant marine ecosystems built by tiny animals called corals. They are biodiversity hotspots.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -762,7 +763,7 @@ export const arrayBiomas = [
         name: "Ecosystem",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Reefs provide habitat, food, and shelter for thousands of marine species. They also protect coasts from waves and storms.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -784,7 +785,7 @@ export const arrayBiomas = [
         name: "Comunitties",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Fish, mollusks, sea turtles, and many other creatures live in coral reefs. Local fishermen depend on reefs for their livelihoods.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],
@@ -806,7 +807,7 @@ export const arrayBiomas = [
         name: "Problems",
         disponible: true,
         direction: "Lesson1",
-        descripcion: "Lorem ipsum",
+        descripcion: "Climate change causes coral bleaching, while pollution and overfishing damage reefs worldwide.",
         map: [
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 4, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1],

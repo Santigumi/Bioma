@@ -6,6 +6,7 @@ import CardThree from "../../components-screens/CardThree/CardThree";
 import theme from "../../Themes/Theme";
 import { ThemeProvider } from "@mui/material";
 import Trophies from "../../components-screens/Trophies/Trophies";
+import Coral from "/assets/characters/Cascabel.png"
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -55,7 +56,7 @@ const Trophy = () => {
           width: "100%",
           height: "100%",
           boxSizing: "border-box",
-          backgroundImage: "url('/src/assets/backgrounds/fondolanding.webp')",
+          backgroundImage: "url('/assets/backgrounds/fondolanding.webp')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
           backgroundPosition: "center",
@@ -204,7 +205,7 @@ const Trophy = () => {
               </CustomTabPanel>
               <CustomTabPanel value={value} index={2}>
                 <Typography variant="h6" sx={{ color: "#00E773" }}>
-                  <CardThree name={"Valle Cocora"} price="150"></CardThree>
+                  <CardThree name={"Valle Cocora"} price="150" image={Coral}></CardThree>
                 </Typography>
               </CustomTabPanel>
             </Box>

@@ -6,11 +6,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import theme from "../../Themes/Theme";
 import { ThemeProvider } from "@mui/material";
-const CardThree = ({ name, price }) => {
+const CardThree = ({ name, price, image }) => {
   return (
     <ThemeProvider theme={theme}>
       <Card sx={{ width: 245, borderRadius: 7.5 }}>
-        <CardMedia sx={{ height: 140 }} image="" title="green iguana" />
+        <CardMedia sx={{ height: 140 }} image={`url(${image}`} title="green iguana" />
         <CardContent
           sx={{
             display: "flex",

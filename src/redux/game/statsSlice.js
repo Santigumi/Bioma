@@ -7,9 +7,16 @@ const initialState = {
       lesson2: false,
       lesson3: false,
       lesson4: false,
-      count: 0, 
+      count: 0,
     },
     Moorland: {
+      lesson1: false,
+      lesson2: false,
+      lesson3: false,
+      lesson4: false,
+      count: 0,
+    },
+    Desert: {
       lesson1: false,
       lesson2: false,
       lesson3: false,
@@ -60,16 +67,17 @@ const statsSlice = createSlice({
   reducers: {
     completeLesson: (state, action) => {
       const { bioma, lesson } = action.payload;
-
       const biomaProgress = state.completedLevels[bioma];
-
       if (biomaProgress && !biomaProgress[lesson]) {
         biomaProgress[lesson] = true;
         biomaProgress.count += 1;
       }
     },
+    setProgress: (state, action) => {
+      state.completedLevels = action.payload;
+    },
   },
 });
 
-export const { completeLesson } = statsSlice.actions;
+export const { completeLesson, setProgress } = statsSlice.actions;
 export default statsSlice.reducer;

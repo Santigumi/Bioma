@@ -2,25 +2,89 @@ import { Box, Button, Typography } from "@mui/material";
 import Level from "../../components-Game/Level/Level";
 import Modal from "@mui/material/Modal";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { arrayBiomas } from "../../Data/DataBiomas";
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { completeLesson } from "../../redux/game/statsSlice";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../../services/firebaseConfig";
+
+
+const initialStateCompleteLevels = {
+  Savannah: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+  Moorland: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+  Desert: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+  Tropical_Forest: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+  Seagrass: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+  Pelagic_Ecosystem: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+  Mangroves: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+  Reef: {
+    lesson1: false,
+    lesson2: false,
+    lesson3: false,
+    lesson4: false,
+    count: 0,
+  },
+};
+
 const Game = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { biomaId, lessonId } = useParams();
+
+  const user = useSelector((state) => state.auth.user);
+  const items = useSelector((state) => state.items.items);
+  console.log(user)
   const [openStart, setOpenStart] = useState(true);
   const [openPause, setOpenPause] = useState(false);
   const [openVictory, setVictoryModal] = useState(false);
   const [openGameOver, setOpenGameOver] = useState(false);
 
-  const { biomaId, lessonId } = useParams();
   const bioma = arrayBiomas.find((b) => b.id == biomaId);
+  console.log(bioma.description)
   const lesson = bioma.lessons.find((l) => l.lessonId == lessonId);
-
-  const items = useSelector((state) => state.items.items);
 
   useEffect(() => {
     if (items.length === 0) {
@@ -31,10 +95,35 @@ const Game = () => {
   useEffect(() => {
     setVictoryModal(false);
   }, []);
-  const handleContinue = () => {
-    dispatch(completeLesson({bioma: bioma.nombre, lesson: lesson.lessonId}))
+
+  const handleContinue = async () => {
+    if (!user) return;
+
+    const uid = user.uid;
+    const biomaKey = bioma.nombre;
+        console.log(bioma.nombre)
+    const lessonKey = `lesson${lesson.lessonId % 10}`;
+
+    const userDocRef = doc(db, "progress", uid);
+    let newProgress = {};
+
+    const docSnap = await getDoc(userDocRef);
+    if (docSnap.exists()) {
+      newProgress = docSnap.data();
+    } else {
+      newProgress = JSON.parse(JSON.stringify(initialStateCompleteLevels));
+    }
+
+    if (!newProgress[biomaKey][lessonKey]) {
+      newProgress[biomaKey][lessonKey] = true;
+      newProgress[biomaKey].count += 1;
+    }
+
+    await setDoc(userDocRef, newProgress);
+    dispatch(completeLesson({ bioma: biomaKey, lesson: lessonKey }));
+
     setVictoryModal(false);
-    navigate(`/Lessons/${biomaId}`);
+    navigate(`/lessons/${biomaId}`);
   };
 
   const modalStyle = {
@@ -101,12 +190,12 @@ const Game = () => {
       </Button>
       <Modal open={openStart} onClose={() => setOpenStart(false)}>
         <Box sx={startModalStyle}>
-          <Typography variant="h3">¡Bienvenido!</Typography>
+          <Typography variant="body">{bioma.description}</Typography>
           <Button
             sx={{ backgroundColor: "#FFE549", color: "#000000" }}
             onClick={() => setOpenStart(false)}
           >
-            Entendido
+            Get it
           </Button>
         </Box>
       </Modal>
@@ -146,7 +235,7 @@ const Game = () => {
             sx={{ backgroundColor: "#FFE549", color: "#000000" }}
             onClick={handleContinue}
           >
-            Continuar
+            Continue
           </Button>
         </Box>
       </Modal>

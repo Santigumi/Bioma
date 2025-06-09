@@ -11,38 +11,62 @@ import { clearUser } from "../../redux/auth/AuthSlice";
 import { logoutUser } from "../../services/firebaseUtils";
 import { Box, ThemeProvider, Grid, Button } from "@mui/material";
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../services/firebaseConfig";
+import { setProgress } from "../../redux/game/statsSlice";
 
 import theme from "../../Themes/Theme";
 const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
-  const completedLevels = useSelector(
-    (state) => state.progress.completedLevels
-  );
-  const getColorForBioma = (biomaKey) => {
-    const colorMap = {
-      Savannah: "rgba(10, 191, 100, 1)",
-      Moorland: "rgba(255, 228, 67, 1)",
-      TropicalForest: "rgba(255, 228, 67, 1)",
-      Seagrass: "rgba(255, 228, 67, 1)",
-      PelagicEcosystem: "rgba(0, 141, 213, 1)",
-      Mangroves: "rgba(71, 193, 255, 1)",
-      Reef: "rgba(0, 141, 213, 1)",
-    };
-    return colorMap[biomaKey] || "gray";
-  };
-  const dataBiomas = Object.entries(completedLevels).map(
-    ([biomaKey, biomaData]) => {
-      const totalLessons = 4;
-      const completed = biomaData.count;
-      const percentage = Math.round((completed / totalLessons) * 100);
-      return {
-        percentaje: `${percentage}%`,
-        color: getColorForBioma(biomaKey),
+
+  const [dataBiomas, setDataBiomas] = useState([]);
+
+  const user = useSelector((state) => state.auth.user);
+  const progress = useSelector((state) => state.progress.completedLevels);
+  console.log("Progress:", progress);
+  console.log("Biomas keys:", Object.keys(progress));
+
+  useEffect(() => {
+    if (!user) return;
+    const docRef = doc(db, "progress", user.uid);
+
+    const unsubscribe = onSnapshot(docRef, (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        dispatch(setProgress(data));
+      }
+    });
+
+    return () => unsubscribe();
+  }, [user, dispatch]);
+
+  useEffect(() => {
+    const updated = Object.keys(progress).map((biomaKey) => {
+      const { count = 0 } = progress[biomaKey] || {};
+      const percent = Math.round((count / 4) * 100);
+
+      const colorMap = {
+        Savannah: "rgba(10, 191, 100, 1)",
+        Desert: "rgba(255, 200, 100, 1)",
+        Moorland: "rgba(255, 228, 67, 1)",
+        Tropical_Forest: "rgba(255, 228, 67, 1)",
+        Seagrass: "rgba(0, 141, 213, 1)",
+        Pelagic_Ecosystem: "rgba(71, 193, 255, 1)",
+        Mangroves: "rgba(0, 141, 213, 1)",
+        Reef: "rgba(71, 193, 255, 1)",
       };
-    }
-  );
+
+      return {
+        percentaje: `${percent}%`,
+        color: colorMap[biomaKey] || "#ccc",
+      };
+    });
+
+    setDataBiomas(updated);
+  }, [progress]);
 
   const handleLogout = async () => {
     const result = await logoutUser();
@@ -222,6 +246,7 @@ const ProfilePage = () => {
                       sx={{ width: "25%" }}
                     >
                       <LevelProgress
+                        name={bioma.name}
                         percentage={bioma.percentaje}
                         color={bioma.color}
                       ></LevelProgress>
@@ -246,6 +271,7 @@ const ProfilePage = () => {
                       lg: "flex",
                       xl: "flex",
                     },
+                    backgroundColor: theme.palette.red.secondary
                   }}
                   variant="contained"
                 >

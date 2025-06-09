@@ -1,6 +1,6 @@
 import "./LevelProgress.css";
 import { Box, Typography } from "@mui/material";
-const LevelProgress = ({ iconProgress, percentage, color }) => {
+const LevelProgress = ({ name, percentage, color }) => {
   return (
     <Box
       sx={{
@@ -14,6 +14,7 @@ const LevelProgress = ({ iconProgress, percentage, color }) => {
         borderRadius: 10,
       }}
     >
+      <Typography>{name}</Typography>
       <Typography>{percentage}</Typography>
     </Box>
   );

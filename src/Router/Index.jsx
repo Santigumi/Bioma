@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "../screens/LandingPage/LandingPage";
-import HomePage from "../screens/HomePage/Home";
 import Biomas from "../screens/BiomasPage/Biomas";
 import Journal from "../screens/JournalPage/Journal";
 import ProfilePage from "../screens/ProfilePage/ProfilePage";
@@ -45,7 +44,7 @@ const Router = () => {
           path="/Home"
           element={
             <ProtectedRoute>
-              <HomePage />
+              <Trophy />
             </ProtectedRoute>
           }
         ></Route>
