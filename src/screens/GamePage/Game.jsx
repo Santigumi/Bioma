@@ -64,6 +64,7 @@ const Game = () => {
     height: "15vh",
     textAlign: "start",
     alignItems: "center",
+    justifyContent: "space-between",
     boxShadow: 24,
   };
 
@@ -113,7 +114,7 @@ const Game = () => {
       <Modal open={openPause} onClose={() => setOpenPause(false)}>
         <Box sx={modalStyle}>
           <Typography variant="h4" sx={{ color: "#000000" }}>
-            Juego en Pausa
+            Pause
           </Typography>
           <Box
             sx={{
@@ -126,13 +127,13 @@ const Game = () => {
               sx={{ backgroundColor: "#FFE549", color: "#000000" }}
               onClick={() => setOpenPause(false)}
             >
-              Continuar
+              Continue
             </Button>
             <Button
               sx={{ backgroundColor: "#FFE549", color: "#000000" }}
               onClick={() => navigate(`/Lessons/${biomaId}`)}
             >
-              Salir
+              Quit
             </Button>
           </Box>
         </Box>
@@ -140,7 +141,7 @@ const Game = () => {
 
       <Modal open={openVictory} onClose={() => setVictoryModal(false)}>
         <Box sx={modalStyle}>
-          <h2>¡Ganaste!</h2>
+          <h2>¡You win!</h2>
           <Button
             sx={{ backgroundColor: "#FFE549", color: "#000000" }}
             onClick={handleContinue}
@@ -152,12 +153,12 @@ const Game = () => {
 
       <Modal open={openGameOver} onClose={() => {}}>
         <Box sx={modalStyle}>
-          <h2>¡Perdiste!</h2>
+          <h2>¡You lose!</h2>
           <Button
             sx={{ backgroundColor: "#FFE549", color: "#000000" }}
-            onClick={() => navigate("/Lessons/${biomaId}")}
+            onClick={() => navigate(`/Lessons/${biomaId}`)}
           >
-            Volver
+            Come back
           </Button>
         </Box>
       </Modal>
