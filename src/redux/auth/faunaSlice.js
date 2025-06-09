@@ -31,6 +31,8 @@ export const fetchFlora = createAsyncThunk(
         "https://api.catalogo.biodiversidad.co/record_search/search?q=Plantae&size=30"
       );
       const data = await response.json();
+      console.log("Flora API data:", data);
+
       const filtered = data.filter(
         (item) => item.imageInfo?.mainImage || item.imageInfo?.thumbnailImage
       );
