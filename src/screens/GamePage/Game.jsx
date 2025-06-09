@@ -74,8 +74,10 @@ const Game = () => {
         boxSizing: "border-box",
         overflow: "hidden",
         position: "relative",
-        backgroundImage:
-          `url(${bioma.backgroundImage})`,
+        backgroundImage: `url(${bioma.backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
       }}
     >
       <Button
