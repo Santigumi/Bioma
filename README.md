@@ -88,9 +88,7 @@ Before running this project, make sure you have:
    
    # Firebase
    npm install firebase
-   
-   # HTTP client for API calls
-   npm install axios
+
    ```
 
 5. **Set up environment variables**
