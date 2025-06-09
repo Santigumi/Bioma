@@ -6,7 +6,7 @@ import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFauna } from "../../redux/auth/faunaSlice";
+import { fetchFauna } from "../../redux/slices/faunaSlice";
 import CardOne from "../../components-screens/CardOne/CardOne";
 
 function CustomTabPanel(props) {
