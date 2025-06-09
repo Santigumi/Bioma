@@ -6,7 +6,8 @@ import { useRef, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setItems } from "../../redux/game/itemsSlice";
 import Trap from "../Trap/Trap";
-
+import { trapPositions } from "../../utils/constants";
+import { Layer } from "react-konva";
 const Level = ({ onVictory, isPaused, onGameOver, sprites, mapData }) => {
   const containerRef = useRef();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -59,34 +60,41 @@ const Level = ({ onVictory, isPaused, onGameOver, sprites, mapData }) => {
     >
       {ready ? (
         <Stage width={dimensions.width} height={dimensions.height}>
-            <Map
-              grid={GRID_MAP}
-              tileSize={tileSize}
-              offsetX={offsetX}
-              offsetY={offsetY}
-              sprites={sprites}
-              mapData={mapData}
-            />
-            <Player
-              grid={GRID_MAP}
-              onVictory={onVictory}
-              tileSize={tileSize}
-              offsetX={offsetX}
-              offsetY={offsetY}
-              isPaused={isPaused}
-              onMove={setPlayerPos}
-              onPlayerMove={(pos) => setPlayerPos(pos)}
-            />
-            <Trap
-              x={4}
-              y={3}
-              tileSize={tileSize}
-              offsetX={offsetX}
-              offsetY={offsetY}
-              playerPosition={playerPos}
-              isPaused={isPaused}
-              onGameOver={onGameOver}
-            />
+          <Map
+            grid={GRID_MAP}
+            tileSize={tileSize}
+            offsetX={offsetX}
+            offsetY={offsetY}
+            sprites={sprites}
+            mapData={mapData}
+          />
+          <Player
+            grid={GRID_MAP}
+            onVictory={onVictory}
+            tileSize={tileSize}
+            offsetX={offsetX}
+            offsetY={offsetY}
+            isPaused={isPaused}
+            onMove={setPlayerPos}
+            onPlayerMove={(pos) => setPlayerPos(pos)}
+          />
+          <Layer>
+          {trapPositions.map((trap, index) => {
+            return (
+              <Trap
+                key={index}
+                x={trap.x}
+                y={trap.y}
+                tileSize={tileSize}
+                offsetX={offsetX}
+                offsetY={offsetY}
+                playerPosition={playerPos}
+                isPaused={isPaused}
+                onGameOver={onGameOver}
+              />
+            );
+          })}
+          </Layer>
         </Stage>
       ) : (
         <p>Loading map...</p>
