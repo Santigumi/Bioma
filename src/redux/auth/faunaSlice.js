@@ -45,6 +45,7 @@ const faunaSlice = createSlice({
   name: "fauna",
   initialState: {
     faunaApi: [],
+    floraApi: [],
     loading: false,
     error: null,
   },
@@ -68,10 +69,6 @@ const faunaSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchFauna.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
       .addCase(fetchFauna.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
@@ -84,6 +81,10 @@ const faunaSlice = createSlice({
           action.payload.length,
           "elementos"
         );
+      })
+      .addCase(fetchFlora.fulfilled, (state, action) => {
+        state.loading = false;
+        state.floraApi = action.payload;
       });
   },
 });

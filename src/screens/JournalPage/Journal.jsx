@@ -6,7 +6,8 @@ import { ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFauna } from "../../redux/slices/faunaSlice";
+import { fetchFauna } from "../../redux/auth/faunaSlice";
+import { fetchFlora } from "../../redux/auth/floraSlice";
 import CardOne from "../../components-screens/CardOne/CardOne";
 
 function CustomTabPanel(props) {
@@ -42,9 +43,11 @@ const Journal = () => {
   const [color, setColor] = useState(theme.palette.yellow.main);
   const dispatch = useDispatch();
   const { faunaApi, loading, error } = useSelector((state) => state.fauna);
+  const { floraApi } = useSelector((state) => state.fauna);
 
   useEffect(() => {
     dispatch(fetchFauna());
+    dispatch(fetchFlora());
   }, [dispatch]);
 
   useEffect(() => {
@@ -317,49 +320,43 @@ const Journal = () => {
               }}
             >
               <CustomTabPanel value={value} index={0}>
-                <Typography variant="h6" sx={{ color: "orange" }}>
-                  Ecosystem are empty
-                </Typography>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                  {[...faunaApi, ...floraApi].map((item, i) => (
+                    <CardOne
+                      key={item._id || i}
+                      name={
+                        item.commonNames?.find(
+                          (cn) => cn.language === "Español"
+                        )?.name || item.scientificNameSimple
+                      }
+                      image={
+                        item.imageInfo?.mainImage ||
+                        item.imageInfo?.thumbnailImage ||
+                        "https://via.placeholder.com/300x200"
+                      }
+                      direction="/item-detail"
+                    />
+                  ))}
+                </Box>
               </CustomTabPanel>
+
               <CustomTabPanel value={value} index={1}>
-                {loading ? (
-                  <Typography variant="h6" sx={{ color: "#D62828" }}>
-                    Cargando animales...
-                  </Typography>
-                ) : error ? (
-                  <Typography variant="h6" sx={{ color: "#D62828" }}>
-                    Error: {error}
-                  </Typography>
-                ) : faunaApi.length === 0 ? (
-                  <Typography variant="h6" sx={{ color: "#D62828" }}>
-                    Animals are empty
-                  </Typography>
+                {faunaApi.length === 0 ? (
+                  <Typography>No hay animales</Typography>
                 ) : (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 2,
-                      justifyContent: "flex-start",
-                    }}
-                  >
-                    {faunaApi.map((animal, index) => (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                    {faunaApi.map((item, i) => (
                       <CardOne
-                        key={animal._id || index}
-                        // Accediendo correctamente a commonNames
+                        key={item._id || i}
                         name={
-                          animal.commonNames?.find(
+                          item.commonNames?.find(
                             (cn) => cn.language === "Español"
-                          )?.name ||
-                          animal.commonNames?.[0]?.name ||
-                          animal.scientificNameSimple ||
-                          "Nombre no disponible"
+                          )?.name || item.scientificNameSimple
                         }
-                        // Accediendo correctamente a imageInfo
                         image={
-                          animal.imageInfo?.mainImage ||
-                          animal.imageInfo?.thumbnailImage ||
-                          "https://via.placeholder.com/300x200?text=Sin+Imagen"
+                          item.imageInfo?.mainImage ||
+                          item.imageInfo?.thumbnailImage ||
+                          "https://via.placeholder.com/300x200"
                         }
                         direction="/animal-detail"
                       />
@@ -367,10 +364,30 @@ const Journal = () => {
                   </Box>
                 )}
               </CustomTabPanel>
+
               <CustomTabPanel value={value} index={2}>
-                <Typography variant="h6" sx={{ color: "#00E773" }}>
-                  Plants are empty
-                </Typography>
+                {floraApi.length === 0 ? (
+                  <Typography>No hay plantas</Typography>
+                ) : (
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                    {floraApi.map((item, i) => (
+                      <CardOne
+                        key={item._id || i}
+                        name={
+                          item.commonNames?.find(
+                            (cn) => cn.language === "Español"
+                          )?.name || item.scientificNameSimple
+                        }
+                        image={
+                          item.imageInfo?.mainImage ||
+                          item.imageInfo?.thumbnailImage ||
+                          "https://via.placeholder.com/300x200"
+                        }
+                        direction="/plant-detail"
+                      />
+                    ))}
+                  </Box>
+                )}
               </CustomTabPanel>
             </Box>
           </Box>
