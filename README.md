@@ -136,7 +136,6 @@ The application implements a complete authentication system:
 1. **Registration**: New users can create accounts with email/password
 2. **Login**: Existing users authenticate via Firebase Auth
 3. **Protected Routes**: Authenticated routes using Redux state
-4. **Session Management**: Persistent login state across browser sessions
 
 ## 🌿 Colombian Biodiversity API Integration
 
