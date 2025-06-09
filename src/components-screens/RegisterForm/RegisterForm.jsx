@@ -1,7 +1,8 @@
 import { useForm, Controller } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { registerUser } from "../../services/firebaseUtils";
+import { useDispatch } from "react-redux";
+import { registerUserThunk } from "../../redux/auth/thunkSlice";
 import {
   Box,
   Typography,
@@ -13,7 +14,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import theme from "../../Themes/Theme";
+
 const RegisterForm = () => {
+  const dispatch = useDispatch(); // Agregar esto
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [registerError, setRegisterError] = useState(null);
@@ -39,20 +42,22 @@ const RegisterForm = () => {
     }
 
     try {
-      const result = await registerUser(
-        data.email,
-        data.password,
-        data.username,
-        data.birthday
+      const result = await dispatch(
+        registerUserThunk({
+          email: data.email,
+          password: data.password,
+          username: data.username,
+          birthday: data.birthday,
+        })
       );
 
-      if (result.success) {
+      if (registerUserThunk.fulfilled.match(result)) {
         navigate("/Login");
-      } else {
-        setRegisterError(result.error);
+      } else if (registerUserThunk.rejected.match(result)) {
+        setRegisterError(result.payload || "Error al registrar usuario");
       }
     } catch (error) {
-      setRegisterError("Error al registrar usuario: " + error.message);
+      setRegisterError("Error inesperado: " + error.message);
     } finally {
       setIsLoading(false);
     }
@@ -243,7 +248,7 @@ const RegisterForm = () => {
                               sx: {
                                 "& .MuiOutlinedInput-root": {
                                   "& fieldset": {
-                                    borderColor: "#ED7C7C", // Desired border color
+                                    borderColor: "#ED7C7C",
                                   },
                                   "&:hover fieldset": {
                                     borderColor: "#ED7C7C",
@@ -253,7 +258,7 @@ const RegisterForm = () => {
                                   },
                                 },
                                 "& .MuiInputLabel-root": {
-                                  color: "#9d9e9d", // Desired label color
+                                  color: "#9d9e9d",
                                   "&.Mui-focused": {
                                     color: "#ED7C7C",
                                   },
