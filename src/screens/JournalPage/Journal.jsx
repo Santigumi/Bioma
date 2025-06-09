@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchFauna } from "../../redux/auth/faunaSlice";
-import { fetchFlora } from "../../redux/auth/floraSlice";
+import { fetchFlora } from "../../redux/auth/faunaSlice";
 import CardOne from "../../components-screens/CardOne/CardOne";
 
 function CustomTabPanel(props) {
@@ -70,16 +70,12 @@ const Journal = () => {
   useEffect(() => {
     if (faunaApi.length > 0) {
       console.log("Primer elemento completo:", faunaApi[0]);
-
-      // Verificar imágenes disponibles
       const elementsWithImages = faunaApi.filter(
         (animal) => animal.imageInfo?.mainImage
       );
       console.log(
         `Elementos con imágenes: ${elementsWithImages.length} de ${faunaApi.length}`
       );
-
-      // Ver ejemplos de nombres
       faunaApi.slice(0, 3).forEach((animal, i) => {
         const spanishName = animal.commonNames?.find(
           (cn) => cn.language === "Español"
