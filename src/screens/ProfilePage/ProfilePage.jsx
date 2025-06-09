@@ -20,19 +20,30 @@ const ProfilePage = () => {
   const completedLevels = useSelector(
     (state) => state.progress.completedLevels
   );
-  console.log(completedLevels);
+  const getColorForBioma = (biomaKey) => {
+    const colorMap = {
+      Savannah: "rgba(10, 191, 100, 1)",
+      Moorland: "rgba(255, 228, 67, 1)",
+      TropicalForest: "rgba(255, 228, 67, 1)",
+      Seagrass: "rgba(255, 228, 67, 1)",
+      PelagicEcosystem: "rgba(0, 141, 213, 1)",
+      Mangroves: "rgba(71, 193, 255, 1)",
+      Reef: "rgba(0, 141, 213, 1)",
+    };
+    return colorMap[biomaKey] || "gray";
+  };
+  const dataBiomas = Object.entries(completedLevels).map(
+    ([biomaKey, biomaData]) => {
+      const totalLessons = 4;
+      const completed = biomaData.count;
+      const percentage = Math.round((completed / totalLessons) * 100);
+      return {
+        percentaje: `${percentage}%`,
+        color: getColorForBioma(biomaKey),
+      };
+    }
+  );
 
-  const dataBiomas = [
-    { percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
-    { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
-    { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
-    { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
-    { percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
-    { percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
-    { percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
-    { percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
-    { percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
-  ];
   const handleLogout = async () => {
     const result = await logoutUser();
     if (result.success) {
@@ -71,7 +82,7 @@ const ProfilePage = () => {
           },
         }}
       >
-        <Navbar backgroundColor={theme.palette.red.secondary}/>
+        <Navbar backgroundColor={theme.palette.red.secondary} />
         <Box
           sx={{
             display: "flex",
