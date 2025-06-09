@@ -55,7 +55,7 @@ const Trophy = () => {
           width: "100%",
           height: "100%",
           boxSizing: "border-box",
-          backgroundImage: "url('../src/assets/backgrounds/fondolanding.webp')",
+          backgroundImage: "url('/src/assets/backgrounds/fondolanding.webp')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
           backgroundPosition: "center",

@@ -2,14 +2,9 @@ import Navbar from "../../components-screens/Navbar/Navbar";
 import LevelProgress from "../../components-screens/LevelProgress/LevelProgress";
 import InfoCharacter from "../../components-screens/InfoCharacter/InfoCharacter";
 import CharacterProfile from "../../components-screens/CharacterProfile/CharacterProfile";
-import Capi from "../../assets/characters/Capibara.png";
-import backgroundImage from "../../assets/backgrounds/fondoregister.webp";
-import tree from "../../assets/icons/tree-pine.png";
-import rail from "../../assets/icons/rail-symbol.png";
-import palm from "../../assets/icons/tree-palm.png";
-import atom from "../../assets/icons/atom.png";
-import sprout from "../../assets/icons/sprout.png";
-import sailboat from "../../assets/icons/sailboat.png";
+import Capi from "/assets/characters/Capibara.png";
+import backgroundImage from "/assets/backgrounds/fondoregister.webp";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearUser } from "../../redux/auth/AuthSlice";
@@ -23,15 +18,15 @@ const ProfilePage = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const dataBiomas = [
-    { icon: { tree }, percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
-    { icon: { rail }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
-    { icon: { palm }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
-    { icon: { atom }, percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
-    { icon: { sprout }, percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
-    { icon: { sailboat }, percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
-    { icon: "", percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
-    { icon: "", percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
-    { icon: "", percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
+    {  percentaje: "0%", color: "rgba(10, 191, 100, 1)" },
+    { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
+    { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
+    { percentaje: "0%", color: "rgba(255, 228, 67, 1)" },
+    { percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
+    { percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
+    { percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
+    { percentaje: "0%", color: "rgba(71, 193, 255, 1)" },
+    { percentaje: "0%", color: "rgba(0, 141, 213, 1)" },
   ];
   const handleLogout = async () => {
     const result = await logoutUser();
@@ -208,7 +203,6 @@ const ProfilePage = () => {
                       sx={{ width: "25%" }}
                     >
                       <LevelProgress
-                        iconProgress={bioma.icon}
                         percentage={bioma.percentaje}
                         color={bioma.color}
                       ></LevelProgress>

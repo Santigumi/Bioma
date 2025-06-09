@@ -4,15 +4,21 @@ import Modal from "@mui/material/Modal";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-const Game = ({ background, characters, map, text, color }) => {
+import { arrayBiomas } from "../../Data/DataBiomas";
+import { useParams } from "react-router-dom";
+const Game = () => {
   const navigate = useNavigate();
   const [openStart, setOpenStart] = useState(true);
   const [openPause, setOpenPause] = useState(false);
   const [openVictory, setVictoryModal] = useState(false);
   const [openGameOver, setOpenGameOver] = useState(false);
 
+  const { biomaId, lessonId } = useParams();
+  const bioma = arrayBiomas.find((b) => b.id == biomaId);
+  const lesson = bioma.lessons.find((l) => l.lessonId == lessonId);
+
   const items = useSelector((state) => state.items.items);
+
   useEffect(() => {
     if (items.length === 0) {
       setVictoryModal(true);
@@ -69,7 +75,7 @@ const Game = ({ background, characters, map, text, color }) => {
         overflow: "hidden",
         position: "relative",
         backgroundImage:
-          "url('../src/assets/backgrounds/Biomas-Background.webp')",
+          "url('/assets/backgrounds/Biomas-Background.webp')",
       }}
     >
       <Button
@@ -167,6 +173,8 @@ const Game = ({ background, characters, map, text, color }) => {
             onVictory={() => setVictoryModal(true)}
             isPaused={openStart || openPause || openVictory}
             onGameOver={() => setOpenGameOver(true)}
+            mapData={lesson.map}
+            sprites={bioma.sprites}
           ></Level>
         </Box>
       </Box>

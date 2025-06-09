@@ -29,7 +29,7 @@ const Home = () => {
           width: "100%",
           height: "100%",
           alignItems: "center",
-          backgroundImage: "url('../src/assets/backgrounds/fondolanding.webp')",
+          backgroundImage: "url('/src/assets/backgrounds/fondolanding.webp')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
           backgroundPosition: "center",

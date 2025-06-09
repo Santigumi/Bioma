@@ -2,34 +2,15 @@ import { Box, Typography, ThemeProvider } from "@mui/material";
 import Navbar from "../../components-screens/Navbar/Navbar";
 import Lesson from "../../components-screens/Lesson/Lesson";
 import theme from "../../Themes/Theme";
+import { useParams } from "react-router-dom";
+import { arrayBiomas } from "../../Data/DataBiomas";
 const Lessons = () => {
-  const arrayLesson = [
-    {
-      index: 1,
-      tituleText: "Introduction",
-      disponible: true,
-      direction: "/Game",
-    },
-    {
-      index: 2,
-      tituleText: "Ecosystem",
-      disponible: false,
-      direction: "/Lessons",
-    },
-    {
-      index: 3,
-      tituleText: "Comunitties",
-      disponible: false,
-      direction: "/Lessons",
-    },
-    {
-      index: 4,
-      tituleText: "Problems",
-      disponible: false,
-      direction: "/Lessons",
-    },
-  ];
-
+  const { biomaId } = useParams();
+  const bioma = arrayBiomas.find((b) => b.id == biomaId);
+  const arrayLessons = bioma.lessons;
+  if (!bioma) {
+    return <div>Bioma no encontrado</div>;
+  }
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -47,11 +28,13 @@ const Lessons = () => {
           height: "100%",
           boxSizing: "border-box",
           alignItems: "center",
-          backgroundImage:
-            "url('../src/assets/backgrounds/Biomas-Background.webp')",
+          backgroundImage: `url(${bioma.backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat", 
+          backgroundPosition: "center", 
         }}
       >
-        <Navbar backgroundColor="#FFEE8B" />
+        <Navbar backgroundColor={bioma.color} />
         <Box
           sx={{
             display: "flex",
@@ -115,7 +98,7 @@ const Lessons = () => {
                 lg: "3rem",
                 xl: "3rem",
               },
-              backgroundColor: "#FFEE8B",
+              backgroundColor: bioma.color,
               boxShadow: 3,
             }}
           >
@@ -136,7 +119,7 @@ const Lessons = () => {
                 },
               }}
             >
-              Savannah
+              {`${bioma.nombre}`}
             </Typography>
           </Box>
           <Box
@@ -155,13 +138,14 @@ const Lessons = () => {
               },
             }}
           >
-            {arrayLesson.map((lesson) => {
+            {arrayLessons.map((lesson) => {
               return (
                 <Lesson
                   index={lesson.index}
-                  tituleText={lesson.tituleText}
+                  tituleText={lesson.name}
                   boolean={lesson.disponible}
-                  direction={lesson.direction}
+                  color={bioma.color}
+                  direction={`/lessons/${bioma.id}/${lesson.lessonId}`}
                 ></Lesson>
               );
             })}

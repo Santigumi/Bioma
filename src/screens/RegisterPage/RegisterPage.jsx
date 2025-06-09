@@ -1,6 +1,6 @@
 import Navbar from "../../components-screens/Navbar/Navbar";
 import RegisterForm from "../../components-screens/RegisterForm/RegisterForm";
-import backgroundImage from "../../assets/backgrounds/fondoregister.webp";
+import backgroundImage from "/assets/backgrounds/fondoregister.webp";
 import { Box, ThemeProvider } from "@mui/material";
 import theme from "../../Themes/Theme";
 const RegisterPage = () => {

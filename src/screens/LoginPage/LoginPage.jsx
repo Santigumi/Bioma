@@ -1,6 +1,6 @@
 import Navbar from "../../components-screens/Navbar/Navbar";
 import LoginForm from "../../components-screens/LoginForm/LoginForm";
-import backgroundImage from "../../assets/backgrounds/fondoregister.webp";
+import backgroundImage from "/assets/backgrounds/fondoregister.webp";
 import { Box, ThemeProvider } from "@mui/material";
 import theme from "../../Themes/Theme";
 const LoginPage = () => {
